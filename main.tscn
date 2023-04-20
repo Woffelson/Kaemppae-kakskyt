@@ -1,0 +1,129 @@
+[gd_scene load_steps=5 format=3 uid="uid://6mx01amxrr83"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_k224y"]
+[ext_resource type="PackedScene" uid="uid://dtyjeg1kapndm" path="res://nappi.tscn" id="2_dfw8i"]
+[ext_resource type="Shader" path="res://Noice.gdshader" id="3_14533"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bamfa"]
+shader = ExtResource("3_14533")
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k224y")
+button = ExtResource("2_dfw8i")
+teksti = NodePath("MarginContainer/VBoxContainer/Panel/VBoxContainer/MarginContainer/RichTextLabel")
+nappi_paikka = NodePath("MarginContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer")
+paneli = NodePath("MarginContainer/VBoxContainer/Panel")
+startti_menu = NodePath("MarginContainer/VBoxContainer/MarginContainer/Startmenu")
+aloita = NodePath("MarginContainer/VBoxContainer/MarginContainer/Startmenu/VBoxContainer/Start")
+b_fin = NodePath("MarginContainer/VBoxContainer/MarginContainer/Startmenu/VBoxContainer/HBoxContainer/FIN")
+b_eng = NodePath("MarginContainer/VBoxContainer/MarginContainer/Startmenu/VBoxContainer/HBoxContainer/ENG")
+ajastin = NodePath("Timer")
+
+[node name="Noice" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.0705882)
+material = SubResource("ShaderMaterial_bamfa")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Startmenu" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 320
+theme_override_constants/margin_top = 160
+theme_override_constants/margin_right = 320
+theme_override_constants/margin_bottom = 160
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/Startmenu"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/Startmenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Demo"
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/Startmenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/Startmenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FIN" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/Startmenu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ENG" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/Startmenu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Panel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+text = "ok"
+scroll_active = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/MarginContainer/Startmenu/VBoxContainer/Start" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/MarginContainer/Startmenu/VBoxContainer/HBoxContainer/FIN" to="." method="_on_fin_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/MarginContainer/Startmenu/VBoxContainer/HBoxContainer/ENG" to="." method="_on_eng_button_down"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
