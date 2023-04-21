@@ -12,7 +12,8 @@ extends Control #MUISTA DEBUTTON KU ESC MENUUN TJSP
 
 var started = false
 var muuttuja = "heja svärje"
-var lore = []
+var lore = [] #lore contents
+var lore_queue = [] #lore in certain order, empty when gone through
 var ilmoitus = {}
 var current_lore = {}
 var writing = false
@@ -42,6 +43,7 @@ func _process(_delta):
 			start()
 
 func start():
+	debuttons() #just in case
 	started = false
 	paneeli.hide()
 	starttimenu.show()
@@ -79,9 +81,10 @@ func add_button(kontsa): #self-explanatory...
 		butt.button_down.connect(kontsa["action"].bind(kontsa["act_value"]))
 
 func debuttons():
-	for butt in nappipaikka.get_children():
-		butt.button_down.disconnect(butt.get_meta("meta")["action"]) #!!!
-		butt.queue_free()#nappipaikka.remove_child(butt)
+	if get_node_or_null(nappi_paikka) != null: #useless condition?
+		for butt in nappipaikka.get_children():
+			butt.button_down.disconnect(butt.get_meta("meta")["action"]) #!!!
+			butt.queue_free()#nappipaikka.remove_child(butt)
 
 func reset_write():
 	txt.set_visible_characters(0) #no characters
@@ -107,7 +110,13 @@ func ebin():
 	close_message()
 
 func pick_lore():
-	return lore.pick_random()
+	#return lore.pick_random() #OG code, pure random, not shuffled
+	if lore_queue.size() == 0: #if lore has been gone through, start again
+		lore_queue = lore.duplicate()
+		lore_queue.shuffle() #shuffled random order
+	var pick = lore_queue[0]
+	lore_queue.pop_front()
+	return pick
 
 func _on_start_button_down(): #after translation set text stuff, not before
 	starttimenu.hide() #remove_child queue_free()?
@@ -141,7 +150,7 @@ func _on_eng_button_down():
 	TranslationServer.set_locale("en")
 	start()
 
-func _on_timer_timeout(): #typewriter effectt
+func _on_timer_timeout(): #typewriter effect
 	if txt.visible_characters >= txt.get_total_character_count():
 		writing = false
 		write_timer.stop()
