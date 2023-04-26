@@ -1,14 +1,19 @@
 keys,fi,en
 TESTI1,Terpparallaa,Whazzup
 TESTI2,No mikäs mp?,Opinions?
+TESTI3,Apuuvva!,Hlep!
+TESTI4,Mitähän vielä?,What else?
+LOREM,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+,,
+,,
+,,
+,,
+START,Aloita,Start
+FIN,Suomi,Suomi
+ENG,English,English
+QUIT,Lopeta,Quit
 OK,OK,OK
 Y,Kyllä,Yes
 N,Ei,No
 YT,Kyllä kiitos,Yes thanks
 NN,Ei nyt,Not now
-TESTI3,Apuuvva!,Hlep!
-TESTI4,Mitähän vielä?,What else?
-START,Aloita,Start
-FIN,Suomi,Suomi
-ENG,English,English
-QUIT,Lopeta,Quit

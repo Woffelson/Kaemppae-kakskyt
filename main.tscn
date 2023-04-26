@@ -16,14 +16,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k224y")
 button = ExtResource("2_dfw8i")
-teksti = NodePath("MarginContainer/VBoxContainer/Panel/VBoxContainer/MarginContainer/RichTextLabel")
-nappi_paikka = NodePath("MarginContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer")
-paneli = NodePath("MarginContainer/VBoxContainer/Panel")
-startti_menu = NodePath("MarginContainer/VBoxContainer/MarginContainer/Startmenu")
-aloita = NodePath("MarginContainer/VBoxContainer/MarginContainer/Startmenu/VBoxContainer/Start")
-b_fin = NodePath("MarginContainer/VBoxContainer/MarginContainer/Startmenu/VBoxContainer/HBoxContainer/FIN")
-b_eng = NodePath("MarginContainer/VBoxContainer/MarginContainer/Startmenu/VBoxContainer/HBoxContainer/ENG")
-ajastin = NodePath("Timer")
+teksti = NodePath("MarginContainer/ILMOITUS/VBoxContainer/MarginContainer/TEKSTI")
+nappi_paikka = NodePath("MarginContainer/ILMOITUS/VBoxContainer/NAPIT")
+paneli = NodePath("MarginContainer/ILMOITUS")
+startti_menu = NodePath("MarginContainer/MarginContainer/Startmenu")
+aloita = NodePath("MarginContainer/MarginContainer/Startmenu/VBoxContainer/Start")
+b_fin = NodePath("MarginContainer/MarginContainer/Startmenu/VBoxContainer/HBoxContainer/FIN")
+b_eng = NodePath("MarginContainer/MarginContainer/Startmenu/VBoxContainer/HBoxContainer/ENG")
+ajastin = NodePath("NÄPYTTÄJÄ")
 
 [node name="Noice" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0.0705882)
@@ -47,14 +47,15 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="TURHA" type="VBoxContainer" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Startmenu" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+[node name="Startmenu" type="MarginContainer" parent="MarginContainer/MarginContainer"]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 320
@@ -62,37 +63,39 @@ theme_override_constants/margin_top = 160
 theme_override_constants/margin_right = 320
 theme_override_constants/margin_bottom = 160
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/Startmenu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/Startmenu"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/Startmenu/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer/Startmenu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Kämppä20 (WIP)"
 horizontal_alignment = 1
 
-[node name="Start" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/Startmenu/VBoxContainer"]
+[node name="Start" type="Button" parent="MarginContainer/MarginContainer/Startmenu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/Startmenu/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/Startmenu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="FIN" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/Startmenu/VBoxContainer/HBoxContainer"]
+[node name="FIN" type="Button" parent="MarginContainer/MarginContainer/Startmenu/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ENG" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/Startmenu/VBoxContainer/HBoxContainer"]
+[node name="ENG" type="Button" parent="MarginContainer/MarginContainer/Startmenu/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer"]
+[node name="ILMOITUS" type="Panel" parent="MarginContainer"]
+custom_minimum_size = Vector2(400, 200)
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ILMOITUS"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -100,7 +103,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel/VBoxContainer"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/ILMOITUS/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ILMOITUS/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
@@ -109,21 +118,22 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Panel/VBoxContainer/MarginContainer"]
+[node name="TEKSTI" type="Label" parent="MarginContainer/ILMOITUS/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
-text = "ok"
-scroll_active = false
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+horizontal_alignment = 1
+autowrap_mode = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/VBoxContainer"]
+[node name="NAPIT" type="HBoxContainer" parent="MarginContainer/ILMOITUS/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Timer" type="Timer" parent="."]
+[node name="NÄPYTTÄJÄ" type="Timer" parent="."]
 wait_time = 0.05
 
-[connection signal="button_down" from="MarginContainer/VBoxContainer/MarginContainer/Startmenu/VBoxContainer/Start" to="." method="_on_start_button_down"]
-[connection signal="button_down" from="MarginContainer/VBoxContainer/MarginContainer/Startmenu/VBoxContainer/HBoxContainer/FIN" to="." method="_on_fin_button_down"]
-[connection signal="button_down" from="MarginContainer/VBoxContainer/MarginContainer/Startmenu/VBoxContainer/HBoxContainer/ENG" to="." method="_on_eng_button_down"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="button_down" from="MarginContainer/MarginContainer/Startmenu/VBoxContainer/Start" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="MarginContainer/MarginContainer/Startmenu/VBoxContainer/HBoxContainer/FIN" to="." method="_on_fin_button_down"]
+[connection signal="button_down" from="MarginContainer/MarginContainer/Startmenu/VBoxContainer/HBoxContainer/ENG" to="." method="_on_eng_button_down"]
+[connection signal="timeout" from="NÄPYTTÄJÄ" to="." method="_on_timer_timeout"]

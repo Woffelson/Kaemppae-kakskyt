@@ -1,7 +1,7 @@
-extends Control #MUISTA DEBUTTON KU ESC MENUUN TJSP
+extends Control
 
 @export var button : Resource
-@export_node_path("RichTextLabel") var teksti
+@export_node_path("Label") var teksti
 @export_node_path("HBoxContainer") var nappi_paikka
 @export_node_path("Panel") var paneli
 @export_node_path("MarginContainer") var startti_menu
@@ -19,7 +19,7 @@ var current_lore = {}
 var writing = false
 var typewrite_spede = 1
 
-@onready var txt : RichTextLabel = get_node(teksti)
+@onready var txt : Label = get_node(teksti)
 @onready var nappipaikka : HBoxContainer = get_node(nappi_paikka)
 @onready var paneeli : Panel = get_node(paneli)
 @onready var starttimenu : MarginContainer = get_node(startti_menu)
@@ -81,7 +81,7 @@ func add_button(kontsa): #self-explanatory...
 		butt.button_down.connect(kontsa["action"].bind(kontsa["act_value"]))
 
 func debuttons():
-	if get_node_or_null(nappi_paikka) != null: #useless condition?
+	if get_node_or_null(nappi_paikka) != null: #useless condition? if nappipaikka.get_children().size()>0:
 		for butt in nappipaikka.get_children():
 			butt.button_down.disconnect(butt.get_meta("meta")["action"]) #!!!
 			butt.queue_free()#nappipaikka.remove_child(butt)
@@ -152,9 +152,10 @@ func _on_eng_button_down():
 
 func _on_timer_timeout(): #typewriter effect
 	if txt.visible_characters >= txt.get_total_character_count():
+		txt.set_visible_characters(-1) #make sure every character is visible now
+		#txt.set_visible_characters(txt.get_total_character_count())
 		writing = false
 		write_timer.stop()
-		txt.set_visible_characters(-1) #make sure every character is visible now
 		set_buttons(current_lore)
 	elif txt.visible_characters < txt.get_total_character_count():
 		writing = true
