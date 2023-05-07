@@ -8,10 +8,10 @@ LOREM,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod t
 ,,
 ,,
 ,,
-START,Aloita,Start
+START,Aloita päiväsi,Start your day
 FIN,Suomi,Suomi
 ENG,English,English
-QUIT,Lopeta,Quit
+QUIT,"Hei, lopeta",Quit
 OK,OK,OK
 Y,Kyllä,Yes
 N,Ei,No

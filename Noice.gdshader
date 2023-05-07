@@ -24,5 +24,5 @@ void fragment() {
 	float noise;
 	noise = rand(coord);
 	COLOR = curr_color * vec4(vec3(noise), 1.0); // 0.88 was the blackest in my original palette)
-	COLOR.a = 0.5; // node modulation doesn't work anymore for shader materials???
+	//COLOR.a = 0.5; // node modulation doesn't work anymore for shader materials???
 }

@@ -1,0 +1,98 @@
+[gd_scene load_steps=4 format=3 uid="uid://dijpaiy3bf8dn"]
+
+[ext_resource type="Script" path="res://ILMOITUS.gd" id="1_2x414"]
+[ext_resource type="PackedScene" uid="uid://dtyjeg1kapndm" path="res://nappi.tscn" id="2_b0mx4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbtcj"]
+bg_color = Color(0.258824, 0.258824, 0.258824, 0.890196)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[node name="ILMOITUS" type="Panel"]
+custom_minimum_size = Vector2(320, 160)
+layout_direction = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -80.0
+offset_right = 160.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_lbtcj")
+script = ExtResource("1_2x414")
+button = ExtResource("2_b0mx4")
+teksti = NodePath("VBoxContainer/MarginContainer/TEKSTI")
+nappi_paikka = NodePath("VBoxContainer/NAPIT")
+paneli = NodePath(".")
+ajastin = NodePath("Ajastin")
+naputin = NodePath("NÄPYTTÄJÄ")
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+color = Color(0, 0, 0, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+show_percentage = false
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.5
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TEKSTI" type="Label" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="NAPIT" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Ajastin" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="NÄPYTTÄJÄ" type="Timer" parent="."]
+wait_time = 0.05
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="resized" from="VBoxContainer/MarginContainer/TEKSTI" to="." method="_on_teksti_resized"]
+[connection signal="timeout" from="NÄPYTTÄJÄ" to="." method="_on_npyttj_timeout"]
