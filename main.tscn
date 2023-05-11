@@ -25,6 +25,7 @@ aloita = NodePath("AlkuRuutu/MarginContainer/Startmenu/VBoxContainer/Start")
 b_fin = NodePath("AlkuRuutu/MarginContainer/Startmenu/VBoxContainer/HBoxContainer/FIN")
 b_eng = NodePath("AlkuRuutu/MarginContainer/Startmenu/VBoxContainer/HBoxContainer/ENG")
 kuitti = NodePath("AlkuRuutu/MarginContainer/Startmenu/VBoxContainer/Quit")
+timeri = NodePath("Timer")
 
 [node name="Noice" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0.0705882)
@@ -102,7 +103,11 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="button_down" from="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer/Start" to="." method="_on_start_button_down"]
 [connection signal="button_down" from="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer/HBoxContainer/FIN" to="." method="_on_fin_button_down"]
 [connection signal="button_down" from="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer/HBoxContainer/ENG" to="." method="_on_eng_button_down"]
 [connection signal="pressed" from="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -39,6 +39,7 @@ script = ExtResource("1_2x414")
 button = ExtResource("2_b0mx4")
 teksti = NodePath("VBoxContainer/MarginContainer/TEKSTI")
 nappi_paikka = NodePath("VBoxContainer/NAPIT")
+bar = NodePath("VBoxContainer/ColorRect/Aika")
 paneli = NodePath(".")
 ajastin = NodePath("Ajastin")
 naputin = NodePath("NÄPYTTÄJÄ")
@@ -58,13 +59,14 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 color = Color(0, 0, 0, 1)
 
-[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/ColorRect"]
+[node name="Aika" type="ProgressBar" parent="VBoxContainer/ColorRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+max_value = 10.0
 show_percentage = false
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
@@ -95,4 +97,5 @@ wait_time = 0.05
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="resized" from="VBoxContainer/MarginContainer/TEKSTI" to="." method="_on_teksti_resized"]
+[connection signal="timeout" from="Ajastin" to="." method="_on_ajastin_timeout"]
 [connection signal="timeout" from="NÄPYTTÄJÄ" to="." method="_on_npyttj_timeout"]

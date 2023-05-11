@@ -1,6 +1,4 @@
 res://main.tscn
-res://ilmoitus.tscn
-res://Data/MT-transl.fi.translation
-res://Data/MT-transl.en.translation
-res://ILMOITUS.gd
 res://main.gd
+res://ilmoitus.tscn
+res://ILMOITUS.gd
