@@ -1,6 +1,11 @@
+CanvasLayer
+ProgressBar
+Label
+HBoxContainer
+Panel
+MarginContainer
+VBoxContainer
 Timer
 Control
 Button
-ProgressBar
-Label
 ColorRect

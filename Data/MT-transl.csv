@@ -4,9 +4,11 @@ TESTI2,No mikäs mp?,Opinions?
 TESTI3,Apuuvva!,Hlep!
 TESTI4,Mitähän vielä?,What else?
 LOREM,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-,,
-,,
-,,
+ERROR0,VIRHE!,ERROR!
+ERROR1,ERROR!!,ERROR!!
+ERROR2,502 bad gateway,502 bad gateway
+ERROR3,403 forbidden,403 forbidden
+ERROR4,404,404
 ,,
 START,Aloita päiväsi,Start your day
 FIN,Suomi,Suomi
@@ -17,3 +19,101 @@ Y,Kyllä,Yes
 N,Ei,No
 YT,Kyllä kiitos,Yes thanks
 NN,Ei nyt,Not now
+ARKI0,Putsaa tiskit,Do the dishes
+ARKI1,Pese pyykit,Do the laundry
+ARKI2,Siivoa huoneesi,Clean up your room
+ARKI3,Maksa laskut,Pay the bills
+ARKI4,Mee töihi,Go to work
+ARKI5,Opiskele,Study
+ARKI6,Tee läksysi,Do your homework
+ARKI7,Liiku,Do exercises
+ARKI8,Käy ulkona,Go outside
+ARKI9,Kosketa ruohoa,Touch grass
+ARKI10,Pidä huolta itsestäsi,Take care of yourself
+ARKI11,Muista soittaa Kelaan,Remember to call Kela
+,,
+,,
+,,
+,,
+,,
+,,
+LOHTU0,Kyllä se siitä,It's alright
+LOHTU1,Huonomminkin voisi olla,Could be worse
+LOHTU2,Se on mitä se on,It is what it is
+LOHTU3,Pää pystyyn!,Raise your head!
+LOHTU4,"Jos ei jaksa, niin koeta jaksaa","If you cannot carry on, then try to carry on"
+LOHTU5,Paistaa se päivä risukasaankin,The day will shine to pile of sticks too
+LOHTU6,"Ai oot hakenu töitä, muttet oo saanu vai? No mee töihi!",You've seeked for jobs but haven't got any? Then go to work!
+LOHTU7,Mee lomalle,Go to vacation
+LOHTU8,Rauhoitu,Relax
+LOHTU9,Yrittäisit edes,Try at least
+LOHTU10,Meillä asiat on kuitenkin paremmin,At least we have things better than elsewhere
+LOHTU11,Joillain muilla on asiat huonommin,Some have it worse
+LOHTU12,Ei tämä ole vielä äärimmäistä köyhyyttä nähnytkään,This is not extreme poverty yet
+LOHTU13,Afrikassa nähdään nälkää,Africans are starving
+LOHTU14,”Valitettavasti valintamme ei tällä kertaa kohdistunut sinuun.”,”Unfortunately our decision didn't pick you this time.”
+LOHTU15,,
+LOHTU16,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+SPIRAALI0,Kuoletko pian?,Will you die soon?
+SPIRAALI1,Tuleeko maailmanloppu?,Will the apocalypse arrive?
+SPIRAALI2,Romahtaako yhteiskunta?,Will the society collapse?
+SPIRAALI3,Sairastutko syöpään?,Will you get cancer?
+SPIRAALI4,Jäätkö yksin loppuiäksesi?,Will you be alone the rest of your life?
+SPIRAALI5,Loppuuko rahat?,Running out of money?
+SPIRAALI6,Loppuuko aika?,Running out of time?
+SPIRAALI7,Hylätäänkö sinut?,Do you get rejected?
+SPIRAALI8,Vihaavatko läheisesi sinua?,Are you being hated by your close ones?
+SPIRAALI9,Syrjäydytkö?,Social exclusion?
+SPIRAALI10,Palatko loppuun?,Burning out?
+SPIRAALI11,,
+SPIRAALI12,,
+SPIRAALI13,,
+SPIRAALI14,,
+SPIRAALI15,,
+SPIRAALI16,,
+SPIRAALI17,,
+SPIRAALI18,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+SEKO0,Hikikomori hetki.,Hikikomori moment.
+SEKO1,Aika seota.,Time to lose it.
+SEKO2,Isoveli valvoo.,Big Brother is watching.
+SEKO3,SUUTU JO!,GET MAD ALREADY!
+SEKO4,Suuri Muinainen herää...,The Great Ancient is awaking...
+SEKO5,Uusi maailmanjärjestys orjuuttaa kaikki!,New World Order is enslaving everyone!
+SEKO6,Ajatuksiasi kuunnellaan.,Your thoughts are being listened.
+SEKO7,Sinua epäillään rikoksista.,You are a crime suspect.
+SEKO8,Salaliiton jäsenet ovat kääntyneet sinua vastaan.,Members of the conspiracy have turned against you.
+SEKO9,,
+SEKO10,,
+SEKO11,,
+SEKO12,,
+SEKO13,,
+SEKO14,,
+SEKO15,,
+SEKO16,,
+SEKO17,,
+SEKO18,,
+SEKO19,,

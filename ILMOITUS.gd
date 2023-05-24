@@ -12,7 +12,7 @@ var current_lore = {}
 var writing = false
 var typewrite_spede = 1
 var drag_point = Vector2.ZERO
-var testi = "terve"
+var output = [0,0] #default output from buttons (mieliala, jaksaminen)
 signal kloussaa(ikkuna,vars)
 
 @onready var txt : Label = get_node(teksti)
@@ -74,15 +74,17 @@ func close_message(): #outdated solution after refactoring?
 #	debuttons()
 #	txt.set_text("")
 #	paneeli.hide() #remove_child? queue_free()?
-	emit_signal("kloussaa",self,testi)#current_lore["action"])
+	emit_signal("kloussaa",self,output)#current_lore["action"])
 	queue_free()
 
 func nappi(juttu): #what happens when a button is pressed
-	print(juttu)
+	#print(juttu)
+	output = juttu
 	close_message()
 
-func ebin():
-	print("EBIN JUDDU MAGE DÄÄ DOIMII :DDD")
+func timeout_close():
+	output = [-1,0]
+	#print("EBIN JUDDU MAGE DÄÄ DOIMII :DDD")
 	close_message()
 
 func abs_write(texti): #write letter by letter (longer texts take longer time)
@@ -90,8 +92,8 @@ func abs_write(texti): #write letter by letter (longer texts take longer time)
 		writing = true
 		texti.set_visible_characters(texti.get_visible_characters()+typewrite_spede)
 	elif texti.visible_characters >= texti.get_total_character_count():
+		#texti.set_visible_characters(txt.get_total_character_count())
 		texti.set_visible_characters(-1) #make sure every character is visible now
-		#txt.set_visible_characters(txt.get_total_character_count())
 		write_end()
 
 func rel_write(texti): #write portion by portion (all texts take same time)
@@ -132,4 +134,4 @@ func _on_gui_input(_event):
 			position = get_global_mouse_position() - drag_point
 
 func _on_ajastin_timeout():
-	ebin()
+	timeout_close()

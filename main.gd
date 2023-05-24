@@ -11,8 +11,13 @@ extends Control
 @export_node_path("Button") var b_eng
 @export_node_path("Button") var kuitti
 @export_node_path("Timer") var timeri
+@export_node_path("ProgressBar") var mielibar
+@export_node_path("ProgressBar") var jaxubar
+@export_node_path("Label") var mieli_icon
 
-#var mieliala = 50; var jaksaminen = 50
+var mieliala = 50
+var jaksaminen = 50
+var mielentila = "arki" #katastrofi, error
 var moodi = 2 #0 error 1 one-at-a-time 2 multiple
 var started = false
 var muuttuja = "heja svärje"
@@ -21,7 +26,6 @@ var lore_queue = [] #lore in certain order, empty when gone through
 var ilmoitus = {}
 var ikkunat = [] #keep track of active pop-up windows
 
-#@onready var pop_ikkuna = ikkuna.instantiate()
 @onready var starttimenu : MarginContainer = get_node(startti_menu)
 @onready var a_screeni : MarginContainer = get_node(alku_ruutu)
 @onready var screeni : Control = get_node(ruutu)
@@ -30,6 +34,9 @@ var ikkunat = [] #keep track of active pop-up windows
 @onready var enkku : Button = get_node(b_eng)
 @onready var quitti : Button = get_node(kuitti)
 @onready var timer : Timer = get_node(timeri)
+@onready var mieli : ProgressBar = get_node(mielibar)
+@onready var jaxu : ProgressBar = get_node(jaxubar)
+@onready var mielicon : Label = get_node(mieli_icon)
 
 func _ready():
 	TranslationServer.set_locale("fi")
@@ -38,6 +45,7 @@ func _ready():
 	start()
 
 func _process(_delta):
+	update_stats()
 	if started:
 #		if Input.is_action_just_pressed("ui_accept"):
 #			pop_up()
@@ -52,6 +60,13 @@ func start():
 	enkku.set_text(tr("ENG"))
 	quitti.set_text(tr("QUIT"))
 	startti.grab_focus()
+
+func update_stats(): #mostly sync stats with GUI things
+	mieli.set_value(mieliala)
+	jaxu.set_value(jaksaminen)
+	if mieli.value > 66: mielicon.set_text("☺️")
+	elif mieli.value < 33: mielicon.set_text("☹️️")
+	else: mielicon.set_text("😐️")
 
 func add_lore(id,teema,tekst,options): #builds the basic blocks of lore messages ("backend")
 	var dikki = {}
@@ -75,7 +90,9 @@ func closed_popup(suljettava,vars): #when window gets closed
 	ikkunat.erase(suljettava)
 	if moodi == 1 || ikkunat.size() == 0: #always at least one window?
 		pop_up()
-	print(vars)
+	mieliala += vars[0]
+	jaksaminen += vars[1]
+	#print(vars)
 	#suljettava.queue_free()
 
 func pick_lore():
@@ -87,17 +104,27 @@ func pick_lore():
 	lore_queue.pop_front()
 	return pick
 
+func multiple_lore(amt,type,mode):
+	var loresizesofar = lore.size()
+	for i in amt:
+		var tmp_txt = type + str(i)
+		if mode == "yn":
+			add_lore(loresizesofar + i,type,tr(tmp_txt),[ilmoitus["yes"],ilmoitus["no"]])
+		elif mode == "ok":
+			add_lore(loresizesofar + i,type,tr(tmp_txt),[ilmoitus["ok"]])
+
 func _on_start_button_down(): #after translation set text stuff, not before
 	starttimenu.hide() #remove_child queue_free()?
 	ilmoitus = {
 		"yes": {
 			"title": tr("Y"),
 			"action": "nappi",
-			"act_value": muuttuja
+			"act_value": [1,-1]#muuttuja kiva: 1,-1 askare -1,-2
 		},
 		"no": {
 			"title": tr("N"),
-			"action": "ebin"
+			"action":  "nappi",#"ebin"
+			"act_value": [-1,0]
 		},
 		"ok": {
 			"title": tr("OK"),
@@ -110,6 +137,7 @@ func _on_start_button_down(): #after translation set text stuff, not before
 	add_lore(2,"test",tr("TESTI3"),[ilmoitus["yes"],ilmoitus["no"],ilmoitus["ok"]])
 	add_lore(3,"test",tr("TESTI4"),[ilmoitus["ok"]])
 	add_lore(4,"random",tr("LOREM"),[ilmoitus["ok"]])
+	multiple_lore(10,"ARKI","yn")
 	started = true
 	pop_up()
 
@@ -126,4 +154,4 @@ func _on_quit_pressed():
 
 func _on_timer_timeout():
 	timer.set_wait_time(randf_range(1.0,5.0))
-	pop_up()
+	if lore.size() > 100: pop_up() #have some limit for pop-ups, will ya?

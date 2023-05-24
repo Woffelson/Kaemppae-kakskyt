@@ -26,6 +26,9 @@ b_fin = NodePath("AlkuRuutu/MarginContainer/Startmenu/VBoxContainer/HBoxContaine
 b_eng = NodePath("AlkuRuutu/MarginContainer/Startmenu/VBoxContainer/HBoxContainer/ENG")
 kuitti = NodePath("AlkuRuutu/MarginContainer/Startmenu/VBoxContainer/Quit")
 timeri = NodePath("Timer")
+mielibar = NodePath("BARS/Panel/HBoxContainer/MIELI")
+jaxubar = NodePath("BARS/Panel/HBoxContainer/JAXU")
+mieli_icon = NodePath("BARS/Panel/HBoxContainer/MIELICON")
 
 [node name="Noice" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0.0705882)
@@ -36,6 +39,55 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="BARS" type="VBoxContainer" parent="."]
+z_index = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="BARS"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BARS/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MIELI" type="ProgressBar" parent="BARS/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+fill_mode = 1
+show_percentage = false
+
+[node name="MIELICON" type="Label" parent="BARS/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+text = "😐"
+
+[node name="Label2" type="Label" parent="BARS/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+text = "⚡️"
+horizontal_alignment = 2
+
+[node name="JAXU" type="ProgressBar" parent="BARS/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+show_percentage = false
+
+[node name="MarginContainer" type="MarginContainer" parent="BARS"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="IkkunaRuutu" type="Control" parent="."]
 visible = false
