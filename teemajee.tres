@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://brx6vlh7v4gl"]
+
+[ext_resource type="FontFile" uid="uid://bdqsa2ic5vyrs" path="res://Fonts/CalibrationGothicNbpLatin-rYmy.ttf" id="1_5d2ka"]
+[ext_resource type="Texture2D" uid="uid://cmxwtyoqqdk5w" path="res://GFX/Popup/laatikko.png" id="1_dguu6"]
+[ext_resource type="FontFile" uid="uid://qsc6bx6je1lu" path="res://Fonts/GlitchGoblin-2O87v.ttf" id="1_kktbl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_edc0t"]
+texture = ExtResource("1_dguu6")
+
+[resource]
+Button/fonts/font = ExtResource("1_kktbl")
+Label/fonts/font = ExtResource("1_5d2ka")
+Panel/styles/panel = SubResource("StyleBoxTexture_edc0t")

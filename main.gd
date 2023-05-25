@@ -15,12 +15,15 @@ extends Control
 @export_node_path("ProgressBar") var jaxubar
 @export_node_path("Label") var mieli_icon
 
-var mieliala = 50
-var jaksaminen = 50
+var dir_popups = DirAccess.open("res://GFX/Popup/")
+#var mieliala = 50
+#var jaksaminen = 50
 var mielentila = "arki" #katastrofi, error
 var moodi = 2 #0 error 1 one-at-a-time 2 multiple
 var started = false
 var muuttuja = "heja svärje"
+var muuttuja_y = [0,0]
+var muuttuja_n = [0,0]
 var lore = [] #lore contents
 var lore_queue = [] #lore in certain order, empty when gone through
 var ilmoitus = {}
@@ -39,6 +42,11 @@ var ikkunat = [] #keep track of active pop-up windows
 @onready var mielicon : Label = get_node(mieli_icon)
 
 func _ready():
+	if dir_popups:
+		for filu in dir_popups.get_files():
+			if filu.get_extension() == "png": #exclude import files and other crap
+				Global.popup_gfx.append(filu) #save assets
+	print(Global.popup_gfx[20])
 	TranslationServer.set_locale("fi")
 	randomize() #ensures different random results
 	#seed(0) #ensures same random results with same seed value
@@ -62,8 +70,8 @@ func start():
 	startti.grab_focus()
 
 func update_stats(): #mostly sync stats with GUI things
-	mieli.set_value(mieliala)
-	jaxu.set_value(jaksaminen)
+	mieli.set_value(Global.mieliala)
+	jaxu.set_value(Global.jaksaminen)
 	if mieli.value > 66: mielicon.set_text("☺️")
 	elif mieli.value < 33: mielicon.set_text("☹️️")
 	else: mielicon.set_text("😐️")
@@ -90,8 +98,8 @@ func closed_popup(suljettava,vars): #when window gets closed
 	ikkunat.erase(suljettava)
 	if moodi == 1 || ikkunat.size() == 0: #always at least one window?
 		pop_up()
-	mieliala += vars[0]
-	jaksaminen += vars[1]
+	Global.mieliala = min(100,max(0,Global.mieliala + vars[0])) #limit between 0-100
+	Global.jaksaminen = min(100,max(0,Global.jaksaminen + vars[1]))
 	#print(vars)
 	#suljettava.queue_free()
 
@@ -104,13 +112,17 @@ func pick_lore():
 	lore_queue.pop_front()
 	return pick
 
-func multiple_lore(amt,type,mode):
+func multiple_lore(amt,type):
 	var loresizesofar = lore.size()
-	for i in amt:
+	for i in amt + 1: #+1 makes amt inclusive
 		var tmp_txt = type + str(i)
-		if mode == "yn":
-			add_lore(loresizesofar + i,type,tr(tmp_txt),[ilmoitus["yes"],ilmoitus["no"]])
-		elif mode == "ok":
+		if type == "ARKI": 
+			add_lore(loresizesofar + i,type,tr(tmp_txt),[ilmoitus["yes_arki"],ilmoitus["no_arki"]])
+		elif type == "HEMMO":
+			add_lore(loresizesofar + i,type,tr(tmp_txt),[ilmoitus["yes_hemmo"],ilmoitus["no_hemmo"]])
+		elif type == "SPIRAALI": 
+			add_lore(loresizesofar + i,type,tr(tmp_txt),[ilmoitus["yes_spiraali"],ilmoitus["no_spiraali"]])
+		else:#if type == "LOHTU" || type == "SEKO":
 			add_lore(loresizesofar + i,type,tr(tmp_txt),[ilmoitus["ok"]])
 
 func _on_start_button_down(): #after translation set text stuff, not before
@@ -119,12 +131,42 @@ func _on_start_button_down(): #after translation set text stuff, not before
 		"yes": {
 			"title": tr("Y"),
 			"action": "nappi",
-			"act_value": [1,-1]#muuttuja kiva: 1,-1 askare -1,-2
+			"act_value": muuttuja_y #kiva: 1,-1 askare -1,-2
 		},
 		"no": {
 			"title": tr("N"),
 			"action":  "nappi",#"ebin"
-			"act_value": [-1,0]
+			"act_value": muuttuja_n#[-1,0]
+		},
+		"yes_arki": {
+			"title": tr("Y"),
+			"action": "nappi",
+			"act_value": [-1,-2]
+		},
+		"no_arki": {
+			"title": tr("N"),
+			"action":  "nappi",
+			"act_value": [-2,0]
+		},
+		"yes_hemmo": {
+			"title": tr("Y"),
+			"action": "nappi",
+			"act_value": [1,-1]
+		},
+		"no_hemmo": {
+			"title": tr("N"),
+			"action":  "nappi",
+			"act_value": [-2,0]
+		},
+		"yes_spiraali": {
+			"title": tr("Y"),
+			"action": "nappi",
+			"act_value": [-2,-1]
+		},
+		"no_spiraali": {
+			"title": tr("N"),
+			"action":  "nappi",
+			"act_value": [0,0]
 		},
 		"ok": {
 			"title": tr("OK"),
@@ -137,7 +179,11 @@ func _on_start_button_down(): #after translation set text stuff, not before
 	add_lore(2,"test",tr("TESTI3"),[ilmoitus["yes"],ilmoitus["no"],ilmoitus["ok"]])
 	add_lore(3,"test",tr("TESTI4"),[ilmoitus["ok"]])
 	add_lore(4,"random",tr("LOREM"),[ilmoitus["ok"]])
-	multiple_lore(10,"ARKI","yn")
+	multiple_lore(7,"ARKI")
+	multiple_lore(4,"HEMMO")
+	multiple_lore(14,"LOHTU")
+	multiple_lore(10,"SPIRAALI")
+	multiple_lore(8,"SEKO")
 	started = true
 	pop_up()
 

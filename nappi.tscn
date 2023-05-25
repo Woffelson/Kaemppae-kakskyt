@@ -1,7 +1,10 @@
-[gd_scene format=3 uid="uid://dtyjeg1kapndm"]
+[gd_scene load_steps=2 format=3 uid="uid://dtyjeg1kapndm"]
+
+[ext_resource type="Theme" uid="uid://brx6vlh7v4gl" path="res://teemajee.tres" id="1_kfvtk"]
 
 [node name="Nappi" type="Button"]
 offset_right = 8.0
 offset_bottom = 8.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_kfvtk")

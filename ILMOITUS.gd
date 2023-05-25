@@ -9,6 +9,7 @@ extends Panel
 @export_node_path("Timer") var naputin
 
 var current_lore = {}
+var teema = ""
 var writing = false
 var typewrite_spede = 1
 var drag_point = Vector2.ZERO
@@ -42,6 +43,8 @@ func set_buttons(dikki):
 		for optio in dikki["options"]:
 			add_button(optio)#["title"])
 	nappipaikka.get_children()[-1].grab_focus() #0 first -1 last
+	if Global.jaksaminen < 25 && (teema == "ARKI" || teema == "HEMMO"):
+		nappipaikka.get_children()[0].queue_free() #erases active yes options when exhausted
 
 func add_button(kontsa): #self-explanatory...
 	var butt = button.instantiate()
@@ -67,6 +70,7 @@ func reset_write():
 func pop_message(lore):
 	#if !paneeli.visible:
 	#	paneeli.show()
+		teema = lore["teema"]
 		settings(lore) #ilmoitus #pick_lore()
 		reset_write()
 
@@ -123,8 +127,8 @@ func _on_teksti_resized():
 			position.y -= round(25.0/2.0) #purkka
 
 func _on_npyttj_timeout(): #typewriter effect
-	#abs_write(txt)
-	rel_write(txt)
+	abs_write(txt)
+	#rel_write(txt)
 
 func _on_gui_input(_event):
 	if Input.is_action_pressed("m_left"):

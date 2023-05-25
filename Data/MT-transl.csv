@@ -26,13 +26,33 @@ ARKI3,Maksa laskut,Pay the bills
 ARKI4,Mee töihi,Go to work
 ARKI5,Opiskele,Study
 ARKI6,Tee läksysi,Do your homework
-ARKI7,Liiku,Do exercises
-ARKI8,Käy ulkona,Go outside
-ARKI9,Kosketa ruohoa,Touch grass
-ARKI10,Pidä huolta itsestäsi,Take care of yourself
-ARKI11,Muista soittaa Kelaan,Remember to call Kela
+ARKI7,Muista soittaa Kelaan,Remember to call Kela
+ARKI8,,
+ARKI9,,
+ARKI10,,
+ARKI11,,
 ,,
 ,,
+,,
+,,
+,,
+,,
+HEMMO0,Liiku,Do exercises
+HEMMO1,Käy ulkona,Go outside
+HEMMO2,Kosketa ruohoa,Touch grass
+HEMMO3,Pidä huolta itsestäsi,Take care of yourself
+HEMMO4,Syö ravitsevasti,Eat nourishing food
+HEMMO5,,
+HEMMO6,,
+HEMMO7,,
+HEMMO8,,
+HEMMO9,,
+HEMMO10,,
+HEMMO11,,
+HEMMO12,,
+HEMMO13,,
+HEMMO14,,
+HEMMO15,,
 ,,
 ,,
 ,,
@@ -51,14 +71,24 @@ LOHTU10,Meillä asiat on kuitenkin paremmin,At least we have things better than 
 LOHTU11,Joillain muilla on asiat huonommin,Some have it worse
 LOHTU12,Ei tämä ole vielä äärimmäistä köyhyyttä nähnytkään,This is not extreme poverty yet
 LOHTU13,Afrikassa nähdään nälkää,Africans are starving
-LOHTU14,”Valitettavasti valintamme ei tällä kertaa kohdistunut sinuun.”,”Unfortunately our decision didn't pick you this time.”
+LOHTU14,Elämä on kärsimystä. Kärsimyksen aiheuttaa elämänjano. Elämänjano sammutetaan... Miten se nyt sammutettiinkaan?,"Life is suffering. Suffering is caused by the desire of living. The desire can be confined... How it was ended again, though?"
 LOHTU15,,
 LOHTU16,,
 ,,
 ,,
 ,,
-,,
-,,
+APU0,Olette jonossa,"You are in a queue, please wait"
+APU1,Pahoittelemme viivästystä,We apologise for the delay
+APU2,”Valitettavasti valintamme ei tällä kertaa kohdistunut sinuun.”,”Unfortunately our decision didn't pick you this time.”
+APU3,,
+APU4,,
+APU5,,
+APU6,,
+APU7,,
+APU8,,
+APU9,,
+APU10,,
+APU11,,
 ,,
 ,,
 ,,
@@ -86,16 +116,6 @@ SPIRAALI15,,
 SPIRAALI16,,
 SPIRAALI17,,
 SPIRAALI18,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
 ,,
 SEKO0,Hikikomori hetki.,Hikikomori moment.
 SEKO1,Aika seota.,Time to lose it.

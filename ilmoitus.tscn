@@ -1,22 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dijpaiy3bf8dn"]
 
 [ext_resource type="Script" path="res://ILMOITUS.gd" id="1_2x414"]
+[ext_resource type="Theme" uid="uid://brx6vlh7v4gl" path="res://teemajee.tres" id="1_pajbr"]
 [ext_resource type="PackedScene" uid="uid://dtyjeg1kapndm" path="res://nappi.tscn" id="2_b0mx4"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbtcj"]
-bg_color = Color(0.258824, 0.258824, 0.258824, 0.890196)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
 
 [node name="ILMOITUS" type="Panel"]
 custom_minimum_size = Vector2(320, 160)
@@ -34,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_lbtcj")
+theme = ExtResource("1_pajbr")
 script = ExtResource("1_2x414")
 button = ExtResource("2_b0mx4")
 teksti = NodePath("VBoxContainer/MarginContainer/TEKSTI")

@@ -131,7 +131,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-text = "Tajunta20 (WIP)"
+text = "Tajunnanvirta20 (WIP)"
 horizontal_alignment = 1
 
 [node name="Start" type="Button" parent="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer"]
