@@ -42,14 +42,15 @@ var ikkunat = [] #keep track of active pop-up windows
 @onready var mielicon : Label = get_node(mieli_icon)
 
 func _ready():
+	await get_tree().process_frame
+	TranslationServer.set_locale("fi")
+	randomize() #ensures different random results
+	#seed(0) #ensures same random results with same seed value
 	if dir_popups:
 		for filu in dir_popups.get_files():
 			if filu.get_extension() == "png": #exclude import files and other crap
 				Global.popup_gfx.append(filu) #save assets
-	print(Global.popup_gfx[20])
-	TranslationServer.set_locale("fi")
-	randomize() #ensures different random results
-	#seed(0) #ensures same random results with same seed value
+	#print(Global.popup_gfx[20])
 	start()
 
 func _process(_delta):
@@ -61,6 +62,9 @@ func _process(_delta):
 			start()
 
 func start():
+	for ikk in ikkunat: #fixing......
+		if ikk != null: ikk.queue_free()
+		ikkunat.clear()
 	started = false
 	starttimenu.show()
 	startti.set_text(tr("START"))
