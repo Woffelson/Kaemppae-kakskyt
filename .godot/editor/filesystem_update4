@@ -1,10 +1,6 @@
-res://ilmoitus.tscn
-res://teemajee.tres
 res://main.tscn
-res://ILMOITUS.gd
-res://main.gd
-res://global.gd
+res://teemajee.tres
+res://ilmoitus.tscn
 res://nappi.tscn
-res://Data/MT-transl.fi.translation
-res://Data/MT-transl.en.translation
 res://Shaders/glitch.gdshader
+res://main.gd

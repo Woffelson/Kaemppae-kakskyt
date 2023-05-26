@@ -1,3 +1,5 @@
+Control
+ColorRect
 Panel
 CanvasLayer
 ProgressBar
@@ -6,6 +8,4 @@ HBoxContainer
 MarginContainer
 VBoxContainer
 Timer
-Control
 Button
-ColorRect

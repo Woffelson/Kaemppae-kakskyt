@@ -1,13 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://bcbuuarsi108j"]
+[gd_scene load_steps=9 format=3 uid="uid://bcbuuarsi108j"]
 
 [ext_resource type="Theme" uid="uid://brx6vlh7v4gl" path="res://teemajee.tres" id="1_6xepu"]
 [ext_resource type="Script" path="res://main.gd" id="1_k224y"]
 [ext_resource type="PackedScene" uid="uid://dtyjeg1kapndm" path="res://nappi.tscn" id="2_dfw8i"]
 [ext_resource type="PackedScene" uid="uid://dijpaiy3bf8dn" path="res://ilmoitus.tscn" id="3_ba2xn"]
 [ext_resource type="Shader" path="res://Shaders/Noice.gdshader" id="5_qhi6u"]
+[ext_resource type="Shader" path="res://Shaders/glitch.gdshader" id="6_2itab"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bamfa"]
 shader = ExtResource("5_qhi6u")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l7cqu"]
+shader = ExtResource("6_2itab")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.2
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -50,10 +59,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Panel" type="Panel" parent="BARS"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
+mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BARS/Panel"]
 layout_mode = 1
@@ -90,15 +101,7 @@ show_percentage = false
 [node name="MarginContainer" type="MarginContainer" parent="BARS"]
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="IkkunaRuutu" type="Control" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+mouse_filter = 2
 
 [node name="AlkuRuutu" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -164,8 +167,27 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="IkkunaRuutu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Glitch" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_l7cqu")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="button_down" from="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer/Start" to="." method="_on_start_button_down"]
 [connection signal="button_down" from="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer/HBoxContainer/FIN" to="." method="_on_fin_button_down"]

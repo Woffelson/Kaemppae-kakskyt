@@ -46,9 +46,10 @@ use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0.498039)
 
 [node name="Aika" type="ProgressBar" parent="VBoxContainer/ColorRect"]
+modulate = Color(1, 1, 1, 0.784314)
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 15

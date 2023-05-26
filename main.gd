@@ -19,12 +19,12 @@ var dir_popups = DirAccess.open("res://GFX/Popup/")
 #var mieliala = 50
 #var jaksaminen = 50
 var mielentila = "arki" #katastrofi, error
-var moodi = 2 #0 error 1 one-at-a-time 2 multiple
+var moodi = 0 #0 one-at-a-time 1 multiple 2 error
 var started = false
 var muuttuja = "heja svärje"
 var muuttuja_y = [0,0]
 var muuttuja_n = [0,0]
-var lore = [] #lore contents
+var lore = {} #lore contents []
 var lore_queue = [] #lore in certain order, empty when gone through
 var ilmoitus = {}
 var ikkunat = [] #keep track of active pop-up windows
@@ -61,9 +61,10 @@ func _process(_delta):
 			start()
 
 func start():
-	for ikk in ikkunat: #fixing......
+	for ikk in screeni.get_children():#kkunat: #fixing......
 		if ikk != null: ikk.queue_free()
-		ikkunat.clear()
+	ikkunat.clear()
+	screeni.set_mouse_filter(MOUSE_FILTER_IGNORE) #IGNORE (doesn't grab mouse controls to itself)
 	started = false
 	starttimenu.show()
 	startti.set_text(tr("START"))
@@ -75,9 +76,16 @@ func start():
 func update_stats(): #mostly sync stats with GUI things
 	mieli.set_value(Global.mieliala)
 	jaxu.set_value(Global.jaksaminen)
-	if mieli.value > 66: mielicon.set_text("☺️")
-	elif mieli.value < 33: mielicon.set_text("☹️️")
-	else: mielicon.set_text("😐️")
+	if mieli.value > 66:
+		mielicon.set_text("☺️")
+		moodi = 0
+	else:
+		moodi = 1
+		if mieli.value < 33:
+			if mieli.value <= 0:
+				moodi = 2
+			else: mielicon.set_text("☹️️")
+		else: mielicon.set_text("😐️") # 33-66 mid mood
 
 func add_lore(id,teema,tekst,options): #builds the basic blocks of lore messages ("backend")
 	var dikki = {}
@@ -85,38 +93,47 @@ func add_lore(id,teema,tekst,options): #builds the basic blocks of lore messages
 	dikki["teema"] = teema
 	dikki["txt"] = tekst
 	dikki["options"] = options
-	lore.append(dikki)
+	#lore.append(dikki) #deprecated
+	if !lore.has(teema): lore[teema] = [] #make list if there's none
+	lore[teema].append(dikki)
 
 func pop_up():
 	var pop_ikkuna = ikkuna.instantiate()
 	pop_ikkuna.connect("kloussaa",Callable(self,"closed_popup"))
-	#screeni.
-	add_child(pop_ikkuna)
+	screeni.add_child(pop_ikkuna)
 	pop_ikkuna.position = Vector2(randi_range(0,1152-320),randi_range(0,648-160))
-	pop_ikkuna.pop_message(pick_lore())
+	pop_ikkuna.pop_message(pick_lore(lore[pick_teema()]))
 	ikkunat.append(pop_ikkuna)
-	if moodi > 1: timer.start() #generate multiple more based on timer
+	if moodi > 0:
+		if timer.is_stopped(): timer.start() #generate multiple more based on timer
+	else: timer.stop()
 
 func closed_popup(suljettava,vars): #when window gets closed
 	ikkunat.erase(suljettava)
-	if moodi == 1 || ikkunat.size() == 0: #always at least one window?
+	if moodi == 0 || ikkunat.size() == 0: #always at least one window?
 		pop_up()
-	Global.mieliala = min(100,max(0,Global.mieliala + vars[0])) #limit between 0-100
+	Global.mieliala = min(100,max(0,Global.mieliala + vars[0])) #limit changed value between 0-100
 	Global.jaksaminen = min(100,max(0,Global.jaksaminen + vars[1]))
 	#print(vars)
 	#suljettava.queue_free()
 
-func pick_lore():
-	#return lore.pick_random() #OG code, pure random, not shuffled
+func pick_teema():
+	var options = lore.keys()
+	return options.pick_random()
+
+func pick_lore(loru):
+	return loru.pick_random() #OG code, pure random, not shuffled
+
+func pick_lore_shuffled(loru):
 	if lore_queue.size() == 0: #if lore has been gone through, start again
-		lore_queue = lore.duplicate()
+		lore_queue = loru.duplicate()
 		lore_queue.shuffle() #shuffled random order
 	var pick = lore_queue[0]
 	lore_queue.pop_front()
 	return pick
 
 func multiple_lore(amt,type):
-	var loresizesofar = lore.size()
+	var loresizesofar = 0#lore.size() ##deprecated functionality!
 	for i in amt + 1: #+1 makes amt inclusive
 		var tmp_txt = type + str(i)
 		if type == "ARKI": 
@@ -130,6 +147,7 @@ func multiple_lore(amt,type):
 
 func _on_start_button_down(): #after translation set text stuff, not before
 	starttimenu.hide() #remove_child queue_free()?
+	screeni.set_mouse_filter(MOUSE_FILTER_STOP) #STOP (grabs mouse controls to itself)
 	ilmoitus = {
 		"yes": {
 			"title": tr("Y"),
@@ -177,11 +195,11 @@ func _on_start_button_down(): #after translation set text stuff, not before
 		},
 	}
 	lore.clear()
-	add_lore(0,"test",tr("TESTI1"),[ilmoitus["ok"]])
-	add_lore(1,"test",tr("TESTI2"),[ilmoitus["yes"],ilmoitus["no"]])
-	add_lore(2,"test",tr("TESTI3"),[ilmoitus["yes"],ilmoitus["no"],ilmoitus["ok"]])
-	add_lore(3,"test",tr("TESTI4"),[ilmoitus["ok"]])
-	add_lore(4,"random",tr("LOREM"),[ilmoitus["ok"]])
+	add_lore(0,"TESTI",tr("TESTI1"),[ilmoitus["ok"]])
+	add_lore(1,"TESTI",tr("TESTI2"),[ilmoitus["yes"],ilmoitus["no"]])
+	add_lore(2,"TESTI",tr("TESTI3"),[ilmoitus["yes"],ilmoitus["no"],ilmoitus["ok"]])
+	add_lore(3,"TESTI",tr("TESTI4"),[ilmoitus["ok"]])
+	add_lore(4,"SEKO",tr("LOREM"),[ilmoitus["ok"]])
 	multiple_lore(7,"ARKI")
 	multiple_lore(4,"HEMMO")
 	multiple_lore(14,"LOHTU")
@@ -203,5 +221,8 @@ func _on_quit_pressed():
 	get_tree().quit()
 
 func _on_timer_timeout():
-	timer.set_wait_time(randf_range(1.0,5.0))
-	if lore.size() < 100: pop_up() #have some limit for pop-ups, will ya?
+	var kerroin = 1.0
+	if Global.mieliala > 0:
+		kerroin = float(Global.mieliala) / 20.0 #low mood correlates with escalating thoughts 
+	timer.set_wait_time(randf_range(kerroin,kerroin * 5.0))
+	if ikkunat.size() < 100: pop_up() #have some limit for pop-ups, will ya?
