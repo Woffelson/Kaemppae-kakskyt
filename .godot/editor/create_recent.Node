@@ -1,3 +1,4 @@
+MarginContainer
 Control
 ColorRect
 Panel
@@ -5,7 +6,6 @@ CanvasLayer
 ProgressBar
 Label
 HBoxContainer
-MarginContainer
 VBoxContainer
 Timer
 Button

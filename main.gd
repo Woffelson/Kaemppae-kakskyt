@@ -76,7 +76,7 @@ func start():
 func update_stats(): #mostly sync stats with GUI things
 	mieli.set_value(Global.mieliala)
 	jaxu.set_value(Global.jaksaminen)
-	if mieli.value > 66:
+	if mieli.value > 66 && jaxu.value > 66:
 		mielicon.set_text("☺️")
 		moodi = 0
 	else:
@@ -119,6 +119,11 @@ func closed_popup(suljettava,vars): #when window gets closed
 
 func pick_teema():
 	var options = lore.keys()
+	if Global.mieliala > 66: options = ["ARKI", "HEMMO", "LOHTU"]
+	elif Global.mieliala < 33:
+		if Global.mieliala <= 0: options = ["ERROR"]
+		else: options = ["SPIRAALI", "SEKO", "LOHTU", "APU", "ARKI", "HEMMO"]
+	else: options = ["SPIRAALI", "LOHTU", "APU", "ARKI", "HEMMO"]
 	return options.pick_random()
 
 func pick_lore(loru):
@@ -162,7 +167,7 @@ func _on_start_button_down(): #after translation set text stuff, not before
 		"yes_arki": {
 			"title": tr("Y"),
 			"action": "nappi",
-			"act_value": [-1,-2]
+			"act_value": [0,-2]
 		},
 		"no_arki": {
 			"title": tr("N"),
@@ -172,7 +177,7 @@ func _on_start_button_down(): #after translation set text stuff, not before
 		"yes_hemmo": {
 			"title": tr("Y"),
 			"action": "nappi",
-			"act_value": [1,-1]
+			"act_value": [2,-1]
 		},
 		"no_hemmo": {
 			"title": tr("N"),
@@ -199,13 +204,14 @@ func _on_start_button_down(): #after translation set text stuff, not before
 	add_lore(1,"TESTI",tr("TESTI2"),[ilmoitus["yes"],ilmoitus["no"]])
 	add_lore(2,"TESTI",tr("TESTI3"),[ilmoitus["yes"],ilmoitus["no"],ilmoitus["ok"]])
 	add_lore(3,"TESTI",tr("TESTI4"),[ilmoitus["ok"]])
-	add_lore(4,"SEKO",tr("LOREM"),[ilmoitus["ok"]])
+	add_lore(0,"SEKO",tr("LOREM"),[ilmoitus["ok"]]) #!!!
 	multiple_lore(7,"ARKI")
 	multiple_lore(4,"HEMMO")
 	multiple_lore(14,"LOHTU")
 	multiple_lore(2,"APU")
 	multiple_lore(10,"SPIRAALI")
 	multiple_lore(8,"SEKO")
+	multiple_lore(4,"ERROR")
 	started = true
 	pop_up()
 
@@ -222,7 +228,7 @@ func _on_quit_pressed():
 
 func _on_timer_timeout():
 	var kerroin = 1.0
-	if Global.mieliala > 0:
-		kerroin = float(Global.mieliala) / 20.0 #low mood correlates with escalating thoughts 
+	if Global.mieliala > 0: #low stats correlate with escalating thoughts:
+		kerroin = (float(Global.mieliala) + float(Global.jaksaminen)) / 40.0
 	timer.set_wait_time(randf_range(kerroin,kerroin * 5.0))
 	if ikkunat.size() < 100: pop_up() #have some limit for pop-ups, will ya?

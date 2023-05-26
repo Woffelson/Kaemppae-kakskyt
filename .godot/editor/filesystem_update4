@@ -2,5 +2,5 @@ res://main.tscn
 res://teemajee.tres
 res://ilmoitus.tscn
 res://nappi.tscn
-res://Shaders/glitch.gdshader
+res://global.gd
 res://main.gd

@@ -1,5 +1,5 @@
 extends Node
 
-var mieliala = 50
-var jaksaminen = 50
+var mieliala = 75
+var jaksaminen = 75
 var popup_gfx = []
