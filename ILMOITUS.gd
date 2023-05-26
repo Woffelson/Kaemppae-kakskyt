@@ -14,6 +14,7 @@ var writing = false
 var typewrite_spede = 1
 var drag_point = Vector2.ZERO
 var output = [0,0] #default output from buttons (mieliala, jaksaminen)
+var style = StyleBoxTexture.new()
 signal kloussaa(ikkuna,vars)
 
 @onready var txt : Label = get_node(teksti)
@@ -29,9 +30,34 @@ func _ready():
 	debuttons() #just in case
 	#position = Vector2i(randi_range(0,1152-320),randi_range(0,648-160))
 	#print(start_pos)
+	await get_tree().process_frame #wait for teema to be set by main...
+	set_gfx(teema)
 
 func _process(_delta):
 	if !ajastus.is_stopped(): aika.value = ajastus.wait_time - ajastus.time_left
+
+func set_gfx(tema):
+	add_theme_stylebox_override("panel", style)
+	var alts = [0,1,3,2]
+	if tema == "ARKI":
+		alts = [0,1,3,2,19]
+	elif tema == "HEMMO":
+		alts = [0]
+	elif tema == "LOHTU":
+		alts = [6,8,7]
+	elif tema == "APU":
+		alts = [0,9]
+	elif tema == "SPIRAALI":
+		alts = [4,5,15,16,17,18]
+	elif tema == "SEKO":
+		alts = [20]
+	elif tema == "ERROR":
+		alts = [10]
+#	if Global.mieliala > 75 || Global.jaksaminen > 75:
+#		alts.pop_back()
+#	if Global.mieliala < 25 || Global.jaksaminen < 25:
+#		alts.pop_front()
+	style.set_texture(Global.popup_gfx[alts.pick_random()]) #decide randomly from remaining options
 
 func settings(dikki): #creates visible lore stuff ("frontend")
 	txt.set_text(dikki["txt"])

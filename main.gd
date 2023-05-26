@@ -42,15 +42,14 @@ var ikkunat = [] #keep track of active pop-up windows
 @onready var mielicon : Label = get_node(mieli_icon)
 
 func _ready():
-	await get_tree().process_frame
+	await get_tree().process_frame #useless or not?
 	TranslationServer.set_locale("fi")
 	randomize() #ensures different random results
 	#seed(0) #ensures same random results with same seed value
 	if dir_popups:
 		for filu in dir_popups.get_files():
 			if filu.get_extension() == "png": #exclude import files and other crap
-				Global.popup_gfx.append(filu) #save assets
-	#print(Global.popup_gfx[20])
+				Global.popup_gfx.append(load("res://GFX/Popup/"+filu))#filu) #save assets
 	start()
 
 func _process(_delta):
@@ -186,6 +185,7 @@ func _on_start_button_down(): #after translation set text stuff, not before
 	multiple_lore(7,"ARKI")
 	multiple_lore(4,"HEMMO")
 	multiple_lore(14,"LOHTU")
+	multiple_lore(2,"APU")
 	multiple_lore(10,"SPIRAALI")
 	multiple_lore(8,"SEKO")
 	started = true
@@ -204,4 +204,4 @@ func _on_quit_pressed():
 
 func _on_timer_timeout():
 	timer.set_wait_time(randf_range(1.0,5.0))
-	if lore.size() > 100: pop_up() #have some limit for pop-ups, will ya?
+	if lore.size() < 100: pop_up() #have some limit for pop-ups, will ya?

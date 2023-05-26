@@ -7,3 +7,4 @@ res://global.gd
 res://nappi.tscn
 res://Data/MT-transl.fi.translation
 res://Data/MT-transl.en.translation
+res://Shaders/glitch.gdshader

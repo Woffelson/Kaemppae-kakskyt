@@ -1,13 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://6mx01amxrr83"]
+[gd_scene load_steps=7 format=3 uid="uid://bcbuuarsi108j"]
 
 [ext_resource type="Theme" uid="uid://brx6vlh7v4gl" path="res://teemajee.tres" id="1_6xepu"]
 [ext_resource type="Script" path="res://main.gd" id="1_k224y"]
 [ext_resource type="PackedScene" uid="uid://dtyjeg1kapndm" path="res://nappi.tscn" id="2_dfw8i"]
-[ext_resource type="Shader" path="res://Noice.gdshader" id="3_14533"]
 [ext_resource type="PackedScene" uid="uid://dijpaiy3bf8dn" path="res://ilmoitus.tscn" id="3_ba2xn"]
+[ext_resource type="Shader" path="res://Shaders/Noice.gdshader" id="5_qhi6u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bamfa"]
-shader = ExtResource("3_14533")
+shader = ExtResource("5_qhi6u")
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -130,8 +130,15 @@ theme_override_constants/margin_bottom = 160
 [node name="VBoxContainer" type="VBoxContainer" parent="AlkuRuutu/MarginContainer/Startmenu"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer"]
+[node name="Panel" type="Panel" parent="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer/Panel"]
+layout_mode = 2
+offset_top = 18.0
+offset_right = 480.0
+offset_bottom = 46.0
 size_flags_vertical = 6
 text = "Tajunnanvirta20 (WIP)"
 horizontal_alignment = 1

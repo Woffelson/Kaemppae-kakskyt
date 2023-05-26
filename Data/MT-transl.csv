@@ -19,7 +19,7 @@ Y,Kyllä,Yes
 N,Ei,No
 YT,Kyllä kiitos,Yes thanks
 NN,Ei nyt,Not now
-ARKI0,Putsaa tiskit,Do the dishes
+ARKI0,Tiskaa,Do the dishes
 ARKI1,Pese pyykit,Do the laundry
 ARKI2,Siivoa huoneesi,Clean up your room
 ARKI3,Maksa laskut,Pay the bills
@@ -77,8 +77,8 @@ LOHTU16,,
 ,,
 ,,
 ,,
-APU0,Olette jonossa,"You are in a queue, please wait"
-APU1,Pahoittelemme viivästystä,We apologise for the delay
+APU0,”Olette jonossa”,"”You are in a queue, please wait”"
+APU1,”Pahoittelemme viivästystä”,”We apologise for the delay”
 APU2,”Valitettavasti valintamme ei tällä kertaa kohdistunut sinuun.”,”Unfortunately our decision didn't pick you this time.”
 APU3,,
 APU4,,
