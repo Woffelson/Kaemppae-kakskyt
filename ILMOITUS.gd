@@ -7,6 +7,7 @@ extends Panel
 @export_node_path("Panel") var paneli
 @export_node_path("Timer") var ajastin
 @export_node_path("Timer") var naputin
+@export_node_path("Timer") var animuaika
 
 var current_lore = {}
 var teema = ""
@@ -23,14 +24,23 @@ signal kloussaa(ikkuna,vars)
 @onready var paneeli : Panel = get_node(paneli)
 @onready var ajastus : Timer = get_node(ajastin)
 @onready var write_timer : Timer = get_node(naputin)
+@onready var animu : Timer = get_node(animuaika)
 @onready var default_txt_size = Vector2.ZERO #teksti.size
 @onready var start_pos = Vector2.ZERO
 
 func _ready():
+	randomize()
 	debuttons() #just in case
 	#position = Vector2i(randi_range(0,1152-320),randi_range(0,648-160))
 	#print(start_pos)
 	await get_tree().process_frame #wait for teema to be set by main...
+	if teema == "LATAA":
+		ajastus.set_wait_time(30.0)
+		aika.set_max(30)
+		var ratio = str(round(float(Global.decisions) / float(Global.decisions+Global.undecided)*100.0))+"% ("
+		var result = "\n"+tr("KYKY")+" "+ratio+str(Global.decisions)+"/"+str(Global.undecided)+")\n"
+		txt.set_text(txt.get_text() + result + tr("TERVE") + " " + str(Global.healthy_choices) +\
+			"\n" + tr("SAIRAS") + " " + str(Global.sick_choices))
 	set_gfx(teema)
 
 func _process(_delta):
@@ -40,24 +50,30 @@ func set_gfx(tema):
 	add_theme_stylebox_override("panel", style)
 	var alts = [0,1,3,2]
 	if tema == "ARKI":
-		alts = [0,1,3,2,19]
+		alts = [0,1,3,2,9,19]
 	elif tema == "HEMMO":
-		alts = [0]
+		alts = [0,1,3,2,19]
 	elif tema == "LOHTU":
 		alts = [6,8,7]
 	elif tema == "APU":
-		alts = [0,9]
+		alts = [0,1,2,3,9,19]
 	elif tema == "SPIRAALI":
-		alts = [4,5,15,16,17,18]
+		alts = [4,5,15,16,18,19]
 	elif tema == "SEKO":
-		alts = [20]
+		alts = [5,9,10,19,20]
 	elif tema == "ERROR":
 		alts = [10]
-#	if Global.mieliala > 75 || Global.jaksaminen > 75:
-#		alts.pop_back()
-#	if Global.mieliala < 25 || Global.jaksaminen < 25:
+		animu.start()
+	elif tema == "LATAA":
+		alts = [0]
+	#	if Global.mieliala < 25 || Global.jaksaminen < 25:
 #		alts.pop_front()
-	style.set_texture(Global.popup_gfx[alts.pick_random()]) #decide randomly from remaining options
+	if Global.mieliala >= 75 && Global.jaksaminen >= 75:
+		style.set_texture(Global.popup_gfx[alts[0]])
+	else:
+		var pick = alts.pick_random()
+		if pick == 10 || pick == 16: animu.start()
+		style.set_texture(Global.popup_gfx[pick]) #decide randomly from remaining options
 
 func settings(dikki): #creates visible lore stuff ("frontend")
 	txt.set_text(dikki["txt"])
@@ -70,7 +86,7 @@ func set_buttons(dikki):
 			add_button(optio)#["title"])
 	nappipaikka.get_children()[-1].grab_focus() #0 first -1 last
 	if Global.jaksaminen < 25 && (teema == "ARKI" || teema == "HEMMO"):
-		nappipaikka.get_children()[0].queue_free() #erases active yes options when exhausted
+		nappipaikka.get_children()[0].set_disabled(true)#queue_free() #erases active yes options when exhausted
 
 func add_button(kontsa): #self-explanatory...
 	var butt = button.instantiate()
@@ -94,11 +110,9 @@ func reset_write():
 	write_timer.start()
 
 func pop_message(lore):
-	#if !paneeli.visible:
-	#	paneeli.show()
-		teema = lore["teema"]
-		settings(lore) #ilmoitus #pick_lore()
-		reset_write()
+	teema = lore["teema"]
+	settings(lore) #ilmoitus #pick_lore()
+	reset_write()
 
 func close_message(): #outdated solution after refactoring?
 #	debuttons()
@@ -108,12 +122,17 @@ func close_message(): #outdated solution after refactoring?
 	queue_free()
 
 func nappi(juttu): #what happens when a button is pressed
-	#print(juttu)
+	if juttu[2] != "end": Global.decisions += 1 #made a decision
+	if juttu[2] == "healthy": Global.healthy_choices += 1
+	elif juttu[2] == "sick": Global.sick_choices += 1
 	output = juttu
 	close_message()
 
-func timeout_close():
-	output = [-1,0]
+func timeout_close(): #no decisions, auto-close
+	if teema == "LATAA": output = [0,0,"end"]
+	else:
+		Global.undecided += 1
+		output = [-1,0,"ok"] #failed decision decreases mood
 	#print("EBIN JUDDU MAGE DÄÄ DOIMII :DDD")
 	close_message()
 
@@ -153,6 +172,8 @@ func _on_teksti_resized():
 			position.y -= round(25.0/2.0) #purkka
 
 func _on_npyttj_timeout(): #typewriter effect
+	var tik = $TICK
+	if !tik.is_playing(): tik.play()
 	abs_write(txt)
 	#rel_write(txt)
 
@@ -165,3 +186,9 @@ func _on_gui_input(_event):
 
 func _on_ajastin_timeout():
 	timeout_close()
+
+func _on_animu_timeout():
+	var alts = [16,17]
+	if teema == "ERROR" || teema == "SEKO": alts = [10,11,12,13,14]
+	style.set_texture(Global.popup_gfx[alts.pick_random()])
+	animu.set_wait_time(randf_range(0.01,0.5))

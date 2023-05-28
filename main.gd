@@ -21,9 +21,8 @@ var dir_popups = DirAccess.open("res://GFX/Popup/")
 var mielentila = "arki" #katastrofi, error
 var moodi = 0 #0 one-at-a-time 1 multiple 2 error
 var started = false
-var muuttuja = "heja svärje"
-var muuttuja_y = [0,0]
-var muuttuja_n = [0,0]
+var ended = false
+var muuttuja = [0,0,"ok"]
 var lore = {} #lore contents []
 var lore_queue = [] #lore in certain order, empty when gone through
 var ilmoitus = {}
@@ -60,18 +59,22 @@ func _process(_delta):
 		if Input.is_action_just_pressed("ui_cancel"):
 			start()
 
-func start():
+func start(restart := false):
+	ended = false
+	moodi = 0
+	Global.reset()
 	for ikk in screeni.get_children():#kkunat: #fixing......
 		if ikk != null: ikk.queue_free()
 	ikkunat.clear()
-	screeni.set_mouse_filter(MOUSE_FILTER_IGNORE) #IGNORE (doesn't grab mouse controls to itself)
-	started = false
-	starttimenu.show()
-	startti.set_text(tr("START"))
-	suomi.set_text(tr("FIN"))
-	enkku.set_text(tr("ENG"))
-	quitti.set_text(tr("QUIT"))
-	startti.grab_focus()
+	if !restart: #when started first time or exited to main menu
+		screeni.set_mouse_filter(MOUSE_FILTER_IGNORE) #IGNORE (doesn't grab mouse controls to itself)
+		started = false
+		starttimenu.show()
+		startti.set_text(tr("START"))
+		suomi.set_text(tr("FIN"))
+		enkku.set_text(tr("ENG"))
+		quitti.set_text(tr("QUIT"))
+		startti.grab_focus()
 
 func update_stats(): #mostly sync stats with GUI things
 	mieli.set_value(Global.mieliala)
@@ -97,12 +100,16 @@ func add_lore(id,teema,tekst,options): #builds the basic blocks of lore messages
 	if !lore.has(teema): lore[teema] = [] #make list if there's none
 	lore[teema].append(dikki)
 
-func pop_up():
+func pop_up(final := false):
 	var pop_ikkuna = ikkuna.instantiate()
 	pop_ikkuna.connect("kloussaa",Callable(self,"closed_popup"))
 	screeni.add_child(pop_ikkuna)
-	pop_ikkuna.position = Vector2(randi_range(0,1152-320),randi_range(0,648-160))
-	pop_ikkuna.pop_message(pick_lore(lore[pick_teema()]))
+	if final:
+		pop_ikkuna.position = Vector2((1152.0-320.0) / 2.0,(648.0-160.0) / 2.0) #result message centred
+		pop_ikkuna.pop_message(pick_lore(lore["LATAA"]))
+	else:
+		pop_ikkuna.position = Vector2(randi_range(0,1152-320),randi_range(0,648-160))
+		pop_ikkuna.pop_message(pick_lore(lore[pick_teema()]))
 	ikkunat.append(pop_ikkuna)
 	if moodi > 0:
 		if timer.is_stopped(): timer.start() #generate multiple more based on timer
@@ -110,12 +117,16 @@ func pop_up():
 
 func closed_popup(suljettava,vars): #when window gets closed
 	ikkunat.erase(suljettava)
-	if moodi == 0 || ikkunat.size() == 0: #always at least one window?
+	suljettava.queue_free() #memory save?
+	if Global.mieliala <= 0: #the last decision
+		if !ended:
+			pop_up(true)
+			ended = true
+		elif vars[2] == "end": start(true) #restart teh gaem
+	elif moodi == 0 || ikkunat.size() == 0: #always at least one window?
 		pop_up()
 	Global.mieliala = min(100,max(0,Global.mieliala + vars[0])) #limit changed value between 0-100
 	Global.jaksaminen = min(100,max(0,Global.jaksaminen + vars[1]))
-	#print(vars)
-	#suljettava.queue_free()
 
 func pick_teema():
 	var options = lore.keys()
@@ -129,7 +140,7 @@ func pick_teema():
 func pick_lore(loru):
 	return loru.pick_random() #OG code, pure random, not shuffled
 
-func pick_lore_shuffled(loru):
+func pick_lore_shuffled(loru): #currently outdated for this project
 	if lore_queue.size() == 0: #if lore has been gone through, start again
 		lore_queue = loru.duplicate()
 		lore_queue.shuffle() #shuffled random order
@@ -157,49 +168,56 @@ func _on_start_button_down(): #after translation set text stuff, not before
 		"yes": {
 			"title": tr("Y"),
 			"action": "nappi",
-			"act_value": muuttuja_y #kiva: 1,-1 askare -1,-2
+			"act_value": muuttuja #kiva: 1,-1 askare -1,-2
 		},
 		"no": {
 			"title": tr("N"),
 			"action":  "nappi",#"ebin"
-			"act_value": muuttuja_n#[-1,0]
+			"act_value": muuttuja#[-1,0]
 		},
 		"yes_arki": {
 			"title": tr("Y"),
 			"action": "nappi",
-			"act_value": [0,-2]
+			"act_value": [0,-2,"healthy"]
 		},
 		"no_arki": {
 			"title": tr("N"),
 			"action":  "nappi",
-			"act_value": [-2,0]
+			"act_value": [-2,0,"sick"]
 		},
 		"yes_hemmo": {
 			"title": tr("Y"),
 			"action": "nappi",
-			"act_value": [2,-1]
+			"act_value": [2,-1,"healthy"]
 		},
 		"no_hemmo": {
 			"title": tr("N"),
 			"action":  "nappi",
-			"act_value": [-2,0]
+			"act_value": [-2,0,"sick"]
 		},
 		"yes_spiraali": {
 			"title": tr("Y"),
 			"action": "nappi",
-			"act_value": [-2,-1]
+			"act_value": [-2,-1,"sick"]
 		},
 		"no_spiraali": {
 			"title": tr("N"),
 			"action":  "nappi",
-			"act_value": [0,0]
+			"act_value": [0,0,"healthy"]
 		},
 		"ok": {
 			"title": tr("OK"),
-			"action": "close_message"
+			"action": "nappi",#close_message
+			"act_value": muuttuja
+		},
+		"end": {
+			"title": tr("OK"),
+			"action": "nappi",#close_message
+			"act_value": [0,0,"end"]
 		},
 	}
 	lore.clear()
+	add_lore(0,"LATAA",tr("LATAA"),[ilmoitus["end"]])
 	add_lore(0,"TESTI",tr("TESTI1"),[ilmoitus["ok"]])
 	add_lore(1,"TESTI",tr("TESTI2"),[ilmoitus["yes"],ilmoitus["no"]])
 	add_lore(2,"TESTI",tr("TESTI3"),[ilmoitus["yes"],ilmoitus["no"],ilmoitus["ok"]])
@@ -229,6 +247,6 @@ func _on_quit_pressed():
 func _on_timer_timeout():
 	var kerroin = 1.0
 	if Global.mieliala > 0: #low stats correlate with escalating thoughts:
-		kerroin = (float(Global.mieliala) + float(Global.jaksaminen)) / 40.0
+		kerroin = (float(Global.mieliala) + float(Global.jaksaminen)) / 200.0
 	timer.set_wait_time(randf_range(kerroin,kerroin * 5.0))
 	if ikkunat.size() < 100: pop_up() #have some limit for pop-ups, will ya?

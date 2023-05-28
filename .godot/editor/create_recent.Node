@@ -1,3 +1,5 @@
+Timer
+AudioStreamPlayer
 MarginContainer
 Control
 ColorRect
@@ -7,5 +9,4 @@ ProgressBar
 Label
 HBoxContainer
 VBoxContainer
-Timer
 Button

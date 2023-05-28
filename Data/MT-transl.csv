@@ -10,6 +10,7 @@ ERROR2,502 bad gateway,502 bad gateway
 ERROR3,403 forbidden,403 forbidden
 ERROR4,404,404
 ,,
+,,
 START,Aloita päiväsi,Start your day
 FIN,Suomi,Suomi
 ENG,English,English
@@ -19,6 +20,13 @@ Y,Kyllä,Yes
 N,Ei,No
 YT,Kyllä kiitos,Yes thanks
 NN,Ei nyt,Not now
+LATAA,Ladataan palautusversiota...,Reverting to rollback version...
+KYKY,Päätöksentekokyky:,Decision-making:
+TERVE,Terveet valinnat:,Healthy choices:
+SAIRAS,Sairaat valinnat:,Sick choices:
+,,
+,,
+,,
 ARKI0,Tiskaa,Do the dishes
 ARKI1,Pese pyykit,Do the laundry
 ARKI2,Siivoa huoneesi,Clean up your room
@@ -31,6 +39,8 @@ ARKI8,,
 ARKI9,,
 ARKI10,,
 ARKI11,,
+,,
+,,
 ,,
 ,,
 ,,

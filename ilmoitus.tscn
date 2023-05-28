@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dijpaiy3bf8dn"]
+[gd_scene load_steps=6 format=3 uid="uid://dijpaiy3bf8dn"]
 
 [ext_resource type="Script" path="res://ILMOITUS.gd" id="1_2x414"]
 [ext_resource type="Theme" uid="uid://brx6vlh7v4gl" path="res://teemajee.tres" id="1_pajbr"]
 [ext_resource type="PackedScene" uid="uid://dtyjeg1kapndm" path="res://nappi.tscn" id="2_b0mx4"]
+[ext_resource type="AudioStream" uid="uid://cjwsr5jfrea1t" path="res://SFX/poks.wav" id="4_vtjdd"]
+[ext_resource type="AudioStream" uid="uid://bnexjksnjr6yv" path="res://SFX/keypress.wav" id="5_nnrod"]
 
 [node name="ILMOITUS" type="Panel"]
-self_modulate = Color(1, 1, 1, 0.815686)
+self_modulate = Color(1, 1, 1, 0.878431)
 custom_minimum_size = Vector2(320, 160)
 layout_direction = 1
 anchors_preset = 8
@@ -30,6 +32,7 @@ bar = NodePath("VBoxContainer/ColorRect/MarginContainer/Aika")
 paneli = NodePath(".")
 ajastin = NodePath("Ajastin")
 naputin = NodePath("NÄPYTTÄJÄ")
+animuaika = NodePath("Animu")
 metadata/_edit_group_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -96,7 +99,18 @@ wait_time = 10.0
 [node name="NÄPYTTÄJÄ" type="Timer" parent="."]
 wait_time = 0.05
 
+[node name="Animu" type="Timer" parent="."]
+
+[node name="POKS" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vtjdd")
+autoplay = true
+
+[node name="TICK" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_nnrod")
+volume_db = -10.0
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="resized" from="VBoxContainer/MarginContainer/TEKSTI" to="." method="_on_teksti_resized"]
 [connection signal="timeout" from="Ajastin" to="." method="_on_ajastin_timeout"]
 [connection signal="timeout" from="NÄPYTTÄJÄ" to="." method="_on_npyttj_timeout"]
+[connection signal="timeout" from="Animu" to="." method="_on_animu_timeout"]
