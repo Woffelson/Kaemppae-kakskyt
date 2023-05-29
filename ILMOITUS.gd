@@ -68,7 +68,7 @@ func set_gfx(tema):
 		alts = [0]
 	#	if Global.mieliala < 25 || Global.jaksaminen < 25:
 #		alts.pop_front()
-	if Global.mieliala >= 75 && Global.jaksaminen >= 75:
+	if Global.mieliala >= 90 && Global.jaksaminen >= 75:
 		style.set_texture(Global.popup_gfx[alts[0]])
 	else:
 		var pick = alts.pick_random()

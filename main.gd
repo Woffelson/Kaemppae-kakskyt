@@ -47,9 +47,12 @@ func _ready():
 	randomize() #ensures different random results
 	#seed(0) #ensures same random results with same seed value
 	if dir_popups:
-		for filu in dir_popups.get_files():
-			if filu.get_extension() == "png": #exclude import files and other crap
-				Global.popup_gfx.append(load("res://GFX/Popup/"+filu))#filu) #save assets
+		for filu in dir_popups.get_files(): #btw, exported game forgets png locations, so...
+			if filu.get_extension() == "import": #seek for import files and remove it from extension
+				Global.popup_gfx.append(load("res://GFX/Popup/"+filu.replace(".import", ""))) #save assets
+			#if filu.get_extension() == "png": #seek for import files and remove it from extension
+			#	Global.popup_gfx.append(load("res://GFX/Popup/"+filu))
+	print(Global.popup_gfx)
 	start()
 
 func _process(_delta):
@@ -83,17 +86,18 @@ func update_stats(): #mostly sync stats with GUI things
 	jaxu.set_value(Global.jaksaminen)
 	if jaxu.value < 25: jaxu.set_modulate(Color8(255,0,0)) #⚡️
 	else: jaxu.set_modulate(Color8(255,255,255))
-	if mieli.value > 66 && jaxu.value > 66:
+	if mieli.value > 75:# && jaxu.value > 66: #high
 		#mielicon.set_text("☺️")
 		mielicon.texture.set_current_frame(0)
 		moodi = 0
 	else:
 		moodi = 1
-		if mieli.value < 33:
+		if mieli.value < 25: #low
 			if mieli.value <= 0: #error
 				moodi = 2
 			else: mielicon.texture.set_current_frame(2)#mielicon.set_text("☹️️")
-		else: mielicon.texture.set_current_frame(1)#mielicon.set_text("😐️") # 33-66 mid mood
+		elif mieli.value > 50: mielicon.texture.set_current_frame(1)#mielicon.set_text("😐️") #mid
+		else: mielicon.texture.set_current_frame(3)
 
 func add_lore(id,teema,tekst,options): #builds the basic blocks of lore messages ("backend")
 	var dikki = {}

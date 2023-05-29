@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bcbuuarsi108j"]
+[gd_scene load_steps=19 format=3 uid="uid://bcbuuarsi108j"]
 
 [ext_resource type="Theme" uid="uid://brx6vlh7v4gl" path="res://teemajee.tres" id="1_6xepu"]
 [ext_resource type="Script" path="res://main.gd" id="1_k224y"]
@@ -18,8 +18,6 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bamfa"]
 shader = ExtResource("5_qhi6u")
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_8gneb"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_e6nbv"]
 frames = 8
@@ -114,10 +112,6 @@ fill_mode = 1
 visible = false
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
-
-[node name="MIELICONB" type="AnimatedSprite2D" parent="BARS/Panel/HBoxContainer/MIELICONA"]
-position = Vector2(36, 0)
-sprite_frames = SubResource("SpriteFrames_8gneb")
 
 [node name="Label2" type="Label" parent="BARS/Panel/HBoxContainer"]
 visible = false
@@ -222,6 +216,7 @@ mouse_filter = 2
 one_shot = true
 
 [node name="Glitch" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_l7cqu")
 layout_mode = 1
 anchors_preset = 15
