@@ -11,7 +11,7 @@ var sick_choices = 0
 
 func reset():
 	mieliala = 75
-	jaksaminen = 75
+	jaksaminen = 100
 	decisions = 0
 	undecided = 0
 	healthy_choices = 0

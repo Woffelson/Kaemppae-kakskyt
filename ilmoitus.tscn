@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dijpaiy3bf8dn"]
+[gd_scene load_steps=7 format=3 uid="uid://dijpaiy3bf8dn"]
 
 [ext_resource type="Script" path="res://ILMOITUS.gd" id="1_2x414"]
 [ext_resource type="Theme" uid="uid://brx6vlh7v4gl" path="res://teemajee.tres" id="1_pajbr"]
 [ext_resource type="PackedScene" uid="uid://dtyjeg1kapndm" path="res://nappi.tscn" id="2_b0mx4"]
+[ext_resource type="Texture2D" uid="uid://cgp40odjc08g4" path="res://GFX/Ikonit/vaara.png" id="4_ptalg"]
 [ext_resource type="AudioStream" uid="uid://cjwsr5jfrea1t" path="res://SFX/poks.wav" id="4_vtjdd"]
 [ext_resource type="AudioStream" uid="uid://bnexjksnjr6yv" path="res://SFX/keypress.wav" id="5_nnrod"]
 
@@ -70,6 +71,13 @@ layout_mode = 2
 size_flags_vertical = 1
 max_value = 10.0
 show_percentage = false
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_ptalg")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 use_parent_material = true

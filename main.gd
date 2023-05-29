@@ -13,7 +13,8 @@ extends Control
 @export_node_path("Timer") var timeri
 @export_node_path("ProgressBar") var mielibar
 @export_node_path("ProgressBar") var jaxubar
-@export_node_path("Label") var mieli_icon
+#@export_node_path("Label") var mieli_icon
+@export_node_path("TextureRect") var mieli_icon
 
 var dir_popups = DirAccess.open("res://GFX/Popup/")
 #var mieliala = 50
@@ -38,7 +39,7 @@ var ikkunat = [] #keep track of active pop-up windows
 @onready var timer : Timer = get_node(timeri)
 @onready var mieli : ProgressBar = get_node(mielibar)
 @onready var jaxu : ProgressBar = get_node(jaxubar)
-@onready var mielicon : Label = get_node(mieli_icon)
+@onready var mielicon : TextureRect = get_node(mieli_icon) #Label
 
 func _ready():
 	await get_tree().process_frame #useless or not?
@@ -67,6 +68,7 @@ func start(restart := false):
 		if ikk != null: ikk.queue_free()
 	ikkunat.clear()
 	if !restart: #when started first time or exited to main menu
+		timer.stop() #bug fix...?
 		screeni.set_mouse_filter(MOUSE_FILTER_IGNORE) #IGNORE (doesn't grab mouse controls to itself)
 		started = false
 		starttimenu.show()
@@ -79,16 +81,19 @@ func start(restart := false):
 func update_stats(): #mostly sync stats with GUI things
 	mieli.set_value(Global.mieliala)
 	jaxu.set_value(Global.jaksaminen)
+	if jaxu.value < 25: jaxu.set_modulate(Color8(255,0,0)) #⚡️
+	else: jaxu.set_modulate(Color8(255,255,255))
 	if mieli.value > 66 && jaxu.value > 66:
-		mielicon.set_text("☺️")
+		#mielicon.set_text("☺️")
+		mielicon.texture.set_current_frame(0)
 		moodi = 0
 	else:
 		moodi = 1
 		if mieli.value < 33:
-			if mieli.value <= 0:
+			if mieli.value <= 0: #error
 				moodi = 2
-			else: mielicon.set_text("☹️️")
-		else: mielicon.set_text("😐️") # 33-66 mid mood
+			else: mielicon.texture.set_current_frame(2)#mielicon.set_text("☹️️")
+		else: mielicon.texture.set_current_frame(1)#mielicon.set_text("😐️") # 33-66 mid mood
 
 func add_lore(id,teema,tekst,options): #builds the basic blocks of lore messages ("backend")
 	var dikki = {}
@@ -250,3 +255,4 @@ func _on_timer_timeout():
 		kerroin = (float(Global.mieliala) + float(Global.jaksaminen)) / 200.0
 	timer.set_wait_time(randf_range(kerroin,kerroin * 5.0))
 	if ikkunat.size() < 100: pop_up() #have some limit for pop-ups, will ya?
+	if moodi == 2: mielicon.texture.set_current_frame(randi_range(4,7))

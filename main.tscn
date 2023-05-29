@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcbuuarsi108j"]
+[gd_scene load_steps=20 format=3 uid="uid://bcbuuarsi108j"]
 
 [ext_resource type="Theme" uid="uid://brx6vlh7v4gl" path="res://teemajee.tres" id="1_6xepu"]
 [ext_resource type="Script" path="res://main.gd" id="1_k224y"]
@@ -6,9 +6,39 @@
 [ext_resource type="PackedScene" uid="uid://dijpaiy3bf8dn" path="res://ilmoitus.tscn" id="3_ba2xn"]
 [ext_resource type="Shader" path="res://Shaders/Noice.gdshader" id="5_qhi6u"]
 [ext_resource type="Shader" path="res://Shaders/glitch.gdshader" id="6_2itab"]
+[ext_resource type="Texture2D" uid="uid://drwrj4bfrdspc" path="res://GFX/Ikonit/okface.png" id="6_gx8ta"]
+[ext_resource type="Texture2D" uid="uid://cj4sxho3qe8eo" path="res://GFX/Ikonit/mehface2.png" id="7_g2m8c"]
+[ext_resource type="Texture2D" uid="uid://cuer5lq70nhjc" path="res://GFX/Ikonit/sadface.png" id="8_skpny"]
+[ext_resource type="Texture2D" uid="uid://5gb0vwqmlppq" path="res://GFX/Ikonit/eekface.png" id="9_6u2so"]
+[ext_resource type="Texture2D" uid="uid://dt71d2tkr3c7e" path="res://GFX/Ikonit/glitzface.png" id="10_qutd8"]
+[ext_resource type="Texture2D" uid="uid://8ix0tm7aub6x" path="res://GFX/Ikonit/glitzfe.png" id="11_hypkp"]
+[ext_resource type="Texture2D" uid="uid://d220uin0vbq66" path="res://GFX/Ikonit/battery.png" id="12_55880"]
+[ext_resource type="Texture2D" uid="uid://de2tspuyj78uw" path="res://GFX/Ikonit/dedface.png" id="12_gnfjm"]
+[ext_resource type="Texture2D" uid="uid://c3ixvwwb8fa5q" path="res://GFX/Ikonit/ded2face.png" id="13_vkb78"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bamfa"]
 shader = ExtResource("5_qhi6u")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8gneb"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_e6nbv"]
+frames = 8
+pause = true
+frame_0/texture = ExtResource("6_gx8ta")
+frame_1/texture = ExtResource("7_g2m8c")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("8_skpny")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("9_6u2so")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("10_qutd8")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("11_hypkp")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("12_gnfjm")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("13_vkb78")
+frame_7/duration = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l7cqu"]
 shader = ExtResource("6_2itab")
@@ -62,7 +92,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Panel" type="Panel" parent="BARS"]
-custom_minimum_size = Vector2(0, 24)
+custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 mouse_filter = 2
 
@@ -80,16 +110,30 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 fill_mode = 1
 
-[node name="MIELICON" type="Label" parent="BARS/Panel/HBoxContainer"]
+[node name="MIELICONA" type="Label" parent="BARS/Panel/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
-text = "😐"
+
+[node name="MIELICONB" type="AnimatedSprite2D" parent="BARS/Panel/HBoxContainer/MIELICONA"]
+position = Vector2(36, 0)
+sprite_frames = SubResource("SpriteFrames_8gneb")
 
 [node name="Label2" type="Label" parent="BARS/Panel/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
-text = "⚡️"
 horizontal_alignment = 2
+
+[node name="MIELICON" type="TextureRect" parent="BARS/Panel/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AnimatedTexture_e6nbv")
+expand_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="BARS/Panel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("12_55880")
+expand_mode = 3
 
 [node name="JAXU" type="ProgressBar" parent="BARS/Panel/HBoxContainer"]
 layout_mode = 2
@@ -141,7 +185,7 @@ offset_top = 18.0
 offset_right = 480.0
 offset_bottom = 46.0
 size_flags_vertical = 6
-text = "Tajunnanvirta20 (WIP)"
+text = "Tajunnanvirta20 (beta 1.0)"
 horizontal_alignment = 1
 
 [node name="Start" type="Button" parent="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer"]
