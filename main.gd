@@ -46,13 +46,16 @@ func _ready():
 	TranslationServer.set_locale("fi")
 	randomize() #ensures different random results
 	#seed(0) #ensures same random results with same seed value
+	var hojohojo = []
 	if dir_popups:
 		for filu in dir_popups.get_files(): #btw, exported game forgets png locations, so...
 			if filu.get_extension() == "import": #seek for import files and remove it from extension
 				Global.popup_gfx.append(load("res://GFX/Popup/"+filu.replace(".import", ""))) #save assets
+				hojohojo.append("res://GFX/Popup/"+filu)
 			#if filu.get_extension() == "png": #seek for import files and remove it from extension
 			#	Global.popup_gfx.append(load("res://GFX/Popup/"+filu))
 	print(Global.popup_gfx)
+	print(hojohojo)
 	start()
 
 func _process(_delta):
