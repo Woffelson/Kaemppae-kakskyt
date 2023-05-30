@@ -1,10 +1,10 @@
-extends Panel
+extends TextureRect
 
 @export var button : Resource
 @export_node_path("Label") var teksti
 @export_node_path("HBoxContainer") var nappi_paikka
 @export_node_path("ProgressBar") var bar
-@export_node_path("Panel") var paneli
+#@export_node_path("Panel") var paneli
 @export_node_path("Timer") var ajastin
 @export_node_path("Timer") var naputin
 @export_node_path("Timer") var animuaika
@@ -15,13 +15,13 @@ var writing = false
 var typewrite_spede = 1
 var drag_point = Vector2.ZERO
 var output = [0,0] #default output from buttons (mieliala, jaksaminen)
-var style = StyleBoxTexture.new()
+#var style = StyleBoxTexture.new()
 signal kloussaa(ikkuna,vars)
 
 @onready var txt : Label = get_node(teksti)
 @onready var nappipaikka : HBoxContainer = get_node(nappi_paikka)
 @onready var aika : ProgressBar = get_node(bar)
-@onready var paneeli : Panel = get_node(paneli)
+#@onready var paneeli : Panel = get_node(paneli)
 @onready var ajastus : Timer = get_node(ajastin)
 @onready var write_timer : Timer = get_node(naputin)
 @onready var animu : Timer = get_node(animuaika)
@@ -47,7 +47,7 @@ func _process(_delta):
 	if !ajastus.is_stopped(): aika.value = ajastus.wait_time - ajastus.time_left
 
 func set_gfx(tema):
-	add_theme_stylebox_override("panel", style)
+	#add_theme_stylebox_override("panel", style) #old code when Panel was root
 	var alts = [0,1,3,2]
 	if tema == "ARKI":
 		alts = [0,1,3,2,9,19]
@@ -69,11 +69,13 @@ func set_gfx(tema):
 	#	if Global.mieliala < 25 || Global.jaksaminen < 25:
 #		alts.pop_front()
 	if Global.mieliala >= 90 && Global.jaksaminen >= 75:
-		style.set_texture(Global.popup_gfx[alts[0]])
+		#style.set_texture(Global.popup_gfx[alts[0]]) #deprecated old code
+		texture.set_current_frame(alts[0])
 	else:
 		var pick = alts.pick_random()
 		if pick == 10 || pick == 16: animu.start()
-		style.set_texture(Global.popup_gfx[pick]) #decide randomly from remaining options
+		#style.set_texture(Global.popup_gfx[pick]) #decide randomly from remaining options
+		texture.set_current_frame(pick)
 
 func settings(dikki): #creates visible lore stuff ("frontend")
 	txt.set_text(dikki["txt"])
@@ -190,5 +192,6 @@ func _on_ajastin_timeout():
 func _on_animu_timeout():
 	var alts = [16,17]
 	if teema == "ERROR" || teema == "SEKO": alts = [10,11,12,13,14]
-	style.set_texture(Global.popup_gfx[alts.pick_random()])
+	#style.set_texture(Global.popup_gfx[alts.pick_random()])
+	texture.set_current_frame(alts.pick_random())
 	animu.set_wait_time(randf_range(0.01,0.5))

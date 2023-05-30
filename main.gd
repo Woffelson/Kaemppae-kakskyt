@@ -17,8 +17,6 @@ extends Control
 @export_node_path("TextureRect") var mieli_icon
 
 var dir_popups = DirAccess.open("res://GFX/Popup/")
-#var mieliala = 50
-#var jaksaminen = 50
 var mielentila = "arki" #katastrofi, error
 var moodi = 0 #0 one-at-a-time 1 multiple 2 error
 var started = false
@@ -46,13 +44,6 @@ func _ready():
 	TranslationServer.set_locale("fi")
 	randomize() #ensures different random results
 	#seed(0) #ensures same random results with same seed value
-	if dir_popups:
-		for filu in dir_popups.get_files(): #btw, exported game forgets png locations, so...
-			if filu.get_extension() == "import": #seek for import files and remove it from extension
-				Global.popup_gfx.append(load("res://GFX/Popup/"+filu.replace(".import", ""))) #save assets
-			#if filu.get_extension() == "png": #seek for import files and remove it from extension
-			#	Global.popup_gfx.append(load("res://GFX/Popup/"+filu))
-	print(Global.popup_gfx)
 	start()
 
 func _process(_delta):
@@ -62,6 +53,15 @@ func _process(_delta):
 #			pop_up()
 		if Input.is_action_just_pressed("ui_cancel"):
 			start()
+
+func opiksi_ja_ojennukseksi(): #deprecated but saved for further studying...
+	if dir_popups:
+		for filu in dir_popups.get_files(): #btw, exported game forgets png locations, so...
+			if filu.get_extension() == "import": #seek for import files and remove it from extension
+				Global.popup_gfx.append(load("res://GFX/Popup/"+filu.replace(".import", ""))) #save assets
+				#this way the order of files was a mystery...
+			#if filu.get_extension() == "png": #seek for import files and remove it from extension
+			#	Global.popup_gfx.append(load("res://GFX/Popup/"+filu)) #in order but forgotten when exported
 
 func start(restart := false):
 	ended = false
