@@ -5,9 +5,11 @@ extends Panel
 @export_node_path("HBoxContainer") var nappi_paikka
 @export_node_path("ProgressBar") var bar
 @export_node_path("Panel") var paneli
+@export_node_path("TextureRect") var ikoni
 @export_node_path("Timer") var ajastin
 @export_node_path("Timer") var naputin
 @export_node_path("Timer") var animuaika
+@export_node_path("Timer") var animuikonaika
 
 var current_lore = {}
 var teema = ""
@@ -22,9 +24,11 @@ signal kloussaa(ikkuna,vars)
 @onready var nappipaikka : HBoxContainer = get_node(nappi_paikka)
 @onready var aika : ProgressBar = get_node(bar)
 @onready var paneeli : Panel = get_node(paneli)
+@onready var ikon : TextureRect = get_node(ikoni)
 @onready var ajastus : Timer = get_node(ajastin)
 @onready var write_timer : Timer = get_node(naputin)
 @onready var animu : Timer = get_node(animuaika)
+@onready var animu_ikon : Timer = get_node(animuikonaika)
 @onready var default_txt_size = Vector2.ZERO #teksti.size
 @onready var start_pos = Vector2.ZERO
 
@@ -35,6 +39,7 @@ func _ready():
 	#print(start_pos)
 	await get_tree().process_frame #wait for teema to be set by main...
 	if teema == "LATAA":
+		z_index = 2 #in front of other windows
 		ajastus.set_wait_time(30.0)
 		aika.set_max(30)
 		var ratio = str(round(float(Global.decisions) / float(Global.decisions+Global.undecided)*100.0))+"% ("
@@ -49,31 +54,42 @@ func _process(_delta):
 func set_gfx(tema):
 	add_theme_stylebox_override("panel", style)
 	var alts = [0,1,3,2]
-	if tema == "ARKI":
-		alts = [0,1,3,2,9,19]
-	elif tema == "HEMMO":
-		alts = [0,1,3,2,19]
-	elif tema == "LOHTU":
-		alts = [6,8,7]
-	elif tema == "APU":
-		alts = [0,1,2,3,9,19]
-	elif tema == "SPIRAALI":
-		alts = [4,5,15,16,18,19]
-	elif tema == "SEKO":
-		alts = [5,9,10,19,20]
-	elif tema == "ERROR":
-		alts = [10]
-		animu.start()
-	elif tema == "LATAA":
-		alts = [0]
-	#	if Global.mieliala < 25 || Global.jaksaminen < 25:
+	var alts_ikon = [0]
+	match (tema):
+		"ARKI":
+			alts = [0,1,3,2,9,19]
+			alts_ikon = [0,19]
+		"HEMMO":
+			alts = [0,1,3,2,19]
+			alts_ikon = [5,19]
+		"LOHTU":
+			alts = [6,8,7]
+			alts_ikon = [6,20,21]
+		"APU":
+			alts = [0,1,2,3,9,19]
+			alts_ikon = [7,20]
+		"SPIRAALI":
+			alts = [4,5,15,16,18,19]
+			alts_ikon = [10]
+		"SEKO":
+			alts = [5,9,10,19,20]
+			alts_ikon = [8,15,16,17,18]
+		"ERROR":
+			alts = [10]
+			alts_ikon = [0,1,2,4]
+		"LATAA":
+			alts = [0]
+#	if Global.mieliala < 25 || Global.jaksaminen < 25:
 #		alts.pop_front()
 	if Global.mieliala >= 90 && Global.jaksaminen >= 75:
 		style.set_texture(Global.popup_gfx[alts[0]])
 	else:
 		var pick = alts.pick_random()
+		var pick_ikon = alts_ikon.pick_random()
 		if pick == 10 || pick == 16: animu.start()
+		if pick_ikon == 2 || pick_ikon == 8 || pick_ikon == 10: animu_ikon.start()
 		style.set_texture(Global.popup_gfx[pick]) #decide randomly from remaining options
+		#ikon.texture.set_current_frame(pick_ikon)
 
 func settings(dikki): #creates visible lore stuff ("frontend")
 	txt.set_text(dikki["txt"])
@@ -192,3 +208,9 @@ func _on_animu_timeout():
 	if teema == "ERROR" || teema == "SEKO": alts = [10,11,12,13,14]
 	style.set_texture(Global.popup_gfx[alts.pick_random()])
 	animu.set_wait_time(randf_range(0.01,0.5))
+
+func _on_animu_ikon_timeout():
+	var alts_ikon = [3,4]
+	if teema == "SPIRAALI": alts_ikon = [10,11,12,13,14]
+	elif teema == "SEKO": alts_ikon = [8,9]
+	#ikon.texture.set_current_frame(alts_ikon.pick_random())

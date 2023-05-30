@@ -1,9 +1,10 @@
+Control
 TextureRect
+MarginContainer
 AnimatedSprite2D
+AnimationPlayer
 Timer
 AudioStreamPlayer
-MarginContainer
-Control
 ColorRect
 Panel
 CanvasLayer

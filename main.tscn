@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bcbuuarsi108j"]
+[gd_scene load_steps=21 format=3 uid="uid://bcbuuarsi108j"]
 
 [ext_resource type="Theme" uid="uid://brx6vlh7v4gl" path="res://teemajee.tres" id="1_6xepu"]
 [ext_resource type="Script" path="res://main.gd" id="1_k224y"]
@@ -15,12 +15,14 @@
 [ext_resource type="Texture2D" uid="uid://d220uin0vbq66" path="res://GFX/Ikonit/battery.png" id="12_55880"]
 [ext_resource type="Texture2D" uid="uid://de2tspuyj78uw" path="res://GFX/Ikonit/dedface.png" id="12_gnfjm"]
 [ext_resource type="Texture2D" uid="uid://c3ixvwwb8fa5q" path="res://GFX/Ikonit/ded2face.png" id="13_vkb78"]
+[ext_resource type="Texture2D" uid="uid://b7lvj8ljq386y" path="res://GFX/Ikonit/angface.png" id="14_obbah"]
+[ext_resource type="Texture2D" uid="uid://dv1lsa7vb42a4" path="res://GFX/Ikonit/anggrrface.png" id="15_j4fvr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bamfa"]
 shader = ExtResource("5_qhi6u")
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_e6nbv"]
-frames = 8
+frames = 10
 pause = true
 frame_0/texture = ExtResource("6_gx8ta")
 frame_1/texture = ExtResource("7_g2m8c")
@@ -37,6 +39,10 @@ frame_6/texture = ExtResource("12_gnfjm")
 frame_6/duration = 1.0
 frame_7/texture = ExtResource("13_vkb78")
 frame_7/duration = 1.0
+frame_8/texture = ExtResource("14_obbah")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("15_j4fvr")
+frame_9/duration = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l7cqu"]
 shader = ExtResource("6_2itab")

@@ -46,16 +46,16 @@ func _ready():
 	TranslationServer.set_locale("fi")
 	randomize() #ensures different random results
 	#seed(0) #ensures same random results with same seed value
-	var hojohojo = []
+	#var hojohojo = []
 	if dir_popups:
 		for filu in dir_popups.get_files(): #btw, exported game forgets png locations, so...
 			if filu.get_extension() == "import": #seek for import files and remove it from extension
 				Global.popup_gfx.append(load("res://GFX/Popup/"+filu.replace(".import", ""))) #save assets
-				hojohojo.append("res://GFX/Popup/"+filu)
+				#hojohojo.append("res://GFX/Popup/"+filu)
 			#if filu.get_extension() == "png": #seek for import files and remove it from extension
-			#	Global.popup_gfx.append(load("res://GFX/Popup/"+filu))
-	print(Global.popup_gfx)
-	print(hojohojo)
+			#	Global.popup_gfx.append(load("res://GFX/Popup/"+filu)) #use this when godot works as should...
+	#print(Global.popup_gfx)
+	#print(hojohojo)
 	start()
 
 func _process(_delta):
@@ -98,9 +98,11 @@ func update_stats(): #mostly sync stats with GUI things
 		if mieli.value < 25: #low
 			if mieli.value <= 0: #error
 				moodi = 2
-			else: mielicon.texture.set_current_frame(2)#mielicon.set_text("☹️️")
+			elif jaxu.value < 50: mielicon.texture.set_current_frame(2)#mielicon.set_text("☹️️")
+			else: mielicon.texture.set_current_frame(9) #super angry >:0
 		elif mieli.value > 50: mielicon.texture.set_current_frame(1)#mielicon.set_text("😐️") #mid
-		else: mielicon.texture.set_current_frame(3)
+		elif jaxu.value < 50: mielicon.texture.set_current_frame(3)
+		else: mielicon.texture.set_current_frame(8) #slight anger >:(
 
 func add_lore(id,teema,tekst,options): #builds the basic blocks of lore messages ("backend")
 	var dikki = {}
