@@ -1,77 +1,188 @@
-[gd_scene load_steps=29 format=3 uid="uid://dijpaiy3bf8dn"]
+[gd_scene load_steps=51 format=3 uid="uid://dijpaiy3bf8dn"]
 
 [ext_resource type="Script" path="res://ILMOITUS.gd" id="1_2x414"]
 [ext_resource type="Theme" uid="uid://brx6vlh7v4gl" path="res://teemajee.tres" id="1_pajbr"]
 [ext_resource type="PackedScene" uid="uid://dtyjeg1kapndm" path="res://nappi.tscn" id="2_b0mx4"]
-[ext_resource type="Texture2D" uid="uid://cmxwtyoqqdk5w" path="res://GFX/Popup/laatikko.png" id="2_kk5fx"]
-[ext_resource type="Texture2D" uid="uid://c77klcyq8da1j" path="res://GFX/Popup/laatikkoglitz01.png" id="3_rk58d"]
-[ext_resource type="Texture2D" uid="uid://qe4p2ukgxkr1" path="res://GFX/Popup/laatikkoglitz10.png" id="4_a2cqc"]
 [ext_resource type="Texture2D" uid="uid://cgp40odjc08g4" path="res://GFX/Ikonit/vaara.png" id="4_ptalg"]
 [ext_resource type="AudioStream" uid="uid://cjwsr5jfrea1t" path="res://SFX/poks.wav" id="4_vtjdd"]
-[ext_resource type="Texture2D" uid="uid://58e8flj2wd3v" path="res://GFX/Popup/laatikkoglitz11.png" id="5_7n5l2"]
 [ext_resource type="AudioStream" uid="uid://bnexjksnjr6yv" path="res://SFX/keypress.wav" id="5_nnrod"]
-[ext_resource type="Texture2D" uid="uid://dp7r2jv1yhcja" path="res://GFX/Popup/laatikkoglitz12.png" id="6_bb3nn"]
-[ext_resource type="Texture2D" uid="uid://44t2ml4gkaly" path="res://GFX/Popup/laatikkoglitz13.png" id="7_bhpoe"]
-[ext_resource type="Texture2D" uid="uid://bdm0o3v088fk2" path="res://GFX/Popup/laatikkoglitz14.png" id="8_8n1dr"]
-[ext_resource type="Texture2D" uid="uid://bf4bpggbq4fb3" path="res://GFX/Popup/laatikkoglitz15.png" id="9_d4bip"]
-[ext_resource type="Texture2D" uid="uid://b3tc5f4ty7qn7" path="res://GFX/Popup/laatikkoglitz16.png" id="10_ev4mu"]
-[ext_resource type="Texture2D" uid="uid://d1e5mms5fmhet" path="res://GFX/Popup/laatikkoglitz17.png" id="11_58ko8"]
-[ext_resource type="Texture2D" uid="uid://dveefmane5ujb" path="res://GFX/Popup/laatikkoglitz18.png" id="12_irslg"]
-[ext_resource type="Texture2D" uid="uid://7i4p73whpiwj" path="res://GFX/Popup/laatikkoglitz19.png" id="13_4een1"]
-[ext_resource type="Texture2D" uid="uid://c2l5jbd7er3je" path="res://GFX/Popup/laatikkoglitz02.png" id="14_otf2d"]
-[ext_resource type="Texture2D" uid="uid://dsbckhps73jly" path="res://GFX/Popup/laatikkoglitz20.png" id="15_snybm"]
-[ext_resource type="Texture2D" uid="uid://csecok3y1jkuc" path="res://GFX/Popup/laatikkoglitz03.png" id="16_b1ask"]
-[ext_resource type="Texture2D" uid="uid://bbasbi47t1tjc" path="res://GFX/Popup/laatikkoglitz04.png" id="17_bowd4"]
-[ext_resource type="Texture2D" uid="uid://3rnk1fn20d2a" path="res://GFX/Popup/laatikkoglitz05.png" id="18_qjk6y"]
-[ext_resource type="Texture2D" uid="uid://cpm3phyv746t0" path="res://GFX/Popup/laatikkoglitz06.png" id="19_c02fm"]
-[ext_resource type="Texture2D" uid="uid://dnyn7lfn2bijj" path="res://GFX/Popup/laatikkoglitz07.png" id="20_7hfyy"]
-[ext_resource type="Texture2D" uid="uid://bq3ga2qhea253" path="res://GFX/Popup/laatikkoglitz08.png" id="21_d3nf8"]
-[ext_resource type="Texture2D" uid="uid://cdjt70a15th4h" path="res://GFX/Popup/laatikkoglitz09.png" id="22_gxubw"]
+[ext_resource type="Texture2D" uid="uid://bhtj16yhrleki" path="res://GFX/Ikonit/X2.png" id="26_utxrn"]
+[ext_resource type="Texture2D" uid="uid://ddaobry2cwe34" path="res://GFX/Ikonit/hand.png" id="27_nlst0"]
+[ext_resource type="Texture2D" uid="uid://csk0ty3uave14" path="res://GFX/Ikonit/handblushedhuman.png" id="28_bkn4b"]
+[ext_resource type="Texture2D" uid="uid://bo4jhodcn0tmb" path="res://GFX/Ikonit/handblushedhumanbroken.png" id="29_1054h"]
+[ext_resource type="Texture2D" uid="uid://ddl3pexmtbi7c" path="res://GFX/Ikonit/handblushedhumanbrokenmore.png" id="30_vjugv"]
+[ext_resource type="Texture2D" uid="uid://cok8n28ocmu4r" path="res://GFX/Ikonit/handhuman.png" id="31_386xw"]
+[ext_resource type="Texture2D" uid="uid://cgx4chqi4jtaf" path="res://GFX/Ikonit/stick.png" id="32_uubyx"]
+[ext_resource type="Texture2D" uid="uid://ddl633cujdr1s" path="res://GFX/Ikonit/stick2.png" id="33_nf6cc"]
+[ext_resource type="Texture2D" uid="uid://b81vf14m2wetn" path="res://GFX/Ikonit/stick3.png" id="34_xm23r"]
+[ext_resource type="Texture2D" uid="uid://ceel63lvtmh1f" path="res://GFX/Ikonit/silma.png" id="35_yk64f"]
+[ext_resource type="Texture2D" uid="uid://d3bwgca4eayuq" path="res://GFX/Ikonit/health.png" id="36_8c1vt"]
+[ext_resource type="Texture2D" uid="uid://bn5l3ewhywmoc" path="res://GFX/Ikonit/X3.png" id="37_gmn14"]
+[ext_resource type="Texture2D" uid="uid://c1p2k5g5n4o1b" path="res://GFX/Ikonit/what.png" id="38_ttbw0"]
+[ext_resource type="Texture2D" uid="uid://id24j84fg2x1" path="res://GFX/Ikonit/whatdots.png" id="39_3stj4"]
+[ext_resource type="Texture2D" uid="uid://shkro03ju8jm" path="res://GFX/Ikonit/X.png" id="40_tapu5"]
+[ext_resource type="Texture2D" uid="uid://76d3rps0pmpn" path="res://GFX/Ikonit/DANGER2.png" id="41_5ne7t"]
+[ext_resource type="Texture2D" uid="uid://dx5j4bw2ggunt" path="res://GFX/Ikonit/DANGER.png" id="42_hsm4y"]
+[ext_resource type="Texture2D" uid="uid://b6vt000tc30w3" path="res://GFX/Ikonit/SPOT.png" id="43_vjoun"]
+[ext_resource type="Texture2D" uid="uid://d0i2214jprpxa" path="res://GFX/Ikonit/SPOTbroken.png" id="44_gh330"]
+[ext_resource type="Texture2D" uid="uid://uc1a1wo8yfq4" path="res://GFX/Ikonit/mess.png" id="45_pibv5"]
+[ext_resource type="Texture2D" uid="uid://jk1qc06dm4wm" path="res://GFX/Ikonit/mess2.png" id="46_o1vgo"]
 
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_nt2gk"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q6mip"]
+load_path = "res://.godot/imported/laatikko.png-0f2cf268c81f24f1803259fa506c8a77.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mu3h8"]
+load_path = "res://.godot/imported/laatikkoglitz01.png-46c3a373dc509183df048409d871ce15.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xyj3o"]
+load_path = "res://.godot/imported/laatikkoglitz10.png-a4ef07c57b3e77eedf16a5a6ff1279c4.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pod8d"]
+load_path = "res://.godot/imported/laatikkoglitz11.png-639cee715449c9f651f3cfcd27173f88.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lru1l"]
+load_path = "res://.godot/imported/laatikkoglitz12.png-d0eb95e639bf1e2c74439f4e48c32f35.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_de2r0"]
+load_path = "res://.godot/imported/laatikkoglitz13.png-1fc3515704cf0d630c81edf68e8c15e6.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0hoa7"]
+load_path = "res://.godot/imported/laatikkoglitz14.png-1f734cdf82a5812296f5d0cc66341366.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ntnnb"]
+load_path = "res://.godot/imported/laatikkoglitz15.png-d5d7f4b7fd4eb463ec42008960f75aa8.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mnkww"]
+load_path = "res://.godot/imported/laatikkoglitz16.png-fe0872e3132288613999357a55c183d9.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nsi2f"]
+load_path = "res://.godot/imported/laatikkoglitz17.png-f5208c3db64d664ce599de5f9f637767.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3oet1"]
+load_path = "res://.godot/imported/laatikkoglitz18.png-e39590a3fb763f71692c9a12f6ceb344.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lppco"]
+load_path = "res://.godot/imported/laatikkoglitz19.png-d11d9957be0b84750b94699e5d6e0a12.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7nef8"]
+load_path = "res://.godot/imported/laatikkoglitz02.png-b76c8430fdad667f5f56f21906a200ee.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_44rhf"]
+load_path = "res://.godot/imported/laatikkoglitz20.png-214a8626c0d13abae8eb213ecaede582.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_55ts1"]
+load_path = "res://.godot/imported/laatikkoglitz03.png-a7236f8999b85dc90ccbdda38fe682f2.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ya1bq"]
+load_path = "res://.godot/imported/laatikkoglitz04.png-a1a8278cab3c58bb19a94e0db3b4a76b.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oh5j2"]
+load_path = "res://.godot/imported/laatikkoglitz05.png-d4f833579eefdd85dc47aaee43f467da.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ves4n"]
+load_path = "res://.godot/imported/laatikkoglitz06.png-778bad1421e1068e8143ce4ec334037c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jjh5v"]
+load_path = "res://.godot/imported/laatikkoglitz07.png-6f8c91f26446e3a5e9d015f857ef9900.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qyqpk"]
+load_path = "res://.godot/imported/laatikkoglitz08.png-58aebdc2eddfd62ad1f131261bbddfb8.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d0tq8"]
+load_path = "res://.godot/imported/laatikkoglitz09.png-349a53c7668d65cd3746ec708e3f12fc.ctex"
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_hskrr"]
+resource_local_to_scene = true
 frames = 21
 pause = true
-frame_0/texture = ExtResource("2_kk5fx")
-frame_1/texture = ExtResource("3_rk58d")
+frame_0/texture = SubResource("CompressedTexture2D_q6mip")
+frame_1/texture = SubResource("CompressedTexture2D_mu3h8")
 frame_1/duration = 1.0
-frame_2/texture = ExtResource("14_otf2d")
+frame_2/texture = SubResource("CompressedTexture2D_7nef8")
 frame_2/duration = 1.0
-frame_3/texture = ExtResource("16_b1ask")
+frame_3/texture = SubResource("CompressedTexture2D_55ts1")
 frame_3/duration = 1.0
-frame_4/texture = ExtResource("17_bowd4")
+frame_4/texture = SubResource("CompressedTexture2D_ya1bq")
 frame_4/duration = 1.0
-frame_5/texture = ExtResource("18_qjk6y")
+frame_5/texture = SubResource("CompressedTexture2D_oh5j2")
 frame_5/duration = 1.0
-frame_6/texture = ExtResource("19_c02fm")
+frame_6/texture = SubResource("CompressedTexture2D_ves4n")
 frame_6/duration = 1.0
-frame_7/texture = ExtResource("20_7hfyy")
+frame_7/texture = SubResource("CompressedTexture2D_jjh5v")
 frame_7/duration = 1.0
-frame_8/texture = ExtResource("21_d3nf8")
+frame_8/texture = SubResource("CompressedTexture2D_qyqpk")
 frame_8/duration = 1.0
-frame_9/texture = ExtResource("22_gxubw")
+frame_9/texture = SubResource("CompressedTexture2D_d0tq8")
 frame_9/duration = 1.0
-frame_10/texture = ExtResource("4_a2cqc")
+frame_10/texture = SubResource("CompressedTexture2D_xyj3o")
 frame_10/duration = 1.0
-frame_11/texture = ExtResource("5_7n5l2")
+frame_11/texture = SubResource("CompressedTexture2D_pod8d")
 frame_11/duration = 1.0
-frame_12/texture = ExtResource("6_bb3nn")
+frame_12/texture = SubResource("CompressedTexture2D_lru1l")
 frame_12/duration = 1.0
-frame_13/texture = ExtResource("7_bhpoe")
+frame_13/texture = SubResource("CompressedTexture2D_de2r0")
 frame_13/duration = 1.0
-frame_14/texture = ExtResource("8_8n1dr")
+frame_14/texture = SubResource("CompressedTexture2D_0hoa7")
 frame_14/duration = 1.0
-frame_15/texture = ExtResource("9_d4bip")
+frame_15/texture = SubResource("CompressedTexture2D_ntnnb")
 frame_15/duration = 1.0
-frame_16/texture = ExtResource("10_ev4mu")
+frame_16/texture = SubResource("CompressedTexture2D_mnkww")
 frame_16/duration = 1.0
-frame_17/texture = ExtResource("11_58ko8")
+frame_17/texture = SubResource("CompressedTexture2D_nsi2f")
 frame_17/duration = 1.0
-frame_18/texture = ExtResource("12_irslg")
+frame_18/texture = SubResource("CompressedTexture2D_3oet1")
 frame_18/duration = 1.0
-frame_19/texture = ExtResource("13_4een1")
+frame_19/texture = SubResource("CompressedTexture2D_lppco")
 frame_19/duration = 1.0
-frame_20/texture = ExtResource("15_snybm")
+frame_20/texture = SubResource("CompressedTexture2D_44rhf")
 frame_20/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ag5v1"]
+frames = 22
+pause = true
+frame_0/texture = ExtResource("4_ptalg")
+frame_1/texture = ExtResource("26_utxrn")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("37_gmn14")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("40_tapu5")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("41_5ne7t")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("42_hsm4y")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("43_vjoun")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("44_gh330")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("45_pibv5")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("46_o1vgo")
+frame_9/duration = 1.0
+frame_10/texture = ExtResource("27_nlst0")
+frame_10/duration = 1.0
+frame_11/texture = ExtResource("28_bkn4b")
+frame_11/duration = 1.0
+frame_12/texture = ExtResource("29_1054h")
+frame_12/duration = 1.0
+frame_13/texture = ExtResource("30_vjugv")
+frame_13/duration = 1.0
+frame_14/texture = ExtResource("31_386xw")
+frame_14/duration = 1.0
+frame_15/texture = ExtResource("32_uubyx")
+frame_15/duration = 1.0
+frame_16/texture = ExtResource("33_nf6cc")
+frame_16/duration = 1.0
+frame_17/texture = ExtResource("34_xm23r")
+frame_17/duration = 1.0
+frame_18/texture = ExtResource("35_yk64f")
+frame_18/duration = 1.0
+frame_19/texture = ExtResource("36_8c1vt")
+frame_19/duration = 1.0
+frame_20/texture = ExtResource("38_ttbw0")
+frame_20/duration = 1.0
+frame_21/texture = ExtResource("39_3stj4")
+frame_21/duration = 1.0
 
 [node name="ILMOITUS" type="TextureRect"]
 self_modulate = Color(1, 1, 1, 0.878431)
@@ -91,7 +202,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("1_pajbr")
-texture = SubResource("AnimatedTexture_nt2gk")
+texture = SubResource("AnimatedTexture_hskrr")
 expand_mode = 2
 stretch_mode = 5
 script = ExtResource("1_2x414")
@@ -143,7 +254,7 @@ show_percentage = false
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("4_ptalg")
+texture = SubResource("AnimatedTexture_ag5v1")
 expand_mode = 2
 stretch_mode = 5
 

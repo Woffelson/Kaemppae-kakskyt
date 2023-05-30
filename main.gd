@@ -95,9 +95,13 @@ func update_stats(): #mostly sync stats with GUI things
 		if mieli.value < 25: #low
 			if mieli.value <= 0: #error
 				moodi = 2
-			else: mielicon.texture.set_current_frame(2)#mielicon.set_text("☹️️")
+			elif jaxu.value < 50:
+				mielicon.texture.set_current_frame(2)#mielicon.set_text("☹️️") #saddest
+			else: mielicon.texture.set_current_frame(9) #very angry >:0
 		elif mieli.value > 50: mielicon.texture.set_current_frame(1)#mielicon.set_text("😐️") #mid
-		else: mielicon.texture.set_current_frame(3)
+		elif jaxu.value < 50:
+			mielicon.texture.set_current_frame(3)
+		else: mielicon.texture.set_current_frame(8) #slight anger >:(
 
 func add_lore(id,teema,tekst,options): #builds the basic blocks of lore messages ("backend")
 	var dikki = {}

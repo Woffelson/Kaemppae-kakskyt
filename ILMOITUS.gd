@@ -49,10 +49,12 @@ func _process(_delta):
 func set_gfx(tema):
 	#add_theme_stylebox_override("panel", style) #old code when Panel was root
 	var alts = [0,1,3,2]
+	#var alts_ikon = [0]
 	if tema == "ARKI":
 		alts = [0,1,3,2,9,19]
 	elif tema == "HEMMO":
 		alts = [0,1,3,2,19]
+		#alts_ikon = [19,20,21]
 	elif tema == "LOHTU":
 		alts = [6,8,7]
 	elif tema == "APU":
@@ -70,12 +72,12 @@ func set_gfx(tema):
 #		alts.pop_front()
 	if Global.mieliala >= 90 && Global.jaksaminen >= 75:
 		#style.set_texture(Global.popup_gfx[alts[0]]) #deprecated old code
-		texture.set_current_frame(alts[0])
+		self.texture.set_current_frame(alts[0])
 	else:
 		var pick = alts.pick_random()
 		if pick == 10 || pick == 16: animu.start()
 		#style.set_texture(Global.popup_gfx[pick]) #decide randomly from remaining options
-		texture.set_current_frame(pick)
+		self.texture.set_current_frame(pick)
 
 func settings(dikki): #creates visible lore stuff ("frontend")
 	txt.set_text(dikki["txt"])
@@ -193,5 +195,5 @@ func _on_animu_timeout():
 	var alts = [16,17]
 	if teema == "ERROR" || teema == "SEKO": alts = [10,11,12,13,14]
 	#style.set_texture(Global.popup_gfx[alts.pick_random()])
-	texture.set_current_frame(alts.pick_random())
+	self.texture.set_current_frame(alts.pick_random())
 	animu.set_wait_time(randf_range(0.01,0.5))
