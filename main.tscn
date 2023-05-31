@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bcbuuarsi108j"]
+[gd_scene load_steps=24 format=3 uid="uid://bcbuuarsi108j"]
 
 [ext_resource type="Theme" uid="uid://brx6vlh7v4gl" path="res://teemajee.tres" id="1_6xepu"]
 [ext_resource type="Script" path="res://main.gd" id="1_k224y"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://b0vtsmyarxsd5" path="res://ilmoitus.tscn" id="3_ba2xn"]
 [ext_resource type="Shader" path="res://Shaders/Noice.gdshader" id="5_qhi6u"]
 [ext_resource type="Shader" path="res://Shaders/glitch.gdshader" id="6_2itab"]
+[ext_resource type="Shader" path="res://Shaders/swapper.gdshader" id="6_fo06o"]
 [ext_resource type="Texture2D" uid="uid://drwrj4bfrdspc" path="res://GFX/Ikonit/okface.png" id="6_gx8ta"]
+[ext_resource type="Texture2D" uid="uid://b4tou6rl8aud0" path="res://GFX/Taustat/taustaihmisia2.png" id="6_le3ml"]
 [ext_resource type="Texture2D" uid="uid://cj4sxho3qe8eo" path="res://GFX/Ikonit/mehface2.png" id="7_g2m8c"]
 [ext_resource type="Texture2D" uid="uid://cuer5lq70nhjc" path="res://GFX/Ikonit/sadface.png" id="8_skpny"]
 [ext_resource type="Texture2D" uid="uid://5gb0vwqmlppq" path="res://GFX/Ikonit/eekface.png" id="9_6u2so"]
@@ -20,6 +22,12 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bamfa"]
 shader = ExtResource("5_qhi6u")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n7bku"]
+shader = ExtResource("6_fo06o")
+shader_parameter/_min = 0.0
+shader_parameter/_max = 1.0
+shader_parameter/color = Color(1, 1, 1, 1)
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_e6nbv"]
 frames = 10
@@ -74,6 +82,7 @@ timeri = NodePath("Timer")
 mielibar = NodePath("BARS/Panel/HBoxContainer/MIELI")
 jaxubar = NodePath("BARS/Panel/HBoxContainer/JAXU")
 mieli_icon = NodePath("BARS/Panel/HBoxContainer/MIELICON")
+taustaa = NodePath("Tausta")
 
 [node name="Noice" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0.0705882)
@@ -84,6 +93,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Tausta" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_n7bku")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_le3ml")
+expand_mode = 2
 
 [node name="BARS" type="VBoxContainer" parent="."]
 z_index = 3

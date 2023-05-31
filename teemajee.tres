@@ -1,12 +1,12 @@
 [gd_resource type="Theme" load_steps=6 format=3 uid="uid://brx6vlh7v4gl"]
 
-[ext_resource type="Texture2D" uid="uid://cmxwtyoqqdk5w" path="res://GFX/Popup/laatikko.png" id="1_dguu6"]
 [ext_resource type="FontFile" uid="uid://qsc6bx6je1lu" path="res://Fonts/GlitchGoblin-2O87v.ttf" id="1_kktbl"]
 [ext_resource type="FontFile" uid="uid://bihk1in1r20h4" path="res://Fonts/Mechanical-g5Y5.otf" id="2_e7m8x"]
+[ext_resource type="Texture2D" uid="uid://cpm3phyv746t0" path="res://GFX/Popup/laatikkoglitz06.png" id="3_xm8cs"]
 [ext_resource type="FontFile" uid="uid://blw2sw4mot7sh" path="res://Fonts/PressStart2P-vaV7.ttf" id="4_2vdok"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_edc0t"]
-texture = ExtResource("1_dguu6")
+texture = ExtResource("3_xm8cs")
 
 [resource]
 Button/fonts/font = ExtResource("1_kktbl")

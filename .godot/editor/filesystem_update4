@@ -6,3 +6,7 @@ res://main.gd
 res://ILMOITUS.gd
 res://Data/MT-transl.fi.translation
 res://Data/MT-transl.en.translation
+res://Shaders/Noice.gdshader
+res://Shaders/glitch.gdshader
+res://Shaders/alffa.gdshader
+res://Shaders/swapper.gdshader

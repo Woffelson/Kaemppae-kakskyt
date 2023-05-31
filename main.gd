@@ -15,6 +15,7 @@ extends Control
 @export_node_path("ProgressBar") var jaxubar
 #@export_node_path("Label") var mieli_icon
 @export_node_path("TextureRect") var mieli_icon
+@export_node_path("TextureRect") var taustaa
 
 var dir_popups = DirAccess.open("res://GFX/Popup/")
 #var mieliala = 50
@@ -40,8 +41,10 @@ var ikkunat = [] #keep track of active pop-up windows
 @onready var mieli : ProgressBar = get_node(mielibar)
 @onready var jaxu : ProgressBar = get_node(jaxubar)
 @onready var mielicon : TextureRect = get_node(mieli_icon) #Label
+@onready var tausta : TextureRect = get_node(taustaa)
 
 func _ready():
+	tausta.material.set_shader_parameter("color",Vector4(1,1,1,0.5))
 	await get_tree().process_frame #useless or not?
 	TranslationServer.set_locale("fi")
 	randomize() #ensures different random results
