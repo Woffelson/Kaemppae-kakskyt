@@ -1,86 +1,117 @@
-[gd_scene load_steps=30 format=3 uid="uid://dijpaiy3bf8dn"]
+[gd_scene load_steps=33 format=3 uid="uid://b0vtsmyarxsd5"]
 
 [ext_resource type="Script" path="res://ILMOITUS.gd" id="1_2x414"]
 [ext_resource type="Theme" uid="uid://brx6vlh7v4gl" path="res://teemajee.tres" id="1_pajbr"]
 [ext_resource type="PackedScene" uid="uid://dtyjeg1kapndm" path="res://nappi.tscn" id="2_b0mx4"]
 [ext_resource type="Texture2D" uid="uid://cgp40odjc08g4" path="res://GFX/Ikonit/vaara.png" id="4_ptalg"]
 [ext_resource type="AudioStream" uid="uid://cjwsr5jfrea1t" path="res://SFX/poks.wav" id="4_vtjdd"]
-[ext_resource type="Texture2D" uid="uid://xfuxsjjuyipl" path="res://GFX/Ikonit/X3.png" id="5_46jkx"]
-[ext_resource type="AudioStream" uid="uid://bnexjksnjr6yv" path="res://SFX/keypress.wav" id="5_nnrod"]
-[ext_resource type="Texture2D" uid="uid://bgm3vkiahb8qy" path="res://GFX/Ikonit/hand.png" id="6_lp4i0"]
-[ext_resource type="Texture2D" uid="uid://c4sb1dq0uar0v" path="res://GFX/Ikonit/handhuman.png" id="7_337b5"]
-[ext_resource type="Texture2D" uid="uid://vnkdqfmckl6g" path="res://GFX/Ikonit/handblushedhuman.png" id="8_5nemr"]
-[ext_resource type="Texture2D" uid="uid://dbh4v2fnw4bes" path="res://GFX/Ikonit/handblushedhumanbroken.png" id="9_8c51f"]
-[ext_resource type="Texture2D" uid="uid://bm6haoirlul5y" path="res://GFX/Ikonit/handblushedhumanbrokenmore.png" id="10_ycauv"]
-[ext_resource type="Texture2D" uid="uid://bv113dvdra0xj" path="res://GFX/Ikonit/silma.png" id="11_f2nlf"]
-[ext_resource type="Texture2D" uid="uid://bvf6774pxnwu2" path="res://GFX/Ikonit/stick.png" id="12_ynfjw"]
-[ext_resource type="Texture2D" uid="uid://dmhrg6ibij3p7" path="res://GFX/Ikonit/stick2.png" id="13_k4j1i"]
-[ext_resource type="Texture2D" uid="uid://cyr3xuxbomusf" path="res://GFX/Ikonit/stick3.png" id="14_h5i8f"]
-[ext_resource type="Texture2D" uid="uid://seaxrrdl4ift" path="res://GFX/Ikonit/what.png" id="15_k71sx"]
-[ext_resource type="Texture2D" uid="uid://bmpro53iaofp6" path="res://GFX/Ikonit/X.png" id="16_2hyyk"]
-[ext_resource type="Texture2D" uid="uid://d1k845qbn1b2t" path="res://GFX/Ikonit/whatdots.png" id="17_xup8r"]
-[ext_resource type="Texture2D" uid="uid://co84sig1ohjhy" path="res://GFX/Ikonit/heart.png" id="18_5kpcd"]
-[ext_resource type="Texture2D" uid="uid://d1613syjak4qg" path="res://GFX/Ikonit/DANGER2.png" id="19_s031f"]
-[ext_resource type="Texture2D" uid="uid://yy8o3hjjucx8" path="res://GFX/Ikonit/DANGER.png" id="20_8qnmi"]
-[ext_resource type="Texture2D" uid="uid://dw4pgl5en7n1i" path="res://GFX/Ikonit/health.png" id="21_mt5jd"]
-[ext_resource type="Texture2D" uid="uid://bt5g7k00snx3s" path="res://GFX/Ikonit/SPOT.png" id="22_rejrd"]
-[ext_resource type="Texture2D" uid="uid://6dpm27uasd46" path="res://GFX/Ikonit/SPOTbroken.png" id="23_06gr3"]
-[ext_resource type="Texture2D" uid="uid://c0og0em3rgns2" path="res://GFX/Ikonit/mess.png" id="24_yj6hj"]
-[ext_resource type="Texture2D" uid="uid://dt1nloxudubg" path="res://GFX/Ikonit/mess2.png" id="25_nc86c"]
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_7ytch"]
-resource_local_to_scene = true
-frames = 22
-pause = true
-frame_0/texture = ExtResource("4_ptalg")
-frame_1/texture = ExtResource("5_46jkx")
-frame_1/duration = 1.0
-frame_2/texture = ExtResource("16_2hyyk")
-frame_2/duration = 1.0
-frame_3/texture = ExtResource("19_s031f")
-frame_3/duration = 1.0
-frame_4/texture = ExtResource("20_8qnmi")
-frame_4/duration = 1.0
-frame_5/texture = ExtResource("21_mt5jd")
-frame_5/duration = 1.0
-frame_6/texture = ExtResource("22_rejrd")
-frame_6/duration = 1.0
-frame_7/texture = ExtResource("23_06gr3")
-frame_7/duration = 1.0
-frame_8/texture = ExtResource("24_yj6hj")
-frame_8/duration = 1.0
-frame_9/texture = ExtResource("25_nc86c")
-frame_9/duration = 1.0
-frame_10/texture = ExtResource("6_lp4i0")
-frame_10/duration = 1.0
-frame_11/texture = ExtResource("7_337b5")
-frame_11/duration = 1.0
-frame_12/texture = ExtResource("8_5nemr")
-frame_12/duration = 1.0
-frame_13/texture = ExtResource("9_8c51f")
-frame_13/duration = 1.0
-frame_14/texture = ExtResource("10_ycauv")
-frame_14/duration = 1.0
-frame_15/texture = ExtResource("11_f2nlf")
-frame_15/duration = 1.0
-frame_16/texture = ExtResource("12_ynfjw")
-frame_16/duration = 1.0
-frame_17/texture = ExtResource("13_k4j1i")
-frame_17/duration = 1.0
-frame_18/texture = ExtResource("14_h5i8f")
-frame_18/duration = 1.0
-frame_19/texture = ExtResource("15_k71sx")
-frame_19/duration = 1.0
-frame_20/texture = ExtResource("17_xup8r")
-frame_20/duration = 1.0
-frame_21/texture = ExtResource("18_5kpcd")
-frame_21/duration = 1.0
+[ext_resource type="Texture2D" uid="uid://xfuxsjjuyipl" path="res://GFX/Ikonit/X3.png" id="5_akvs2"]
+[ext_resource type="Texture2D" uid="uid://bmpro53iaofp6" path="res://GFX/Ikonit/X.png" id="6_glol1"]
+[ext_resource type="Texture2D" uid="uid://d1613syjak4qg" path="res://GFX/Ikonit/DANGER2.png" id="7_ri3fl"]
+[ext_resource type="Texture2D" uid="uid://yy8o3hjjucx8" path="res://GFX/Ikonit/DANGER.png" id="8_myhl5"]
+[ext_resource type="Texture2D" uid="uid://dw4pgl5en7n1i" path="res://GFX/Ikonit/health.png" id="9_b5jhf"]
+[ext_resource type="Texture2D" uid="uid://bt5g7k00snx3s" path="res://GFX/Ikonit/SPOT.png" id="10_dekqc"]
+[ext_resource type="Texture2D" uid="uid://6dpm27uasd46" path="res://GFX/Ikonit/SPOTbroken.png" id="11_kkjt4"]
+[ext_resource type="Texture2D" uid="uid://c0og0em3rgns2" path="res://GFX/Ikonit/mess.png" id="12_c7r8y"]
+[ext_resource type="Texture2D" uid="uid://dt1nloxudubg" path="res://GFX/Ikonit/mess2.png" id="13_25pef"]
+[ext_resource type="Texture2D" uid="uid://bgm3vkiahb8qy" path="res://GFX/Ikonit/hand.png" id="14_k7d2a"]
+[ext_resource type="Texture2D" uid="uid://vnkdqfmckl6g" path="res://GFX/Ikonit/handblushedhuman.png" id="15_a4v01"]
+[ext_resource type="Texture2D" uid="uid://c4sb1dq0uar0v" path="res://GFX/Ikonit/handhuman.png" id="16_7taet"]
+[ext_resource type="Texture2D" uid="uid://dbh4v2fnw4bes" path="res://GFX/Ikonit/handblushedhumanbroken.png" id="17_wedy1"]
+[ext_resource type="Texture2D" uid="uid://bm6haoirlul5y" path="res://GFX/Ikonit/handblushedhumanbrokenmore.png" id="18_qpla6"]
+[ext_resource type="Texture2D" uid="uid://bvf6774pxnwu2" path="res://GFX/Ikonit/stick.png" id="19_ushj0"]
+[ext_resource type="Texture2D" uid="uid://dmhrg6ibij3p7" path="res://GFX/Ikonit/stick2.png" id="20_h6i2v"]
+[ext_resource type="Texture2D" uid="uid://cyr3xuxbomusf" path="res://GFX/Ikonit/stick3.png" id="21_8q643"]
+[ext_resource type="Texture2D" uid="uid://bv113dvdra0xj" path="res://GFX/Ikonit/silma.png" id="22_t65cm"]
+[ext_resource type="Texture2D" uid="uid://seaxrrdl4ift" path="res://GFX/Ikonit/what.png" id="23_qah11"]
+[ext_resource type="Texture2D" uid="uid://d1k845qbn1b2t" path="res://GFX/Ikonit/whatdots.png" id="24_u5n27"]
+[ext_resource type="Texture2D" uid="uid://co84sig1ohjhy" path="res://GFX/Ikonit/heart.png" id="25_dpqjj"]
+[ext_resource type="Texture2D" uid="uid://nf2pte56213o" path="res://GFX/Ikonit/thumbsup.png" id="26_0yf3y"]
+[ext_resource type="Texture2D" uid="uid://jn0bjmh2xvst" path="res://GFX/Ikonit/thumbsupyes.png" id="27_ymetr"]
+[ext_resource type="Texture2D" uid="uid://qswdbnu33s4w" path="res://GFX/Ikonit/thumbsdown.png" id="28_kx311"]
+[ext_resource type="Texture2D" uid="uid://bgqe8t7chmqia" path="res://GFX/Ikonit/thumbsdown2.png" id="29_xx4h1"]
+[ext_resource type="AudioStream" uid="uid://bnexjksnjr6yv" path="res://SFX/keypress00.wav" id="31_oaqy5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ckvou"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_ptalg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_akvs2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_glol1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ri3fl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_myhl5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_b5jhf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dekqc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_kkjt4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_c7r8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_25pef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_k7d2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_a4v01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_7taet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_wedy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_qpla6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ushj0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_h6i2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_8q643")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_t65cm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_qah11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_u5n27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_dpqjj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_0yf3y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_ymetr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_kx311")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_xx4h1")
 }],
 "loop": true,
 "name": &"default",
@@ -111,7 +142,7 @@ teksti = NodePath("VBoxContainer/MarginContainer/TEKSTI")
 nappi_paikka = NodePath("VBoxContainer/NAPIT")
 bar = NodePath("VBoxContainer/ColorRect/MarginContainer/Aika")
 paneli = NodePath(".")
-ikoni = NodePath("VBoxContainer/Ikon")
+ikoni = NodePath("VBoxContainer/Control/AnimatedSprite2D")
 ajastin = NodePath("Ajastin")
 naputin = NodePath("NÄPYTTÄJÄ")
 animuaika = NodePath("Animu")
@@ -154,14 +185,6 @@ size_flags_vertical = 1
 max_value = 10.0
 show_percentage = false
 
-[node name="Ikon" type="TextureRect" parent="VBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_vertical = 3
-texture = SubResource("AnimatedTexture_7ytch")
-expand_mode = 2
-stretch_mode = 5
-
 [node name="Control" type="Control" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -170,6 +193,7 @@ size_flags_vertical = 6
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VBoxContainer/Control"]
 scale = Vector2(0.075, 0.075)
 sprite_frames = SubResource("SpriteFrames_ckvou")
+offset = Vector2(0, 8)
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 use_parent_material = true
@@ -209,7 +233,7 @@ stream = ExtResource("4_vtjdd")
 autoplay = true
 
 [node name="TICK" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_nnrod")
+stream = ExtResource("31_oaqy5")
 volume_db = -10.0
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
@@ -218,4 +242,3 @@ volume_db = -10.0
 [connection signal="timeout" from="NÄPYTTÄJÄ" to="." method="_on_npyttj_timeout"]
 [connection signal="timeout" from="Animu" to="." method="_on_animu_timeout"]
 [connection signal="timeout" from="AnimuIkon" to="." method="_on_animu_ikon_timeout"]
-[connection signal="timeout" from="AnimuIkon" to="." method="_on_animu_timeout"]

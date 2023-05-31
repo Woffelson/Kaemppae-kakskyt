@@ -82,7 +82,7 @@ LOHTU11,Joillain muilla on asiat huonommin,Some have it worse
 LOHTU12,Ei tämä ole vielä äärimmäistä köyhyyttä nähnytkään,This is not extreme poverty yet
 LOHTU13,Afrikassa nähdään nälkää,Africans are starving
 LOHTU14,Elämä on kärsimystä. Kärsimyksen aiheuttaa elämänjano. Elämänjano sammutetaan... Miten se nyt sammutettiinkaan?,"Life is suffering. Suffering is caused by the desire of living. The desire can be confined... How it was ended again, though?"
-LOHTU15,,
+LOHTU15,Arki on turvallista ja iloista. Perusasiat ovat hyvin.,Daily life is secure and happy. Basics are well.
 LOHTU16,,
 ,,
 ,,
@@ -90,8 +90,8 @@ LOHTU16,,
 APU0,”Olette jonossa”,"”You are in a queue, please wait”"
 APU1,”Pahoittelemme viivästystä”,”We apologise for the delay”
 APU2,”Valitettavasti valintamme ei tällä kertaa kohdistunut sinuun.”,”Unfortunately our decision didn't pick you this time.”
-APU3,,
-APU4,,
+APU3,"”Tiedämme, että on vaikeaa.”",”We know it’s difficult.”
+APU4,”Ohjaamme sinut toiselle ammattilaiselle.”,”You are being directed to another specialist.”
 APU5,,
 APU6,,
 APU7,,
@@ -118,9 +118,9 @@ SPIRAALI7,Hylätäänkö sinut?,Do you get rejected?
 SPIRAALI8,Vihaavatko läheisesi sinua?,Are you being hated by your close ones?
 SPIRAALI9,Syrjäydytkö?,Social exclusion?
 SPIRAALI10,Palatko loppuun?,Burning out?
-SPIRAALI11,,
-SPIRAALI12,,
-SPIRAALI13,,
+SPIRAALI11,Tuletko junnaamaan aina paikallasi?,Will you always stay stuck?
+SPIRAALI12,Onko itsesi hyväksyminen haastavaa?,Is it challenging to accept yourself?
+SPIRAALI13,Onko yhteiskuntarauha eliitin salajuoni?,Is civil peace a plot by the elite?
 SPIRAALI14,,
 SPIRAALI15,,
 SPIRAALI16,,
@@ -136,14 +136,14 @@ SEKO5,Uusi maailmanjärjestys orjuuttaa kaikki!,New World Order is enslaving eve
 SEKO6,Ajatuksiasi kuunnellaan.,Your thoughts are being listened.
 SEKO7,Sinua epäillään rikoksista.,You are a crime suspect.
 SEKO8,Salaliiton jäsenet ovat kääntyneet sinua vastaan.,Members of the conspiracy have turned against you.
-SEKO9,,
-SEKO10,,
-SEKO11,,
-SEKO12,,
-SEKO13,,
-SEKO14,,
-SEKO15,,
-SEKO16,,
-SEKO17,,
+SEKO9,Tuossa lattialla olisi tosi hyvä vaan istua tunti tolkulla ja dissoilla ihan huolella.,It would be nice to just sit there on the floor and dissociate for hours.
+SEKO10,Vittu miten paskaista. Pitäisi siivota vessa.,Fuck how shitty. Should clean the toilet.
+SEKO11,"Olet vitun laiska arvoton paska, kun et ole jaksanut hoitaa mitään asioitasi.",You haven't taken care of any of your business. You're a fucking lazy worthless shit.
+SEKO12,Miksi piti taas tehdä itselleen näin ja joutuu häpeämään taas kun muut ihmiset näkee. Etkö voisi olla vähän tasaisempi?,Did I have to do this for myself again and now I gotta be ashamed when other people see this again. Couldn't you be more stable?
+SEKO13,"Mitä jos fobiat johtuvat siitä, miten kuolit edellisessä elämässäsi?",What if phobias are caused by your cause of death in your previous life?
+SEKO14,Eksistentiaalinen ahdistus iskee aina juuri suihkussa...,Existential dread hits always in the shower…
+SEKO15,Ei jaksa,Cannot carry on
+SEKO16,"Stunttihenkilöt esittävät olevansa joku muu, joka esittää olevansa joku muu…",Stunt actors are acting someone else who is acting someone else…
+SEKO17,Hyi vittu mikä keho ja ulkonäkö!,"Ew fuck, that body and outlook!"
 SEKO18,,
 SEKO19,,

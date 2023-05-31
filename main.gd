@@ -89,7 +89,7 @@ func update_stats(): #mostly sync stats with GUI things
 	jaxu.set_value(Global.jaksaminen)
 	if jaxu.value < 25: jaxu.set_modulate(Color8(255,0,0)) #⚡️
 	else: jaxu.set_modulate(Color8(255,255,255))
-	if mieli.value > 75:# && jaxu.value > 66: #high
+	if mieli.value >= 75:# && jaxu.value > 66: #high
 		#mielicon.set_text("☺️")
 		mielicon.texture.set_current_frame(0)
 		moodi = 0
@@ -126,7 +126,8 @@ func pop_up(final := false):
 		pop_ikkuna.pop_message(pick_lore(lore[pick_teema()]))
 	ikkunat.append(pop_ikkuna)
 	if moodi > 0:
-		if timer.is_stopped(): timer.start() #generate multiple more based on timer
+		#if timer.is_stopped():
+		timer.start() #generate multiple more based on timer
 	else: timer.stop()
 
 func closed_popup(suljettava,vars): #when window gets closed
@@ -239,10 +240,10 @@ func _on_start_button_down(): #after translation set text stuff, not before
 	add_lore(0,"SEKO",tr("LOREM"),[ilmoitus["ok"]]) #!!!
 	multiple_lore(7,"ARKI")
 	multiple_lore(4,"HEMMO")
-	multiple_lore(14,"LOHTU")
-	multiple_lore(2,"APU")
-	multiple_lore(10,"SPIRAALI")
-	multiple_lore(8,"SEKO")
+	multiple_lore(15,"LOHTU")
+	multiple_lore(4,"APU")
+	multiple_lore(13,"SPIRAALI")
+	multiple_lore(17,"SEKO")
 	multiple_lore(4,"ERROR")
 	started = true
 	pop_up()
@@ -261,7 +262,13 @@ func _on_quit_pressed():
 func _on_timer_timeout():
 	var kerroin = 1.0
 	if Global.mieliala > 0: #low stats correlate with escalating thoughts:
-		kerroin = (float(Global.mieliala) + float(Global.jaksaminen)) / 200.0
-	timer.set_wait_time(randf_range(kerroin,kerroin * 5.0))
+		#kerroin = (float(Global.mieliala) + float(Global.jaksaminen)) / 100.0 #whatever, cannot do maths
+		var summa = (float(Global.mieliala) + float(Global.jaksaminen)) #let's do it hard way...
+		if summa > 150: kerroin = 3
+		elif summa > 100: kerroin = 2
+		elif summa > 50: kerroin = 1
+		elif summa > 25: kerroin = 0.5
+		if Global.mieliala < 10: kerroin = 0.5
+	timer.set_wait_time(randf_range(kerroin,kerroin * 4.0))
 	if ikkunat.size() < 100: pop_up() #have some limit for pop-ups, will ya?
 	if moodi == 2: mielicon.texture.set_current_frame(randi_range(4,7))

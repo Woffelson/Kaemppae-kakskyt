@@ -1,8 +1,8 @@
-res://Data/MT-transl.fi.translation
-res://Data/MT-transl.en.translation
 res://main.tscn
 res://teemajee.tres
 res://ilmoitus.tscn
 res://nappi.tscn
 res://main.gd
 res://ILMOITUS.gd
+res://Data/MT-transl.fi.translation
+res://Data/MT-transl.en.translation

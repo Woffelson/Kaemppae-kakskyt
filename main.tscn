@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://brx6vlh7v4gl" path="res://teemajee.tres" id="1_6xepu"]
 [ext_resource type="Script" path="res://main.gd" id="1_k224y"]
 [ext_resource type="PackedScene" uid="uid://dtyjeg1kapndm" path="res://nappi.tscn" id="2_dfw8i"]
-[ext_resource type="PackedScene" uid="uid://dijpaiy3bf8dn" path="res://ilmoitus.tscn" id="3_ba2xn"]
+[ext_resource type="PackedScene" uid="uid://b0vtsmyarxsd5" path="res://ilmoitus.tscn" id="3_ba2xn"]
 [ext_resource type="Shader" path="res://Shaders/Noice.gdshader" id="5_qhi6u"]
 [ext_resource type="Shader" path="res://Shaders/glitch.gdshader" id="6_2itab"]
 [ext_resource type="Texture2D" uid="uid://drwrj4bfrdspc" path="res://GFX/Ikonit/okface.png" id="6_gx8ta"]

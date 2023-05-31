@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://bnexjksnjr6yv"
-path="res://.godot/imported/keypress.wav-32db3a713343db919b2bf0e51fda2c50.sample"
+uid="uid://b7ay8r3nn34kf"
+path="res://.godot/imported/keypressG01.wav-6ecc034981d352db16e15fcb64971760.sample"
 
 [deps]
 
-source_file="res://SFX/keypress.wav"
-dest_files=["res://.godot/imported/keypress.wav-32db3a713343db919b2bf0e51fda2c50.sample"]
+source_file="res://SFX/keypressG01.wav"
+dest_files=["res://.godot/imported/keypressG01.wav-6ecc034981d352db16e15fcb64971760.sample"]
 
 [params]
 

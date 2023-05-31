@@ -5,7 +5,7 @@ extends Panel
 @export_node_path("HBoxContainer") var nappi_paikka
 @export_node_path("ProgressBar") var bar
 @export_node_path("Panel") var paneli
-@export_node_path("TextureRect") var ikoni
+@export_node_path("AnimatedSprite2D") var ikoni
 @export_node_path("Timer") var ajastin
 @export_node_path("Timer") var naputin
 @export_node_path("Timer") var animuaika
@@ -24,7 +24,7 @@ signal kloussaa(ikkuna,vars)
 @onready var nappipaikka : HBoxContainer = get_node(nappi_paikka)
 @onready var aika : ProgressBar = get_node(bar)
 @onready var paneeli : Panel = get_node(paneli)
-@onready var ikon : TextureRect = get_node(ikoni)
+@onready var ikon : AnimatedSprite2D = get_node(ikoni)
 @onready var ajastus : Timer = get_node(ajastin)
 @onready var write_timer : Timer = get_node(naputin)
 @onready var animu : Timer = get_node(animuaika)
@@ -64,7 +64,7 @@ func set_gfx(tema):
 			alts_ikon = [5,19]
 		"LOHTU":
 			alts = [6,8,7]
-			alts_ikon = [6,20,21]
+			alts_ikon = [6,20,21,22]
 		"APU":
 			alts = [0,1,2,3,9,19]
 			alts_ikon = [7,20]
@@ -73,7 +73,7 @@ func set_gfx(tema):
 			alts_ikon = [10]
 		"SEKO":
 			alts = [5,9,10,19,20]
-			alts_ikon = [8,15,16,17,18]
+			alts_ikon = [8,15,16,17,18,24]
 		"ERROR":
 			alts = [10]
 			alts_ikon = [0,1,2,4]
@@ -87,9 +87,11 @@ func set_gfx(tema):
 		var pick = alts.pick_random()
 		var pick_ikon = alts_ikon.pick_random()
 		if pick == 10 || pick == 16: animu.start()
-		if pick_ikon == 2 || pick_ikon == 8 || pick_ikon == 10: animu_ikon.start()
+		if pick_ikon == 2 || pick_ikon == 8 || pick_ikon == 10 || pick_ikon == 22 || pick_ikon == 24:
+			animu_ikon.start()
 		style.set_texture(Global.popup_gfx[pick]) #decide randomly from remaining options
 		#ikon.texture.set_current_frame(pick_ikon)
+		ikon.set_frame(pick_ikon)
 
 func settings(dikki): #creates visible lore stuff ("frontend")
 	txt.set_text(dikki["txt"])
@@ -210,7 +212,11 @@ func _on_animu_timeout():
 	animu.set_wait_time(randf_range(0.01,0.5))
 
 func _on_animu_ikon_timeout():
-	var alts_ikon = [3,4]
-	if teema == "SPIRAALI": alts_ikon = [10,11,12,13,14]
-	elif teema == "SEKO": alts_ikon = [8,9]
+	var alts_ikon = [2,3]
+	if teema == "LOHTU": alts_ikon = [22,23]
+	elif teema == "SPIRAALI": alts_ikon = [10,11,12,13,14]
+	elif teema == "SEKO":
+		if ikon.frame > 20: alts_ikon = [24,25]
+		else: alts_ikon = [8,9]
 	#ikon.texture.set_current_frame(alts_ikon.pick_random())
+	ikon.set_frame(alts_ikon.pick_random())
