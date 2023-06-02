@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b0vtsmyarxsd5"]
+[gd_scene load_steps=50 format=3 uid="uid://b0vtsmyarxsd5"]
 
 [ext_resource type="Script" path="res://ILMOITUS.gd" id="1_2x414"]
 [ext_resource type="Theme" uid="uid://brx6vlh7v4gl" path="res://teemajee.tres" id="1_pajbr"]
@@ -31,6 +31,23 @@
 [ext_resource type="Texture2D" uid="uid://qswdbnu33s4w" path="res://GFX/Ikonit/thumbsdown.png" id="28_kx311"]
 [ext_resource type="Texture2D" uid="uid://bgqe8t7chmqia" path="res://GFX/Ikonit/thumbsdown2.png" id="29_xx4h1"]
 [ext_resource type="AudioStream" uid="uid://bnexjksnjr6yv" path="res://SFX/keypress00.wav" id="31_oaqy5"]
+[ext_resource type="AudioStream" uid="uid://dtkqpwmtcm2ca" path="res://SFX/Klink0.wav" id="31_xobox"]
+[ext_resource type="AudioStream" uid="uid://cx18h26sbhf5v" path="res://SFX/Ring.wav" id="32_d3b0n"]
+[ext_resource type="AudioStream" uid="uid://k4m1ac4d4gfq" path="res://SFX/Blep.wav" id="33_c71ae"]
+[ext_resource type="AudioStream" uid="uid://heolcx35143c" path="res://SFX/Bump1.wav" id="34_5jc0p"]
+[ext_resource type="AudioStream" uid="uid://ci26w5rh0rwlc" path="res://SFX/KlonkutiKlonks.wav" id="35_vg5iq"]
+[ext_resource type="AudioStream" uid="uid://dcs8wrp4mb8gs" path="res://SFX/tiidyy0.wav" id="36_pmi0c"]
+[ext_resource type="AudioStream" uid="uid://blh0l16iwy3mj" path="res://SFX/Glitch0.wav" id="37_81unv"]
+[ext_resource type="AudioStream" uid="uid://cntnfwlbir8qx" path="res://SFX/Miau.wav" id="38_h24f4"]
+[ext_resource type="AudioStream" uid="uid://ba5gsfw0x1jlr" path="res://SFX/keypress01.wav" id="40_x25gv"]
+[ext_resource type="AudioStream" uid="uid://b8soic8hp115w" path="res://SFX/keypress02.wav" id="41_1y3lt"]
+[ext_resource type="AudioStream" uid="uid://rl8ja7cqyini" path="res://SFX/keypress03.wav" id="42_1lo2b"]
+[ext_resource type="AudioStream" uid="uid://uvvp3ef3vhcq" path="res://SFX/keypress04.wav" id="43_msv5y"]
+[ext_resource type="AudioStream" uid="uid://bhvglgltmnr1h" path="res://SFX/keypressG00.wav" id="44_pbcab"]
+[ext_resource type="AudioStream" uid="uid://b7ay8r3nn34kf" path="res://SFX/keypressG01.wav" id="45_c3ijk"]
+[ext_resource type="AudioStream" uid="uid://cxkk2dybbyjcf" path="res://SFX/keypressG02.wav" id="46_ecx18"]
+[ext_resource type="AudioStream" uid="uid://lc13ohkuhkp4" path="res://SFX/keypressG03.wav" id="47_44cds"]
+[ext_resource type="AudioStream" uid="uid://d1b04cpkuw0qs" path="res://SFX/keypressG04.wav" id="48_iwoqq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ckvou"]
 animations = [{
@@ -147,6 +164,8 @@ ajastin = NodePath("Ajastin")
 naputin = NodePath("NÄPYTTÄJÄ")
 animuaika = NodePath("Animu")
 animuikonaika = NodePath("AnimuIkon")
+poks_parent = NodePath("POKS")
+tik_parent = NodePath("TICK")
 metadata/_edit_group_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -228,12 +247,75 @@ wait_time = 0.05
 [node name="AnimuIkon" type="Timer" parent="."]
 wait_time = 0.2
 
-[node name="POKS" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_vtjdd")
-autoplay = true
+[node name="POKS" type="Node" parent="."]
 
-[node name="TICK" type="AudioStreamPlayer" parent="."]
+[node name="POKS0" type="AudioStreamPlayer" parent="POKS"]
+stream = ExtResource("4_vtjdd")
+
+[node name="POKS1" type="AudioStreamPlayer" parent="POKS"]
+stream = ExtResource("31_xobox")
+
+[node name="POKS2" type="AudioStreamPlayer" parent="POKS"]
+stream = ExtResource("32_d3b0n")
+
+[node name="POKS3" type="AudioStreamPlayer" parent="POKS"]
+stream = ExtResource("33_c71ae")
+
+[node name="POKS4" type="AudioStreamPlayer" parent="POKS"]
+stream = ExtResource("34_5jc0p")
+
+[node name="POKS5" type="AudioStreamPlayer" parent="POKS"]
+stream = ExtResource("35_vg5iq")
+
+[node name="POKS6" type="AudioStreamPlayer" parent="POKS"]
+stream = ExtResource("36_pmi0c")
+
+[node name="POKS7" type="AudioStreamPlayer" parent="POKS"]
+stream = ExtResource("37_81unv")
+
+[node name="POKS8" type="AudioStreamPlayer" parent="POKS"]
+stream = ExtResource("38_h24f4")
+
+[node name="TICK" type="Node" parent="."]
+
+[node name="TICK0" type="AudioStreamPlayer" parent="TICK"]
 stream = ExtResource("31_oaqy5")
+volume_db = -10.0
+
+[node name="TICK1" type="AudioStreamPlayer" parent="TICK"]
+stream = ExtResource("40_x25gv")
+volume_db = -10.0
+
+[node name="TICK2" type="AudioStreamPlayer" parent="TICK"]
+stream = ExtResource("41_1y3lt")
+volume_db = -10.0
+
+[node name="TICK3" type="AudioStreamPlayer" parent="TICK"]
+stream = ExtResource("42_1lo2b")
+volume_db = -10.0
+
+[node name="TICK4" type="AudioStreamPlayer" parent="TICK"]
+stream = ExtResource("43_msv5y")
+volume_db = -10.0
+
+[node name="TICK5" type="AudioStreamPlayer" parent="TICK"]
+stream = ExtResource("44_pbcab")
+volume_db = -10.0
+
+[node name="TICK6" type="AudioStreamPlayer" parent="TICK"]
+stream = ExtResource("45_c3ijk")
+volume_db = -10.0
+
+[node name="TICK7" type="AudioStreamPlayer" parent="TICK"]
+stream = ExtResource("46_ecx18")
+volume_db = -10.0
+
+[node name="TICK8" type="AudioStreamPlayer" parent="TICK"]
+stream = ExtResource("47_44cds")
+volume_db = -10.0
+
+[node name="TICK9" type="AudioStreamPlayer" parent="TICK"]
+stream = ExtResource("48_iwoqq")
 volume_db = -10.0
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

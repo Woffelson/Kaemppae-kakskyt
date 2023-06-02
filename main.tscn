@@ -56,7 +56,7 @@ frame_9/duration = 1.0
 shader = ExtResource("6_2itab")
 shader_parameter/shake_power = 0.03
 shader_parameter/shake_rate = 0.002
-shader_parameter/shake_speed = 5.0
+shader_parameter/shake_speed = 1.0
 shader_parameter/shake_block_size = 30.5
 shader_parameter/shake_color_rate = 0.01
 
@@ -83,6 +83,7 @@ mielibar = NodePath("BARS/Panel/HBoxContainer/MIELI")
 jaxubar = NodePath("BARS/Panel/HBoxContainer/JAXU")
 mieli_icon = NodePath("BARS/Panel/HBoxContainer/MIELICON")
 taustaa = NodePath("Tausta")
+glits = NodePath("Glitch")
 
 [node name="Noice" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0.0705882)
@@ -205,7 +206,7 @@ offset_top = 18.0
 offset_right = 480.0
 offset_bottom = 46.0
 size_flags_vertical = 6
-text = "Tajunnanvirta20 (beta 1.0)"
+text = "Tajunnanvirta20 (beta 1.3)"
 horizontal_alignment = 1
 
 [node name="Start" type="Button" parent="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer"]
@@ -241,6 +242,9 @@ mouse_filter = 2
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="Taustatimer" type="Timer" parent="."]
+autostart = true
+
 [node name="Glitch" type="ColorRect" parent="."]
 visible = false
 material = SubResource("ShaderMaterial_l7cqu")
@@ -257,3 +261,4 @@ mouse_filter = 2
 [connection signal="button_down" from="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer/HBoxContainer/ENG" to="." method="_on_eng_button_down"]
 [connection signal="pressed" from="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Taustatimer" to="." method="_on_taustatimer_timeout"]

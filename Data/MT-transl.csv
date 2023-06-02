@@ -35,16 +35,36 @@ ARKI4,Mee töihi,Go to work
 ARKI5,Opiskele,Study
 ARKI6,Tee läksysi,Do your homework
 ARKI7,Muista soittaa Kelaan,Remember to call Kela
-ARKI8,,
-ARKI9,,
-ARKI10,,
-ARKI11,,
-,,
-,,
-,,
-,,
-,,
-,,
+ARKI8,Varaa pyykkitupa!,Reserve laundry room!
+ARKI9,Tee kunnon ruokaa,Make proper food
+ARKI10,Syö jotain,Eat something
+ARKI11,Korjaa rutiini!,Fix routines!
+ARKI12,Aseta herätys!,Set alarm!
+ARKI13,Herää!,Wake up!
+ARKI14,Soita äitille,Call mom
+ARKI15,Vastaa viesteihin,Answer to messages
+ARKI16,Käy kaupassa,Go to store
+ARKI17,Peseydy!,Wash up!
+ARKI18,Katso kalenteria,Look up for the calendar
+ARKI19,Muista varata lääkäri,Remember to make a nurse appointment
+ARKI20,Imuroi,Vacuum clean
+ARKI21,Katso postit läpi,Check the mail
+ARKI22,Harjaa hiukset,Comb the hair
+ARKI23,Älä ole myöhässä,Don’t be late
+ARKI24,Selvitä asiat,Check out things
+ARKI25,Älä jää sänkyyn,Don’t stay in bed
+ARKI26,Vaihda lakanat,Change the sheets
+ARKI27,Laita pyykit kuivumaan,Dry the laundry
+ARKI28,Vie roskat,Take out the carbage
+ARKI29,Lajittele roskat,Sort the trash
+ARKI30,Vie pahvinkeräys,Take out the cardboard trash
+ARKI31,Palauta pullot,Retrun the bottles
+ARKI32,Keitä kahvia,Make coffee
+ARKI33,Tee ruokaa,Make food
+ARKI34,Kutsu joku kylään,Invite someone
+ARKI35,Tapaa tuttuja,Meet acquintances
+ARKI36,Huolehdi toisista,Take care of others
+ARKI37,,
 ,,
 ,,
 HEMMO0,Liiku,Do exercises
@@ -63,6 +83,26 @@ HEMMO12,,
 HEMMO13,,
 HEMMO14,,
 HEMMO15,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
 ,,
 ,,
 ,,
@@ -87,6 +127,16 @@ LOHTU16,,
 ,,
 ,,
 ,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
 APU0,”Olette jonossa”,"”You are in a queue, please wait”"
 APU1,”Pahoittelemme viivästystä”,”We apologise for the delay”
 APU2,”Valitettavasti valintamme ei tällä kertaa kohdistunut sinuun.”,”Unfortunately our decision didn't pick you this time.”
@@ -99,6 +149,16 @@ APU8,,
 APU9,,
 APU10,,
 APU11,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
 ,,
 ,,
 ,,
@@ -126,6 +186,16 @@ SPIRAALI15,,
 SPIRAALI16,,
 SPIRAALI17,,
 SPIRAALI18,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
 ,,
 SEKO0,Hikikomori hetki.,Hikikomori moment.
 SEKO1,Aika seota.,Time to lose it.

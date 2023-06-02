@@ -1,9 +1,10 @@
+Timer
+Node
 TextureRect
 Control
 MarginContainer
 AnimatedSprite2D
 AnimationPlayer
-Timer
 AudioStreamPlayer
 ColorRect
 Panel

@@ -3,6 +3,7 @@ extends Node
 var mieliala = 75
 var jaksaminen = 75
 var popup_gfx = [] #popup window graphics
+var tausta_gfx = [] #background graphics
 #END STATS
 var decisions = 0
 var undecided = 0

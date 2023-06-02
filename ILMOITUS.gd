@@ -10,6 +10,8 @@ extends Panel
 @export_node_path("Timer") var naputin
 @export_node_path("Timer") var animuaika
 @export_node_path("Timer") var animuikonaika
+@export_node_path("Node") var poks_parent
+@export_node_path("Node") var tik_parent
 
 var current_lore = {}
 var teema = ""
@@ -31,9 +33,13 @@ signal kloussaa(ikkuna,vars)
 @onready var animu_ikon : Timer = get_node(animuikonaika)
 @onready var default_txt_size = Vector2.ZERO #teksti.size
 @onready var start_pos = Vector2.ZERO
+@onready var poks : Node = get_node(poks_parent)
+@onready var tik : Node = get_node(tik_parent)
 
 func _ready():
 	randomize()
+	var pop = poks.get_children().pick_random()
+	pop.play()
 	debuttons() #just in case
 	#position = Vector2i(randi_range(0,1152-320),randi_range(0,648-160))
 	#print(start_pos)
@@ -190,8 +196,16 @@ func _on_teksti_resized():
 			position.y -= round(25.0/2.0) #purkka
 
 func _on_npyttj_timeout(): #typewriter effect
-	var tik = $TICK
-	if !tik.is_playing(): tik.play()
+	var rando = randi_range(0,9)
+	if Global.mieliala > 50: rando = randi_range(0,4)
+	elif Global.mieliala < 25: rando = randi_range(5,9)
+	var tiktok = tik.get_children()[rando]
+	var notplay = true
+	for tikki in tik.get_children():
+		if tikki.is_playing():
+			notplay = false
+			break
+	if notplay: tiktok.play()
 	abs_write(txt)
 	#rel_write(txt)
 
