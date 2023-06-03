@@ -8,8 +8,8 @@
 [ext_resource type="Shader" path="res://Shaders/glitch.gdshader" id="6_2itab"]
 [ext_resource type="Shader" path="res://Shaders/swapper.gdshader" id="6_fo06o"]
 [ext_resource type="Texture2D" uid="uid://drwrj4bfrdspc" path="res://GFX/Ikonit/okface.png" id="6_gx8ta"]
-[ext_resource type="Texture2D" uid="uid://b4tou6rl8aud0" path="res://GFX/Taustat/taustaihmisia2.png" id="6_le3ml"]
 [ext_resource type="Texture2D" uid="uid://cj4sxho3qe8eo" path="res://GFX/Ikonit/mehface2.png" id="7_g2m8c"]
+[ext_resource type="Texture2D" uid="uid://rh08pn0tu3qw" path="res://GFX/Taustat/bgrnddark.png" id="7_tb04v"]
 [ext_resource type="Texture2D" uid="uid://cuer5lq70nhjc" path="res://GFX/Ikonit/sadface.png" id="8_skpny"]
 [ext_resource type="Texture2D" uid="uid://5gb0vwqmlppq" path="res://GFX/Ikonit/eekface.png" id="9_6u2so"]
 [ext_resource type="Texture2D" uid="uid://dt71d2tkr3c7e" path="res://GFX/Ikonit/glitzface.png" id="10_qutd8"]
@@ -81,7 +81,7 @@ kuitti = NodePath("AlkuRuutu/MarginContainer/Startmenu/VBoxContainer/Quit")
 timeri = NodePath("Timer")
 mielibar = NodePath("BARS/Panel/HBoxContainer/MIELI")
 jaxubar = NodePath("BARS/Panel/HBoxContainer/JAXU")
-mieli_icon = NodePath("BARS/Panel/HBoxContainer/MIELICON")
+mieli_icon = NodePath("BARS/Panel/HBoxContainer/HBoxContainer/MIELICON")
 taustaa = NodePath("Tausta")
 glits = NodePath("Glitch")
 
@@ -103,7 +103,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_le3ml")
+texture = ExtResource("7_tb04v")
 expand_mode = 2
 
 [node name="BARS" type="VBoxContainer" parent="."]
@@ -128,6 +128,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
 [node name="MIELI" type="ProgressBar" parent="BARS/Panel/HBoxContainer"]
 layout_mode = 2
@@ -135,23 +136,36 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 fill_mode = 1
 
-[node name="MIELICONA" type="Label" parent="BARS/Panel/HBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(32, 0)
+[node name="HBoxContainer" type="HBoxContainer" parent="BARS/Panel/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
 
-[node name="Label2" type="Label" parent="BARS/Panel/HBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(32, 0)
-layout_mode = 2
-horizontal_alignment = 2
-
-[node name="MIELICON" type="TextureRect" parent="BARS/Panel/HBoxContainer"]
+[node name="MIELICON" type="TextureRect" parent="BARS/Panel/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture = SubResource("AnimatedTexture_e6nbv")
 expand_mode = 3
 
-[node name="TextureRect" type="TextureRect" parent="BARS/Panel/HBoxContainer"]
+[node name="MIELIT" type="Label" parent="BARS/Panel/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mieliala"
+vertical_alignment = 2
+
+[node name="Panel" type="Panel" parent="BARS/Panel/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="JAXUT" type="Label" parent="BARS/Panel/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Jaksaminen"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="JAXUCON" type="TextureRect" parent="BARS/Panel/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("12_55880")
 expand_mode = 3
@@ -206,7 +220,7 @@ offset_top = 18.0
 offset_right = 480.0
 offset_bottom = 46.0
 size_flags_vertical = 6
-text = "Tajunnanvirta20 (beta 1.3)"
+text = "KÄMPPÄ20"
 horizontal_alignment = 1
 
 [node name="Start" type="Button" parent="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer"]
@@ -243,7 +257,6 @@ mouse_filter = 2
 one_shot = true
 
 [node name="Taustatimer" type="Timer" parent="."]
-autostart = true
 
 [node name="Glitch" type="ColorRect" parent="."]
 visible = false

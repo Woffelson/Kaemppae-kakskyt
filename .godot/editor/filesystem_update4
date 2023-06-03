@@ -1,6 +1,9 @@
+res://Data/MT-transl.fi.translation
+res://Data/MT-transl.en.translation
 res://main.tscn
 res://teemajee.tres
 res://main.gd
 res://ilmoitus.tscn
 res://nappi.tscn
 res://global.gd
+res://ILMOITUS.gd

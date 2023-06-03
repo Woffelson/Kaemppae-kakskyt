@@ -82,8 +82,6 @@ func _process(_delta):
 	#update_stats() #heavy for every frame, optimise
 	#update_taustas() #too heave for every frame, don't do iiiit, optimise this to signal too
 	if started:
-#		if Input.is_action_just_pressed("ui_accept"):
-#			pop_up()
 		if Input.is_action_just_pressed("ui_cancel"):
 			start()
 
@@ -97,6 +95,7 @@ func start(restart := false):
 	ikkunat.clear()
 	if !restart: #when started first time or exited to main menu
 		timer.stop() #bug fix...?
+		$Taustatimer.stop() #also a bug fix?
 		screeni.set_mouse_filter(MOUSE_FILTER_IGNORE) #IGNORE (doesn't grab mouse controls to itself)
 		started = false
 		starttimenu.show()
@@ -104,11 +103,15 @@ func start(restart := false):
 		suomi.set_text(tr("FIN"))
 		enkku.set_text(tr("ENG"))
 		quitti.set_text(tr("QUIT"))
+		$BARS/Panel/HBoxContainer/HBoxContainer/MIELIT.set_text(tr("MIELI"))
+		$BARS/Panel/HBoxContainer/HBoxContainer/JAXUT.set_text(tr("JAXU"))
 		startti.grab_focus()
 		taustatyyppi = "syöveri"
 		tausta.material.set_shader_parameter("color",Vector4(1,1,1,0.8))
 		tausta.material.set_shader_parameter("_max",0.2)
-	else: taustatyyppi = ["keittiö","huone","ihmiset"].pick_random()#update_taustatyyppi(true)
+	else:
+		taustatyyppi = ["keittiö","huone"].pick_random()#update_taustatyyppi(true)
+		$Taustatimer.start()
 	update_stats()
 	update_taustas()
 	#emit_signal("mielijaxu_signal")
@@ -147,10 +150,10 @@ func update_taustatyyppi(muutos):
 		if Global.jaksaminen >= 50: taustatyyppi = ["keittiö","huone","ihmiset"].pick_random()
 		else: taustatyyppi = ["huone","ihmiset","silmä"].pick_random()
 	
-func vertailu(luku,lisuke):
-	if Global.mieliala <= luku && Global.mieliala + lisuke > luku: return 1
-	elif Global.mieliala >= luku && Global.mieliala + lisuke < luku: return -1
-	else: return 0
+func vertailu(luku,lisuke): #clunky way to spot transitions but this has to do...
+	if Global.mieliala <= luku && Global.mieliala + lisuke > luku: return 1 #change to better
+	elif Global.mieliala >= luku && Global.mieliala + lisuke < luku: return -1 #change to worse
+	else: return 0 #no change
 
 func update_taustas(): #["syöveri","keittiö","huone","ihmiset","silmä","loppu"]
 	if taustatyyppi == "syöveri":
@@ -166,7 +169,7 @@ func update_taustas(): #["syöveri","keittiö","huone","ihmiset","silmä","loppu
 		elif Global.mieliala >= 75:
 			tausta.material.set_shader_parameter("color",Vector4(1,1,1,0.9))
 			tausta.material.set_shader_parameter("_max",0.1)
-			if taustatyyppi == "keittiö": current_tausta = randi_range(17,18)
+			if taustatyyppi == "keittiö": current_tausta = 18#randi_range(17,18)
 			elif taustatyyppi == "huone": current_tausta = randi_range(1,2)
 		elif Global.mieliala >= 50:
 			tausta.material.set_shader_parameter("color",Vector4(1,1,1,0.8))
@@ -195,8 +198,8 @@ func update_taustas(): #["syöveri","keittiö","huone","ihmiset","silmä","loppu
 				tausta.material.set_shader_parameter("_max",0)
 		else: #loppu
 			glitch.hide()
-			tausta.material.set_shader_parameter("color",Vector4(1,1,1,0.8))
-			tausta.material.set_shader_parameter("_max",0.2)
+			tausta.material.set_shader_parameter("color",Vector4(1,1,1,0.75))
+			tausta.material.set_shader_parameter("_max",0.25)
 			current_tausta = 27
 	tausta.set_texture(Global.tausta_gfx[current_tausta])
 
@@ -218,7 +221,7 @@ func pop_up(final := false):
 		pop_ikkuna.position = Vector2((1152.0-320.0) / 2.0,(648.0-160.0) / 2.0 + 100) 
 		pop_ikkuna.pop_message(pick_lore(lore["LATAA"]))
 	else:
-		pop_ikkuna.position = Vector2(randi_range(0,1152-320),randi_range(0,648-160))
+		pop_ikkuna.position = Vector2(randi_range(0,1152-320),randi_range(28,648-160))
 		pop_ikkuna.pop_message(pick_lore(lore[pick_teema()]))
 	ikkunat.append(pop_ikkuna)
 	if moodi > 0:
@@ -229,6 +232,10 @@ func pop_up(final := false):
 func closed_popup(suljettava,vars): #when window gets closed
 	ikkunat.erase(suljettava)
 	suljettava.queue_free() #memory save?
+#	var rise = false
+#	if Global.mieliala < Global.mieliala + vars[0]: rise = true #if mood is raising
+	Global.mieliala = min(100,max(0,Global.mieliala + vars[0])) #limit changed value between 0-100
+	Global.jaksaminen = min(100,max(0,Global.jaksaminen + vars[1]))
 	if Global.mieliala <= 0: #the last decision
 		if !ended:
 			pop_up(true)
@@ -236,13 +243,11 @@ func closed_popup(suljettava,vars): #when window gets closed
 		elif vars[2] == "end": start(true) #restart teh gaem
 	elif moodi == 0 || ikkunat.size() == 0: #always at least one window?
 		pop_up()
-#	var rise = false
-#	if Global.mieliala < Global.mieliala + vars[0]: rise = true #if mood is raising
-	Global.mieliala = min(100,max(0,Global.mieliala + vars[0])) #limit changed value between 0-100
-	Global.jaksaminen = min(100,max(0,Global.jaksaminen + vars[1]))
-	if vars[0] != 0:
-		update_taustatyyppi(vars[0])
-		emit_signal("mielijaxu_signal")#,[Global.mieliala,Global.jaksaminen])
+		if vars[0] != 0:
+			update_stats()
+			update_taustatyyppi(vars[0])
+			update_taustas()
+			#emit_signal("mielijaxu_signal")#,[Global.mieliala,Global.jaksaminen])
 
 func pick_teema():
 	var options = lore.keys()
@@ -332,7 +337,7 @@ func _on_start_button_down(): #after translation set text stuff, not before
 			"act_value": [0,0,"end"]
 		},
 	}
-	lore.clear()
+	lore.clear() #important when starting again (clean previous)
 	add_lore(0,"LATAA",tr("LATAA"),[ilmoitus["end"]])
 	add_lore(0,"TESTI",tr("TESTI1"),[ilmoitus["ok"]])
 	add_lore(1,"TESTI",tr("TESTI2"),[ilmoitus["yes"],ilmoitus["no"]])
@@ -340,16 +345,18 @@ func _on_start_button_down(): #after translation set text stuff, not before
 	add_lore(3,"TESTI",tr("TESTI4"),[ilmoitus["ok"]])
 	add_lore(0,"SEKO",tr("LOREM"),[ilmoitus["ok"]]) #!!!
 	multiple_lore(36,"ARKI")
-	multiple_lore(4,"HEMMO")
-	multiple_lore(15,"LOHTU")
-	multiple_lore(4,"APU")
-	multiple_lore(13,"SPIRAALI")
-	multiple_lore(17,"SEKO")
+	multiple_lore(32,"HEMMO")
+	multiple_lore(44,"LOHTU")
+	multiple_lore(30,"APU")
+	multiple_lore(34,"SPIRAALI")
+	multiple_lore(42,"SEKO")
 	multiple_lore(4,"ERROR")
 	started = true
-	taustatyyppi = ["keittiö","huone","ihmiset"].pick_random()#update_taustatyyppi(true)
+	taustatyyppi = ["keittiö","huone"].pick_random()#update_taustatyyppi(true)
+	update_stats()
 	update_taustas()
 	pop_up()
+	$Taustatimer.start()
 
 func _on_fin_button_down():
 	TranslationServer.set_locale("fi")
@@ -379,4 +386,4 @@ func _on_timer_timeout():
 func _on_taustatimer_timeout():
 	$Taustatimer.set_wait_time(randf_range(0.5,1.0))
 	update_stats()
-	update_taustas()#tausta_animu()
+	update_taustas()

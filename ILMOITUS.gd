@@ -108,7 +108,8 @@ func set_buttons(dikki):
 	if dikki["options"].size() > 0: #if there are buttons
 		for optio in dikki["options"]:
 			add_button(optio)#["title"])
-	nappipaikka.get_children()[-1].grab_focus() #0 first -1 last
+	if teema == "SPIRAALI": nappipaikka.get_children()[0].grab_focus()
+	else: nappipaikka.get_children()[-1].grab_focus() #0 first -1 last
 	if Global.jaksaminen < 25 && (teema == "ARKI" || teema == "HEMMO"):
 		nappipaikka.get_children()[0].set_disabled(true)#queue_free() #erases active yes options when exhausted
 
@@ -211,6 +212,8 @@ func _on_npyttj_timeout(): #typewriter effect
 
 func _on_gui_input(_event):
 	if Input.is_action_pressed("m_left"):
+		if nappipaikka.get_child_count() > 0:
+			nappipaikka.get_children()[-1].grab_focus()
 		if drag_point == Vector2.ZERO: drag_point = get_global_mouse_position()  - position
 		else:
 			#if !writing:

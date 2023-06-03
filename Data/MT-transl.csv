@@ -24,8 +24,8 @@ LATAA,Ladataan palautusversiota...,Reverting to rollback version...
 KYKY,Päätöksentekokyky:,Decision-making:
 TERVE,Terveet valinnat:,Healthy choices:
 SAIRAS,Sairaat valinnat:,Sick choices:
-,,
-,,
+MIELI,Mieliala,Mood
+JAXU,Jaksaminen,Strength
 ,,
 ARKI0,Tiskaa,Do the dishes
 ARKI1,Pese pyykit,Do the laundry
@@ -67,42 +67,42 @@ ARKI36,Huolehdi toisista,Take care of others
 ARKI37,,
 ,,
 ,,
-HEMMO0,Liiku,Do exercises
+HEMMO0,Treenaa,Do exercises
 HEMMO1,Käy ulkona,Go outside
 HEMMO2,Kosketa ruohoa,Touch grass
 HEMMO3,Pidä huolta itsestäsi,Take care of yourself
 HEMMO4,Syö ravitsevasti,Eat nourishing food
-HEMMO5,,
-HEMMO6,,
-HEMMO7,,
-HEMMO8,,
-HEMMO9,,
-HEMMO10,,
-HEMMO11,,
-HEMMO12,,
-HEMMO13,,
-HEMMO14,,
-HEMMO15,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
+HEMMO5,Syö terveellisesti,Eat healthy
+HEMMO6,Käy saunassa,Go to sauna
+HEMMO7,Tee ihonhoitorutiini,Do skincare routine
+HEMMO8,Meditoi,Meditate
+HEMMO9,Kirjoita päiväkirjaan,Write diary
+HEMMO10,Mee lenkille,Take a walk
+HEMMO11,Kehu itseäsi peilissä,Compliment yourself at the mirror
+HEMMO12,Tee X-hyppyjä,Do X-jumps
+HEMMO13,Venyttele,Flex
+HEMMO14,Harrasta harrastuksia,Do hobbies
+HEMMO15,Löydä sisäinen rauha,Find inner peace
+HEMMO16,Ota yhteyttä johonkuhun,Contact someone
+HEMMO17,Vietä aikaa kavereiden kanssa,Spend time with friends
+HEMMO18,Käy terapiassa,Visit therapy
+HEMMO19,Hanki vertaistukea,Get peer support
+HEMMO20,Pysy rutiinissa,Stay on routine
+HEMMO21,Juo vettä,Drink water
+HEMMO22,Hemmottele itseäsi,Spoil yourself
+HEMMO23,Tee jotain kivaa,Do something nice
+HEMMO24,Rentoudu,
+HEMMO25,Pese naama,Wash face
+HEMMO26,Ajattele positiivisesti,Think positively
+HEMMO27,Motivoidu,Get motivated
+HEMMO28,Löydä motivaatio,Find motivation
+HEMMO29,Lataa energiaa,Recharge energy
+HEMMO30,Vahvistu,Get stronk
+HEMMO31,Kuntoudu,Get fit
+HEMMO32,Tervehdy,Get healthy
+HEMMO33,,
+HEMMO34,,
+HEMMO35,,
 ,,
 ,,
 ,,
@@ -123,16 +123,36 @@ LOHTU12,Ei tämä ole vielä äärimmäistä köyhyyttä nähnytkään,This is n
 LOHTU13,Afrikassa nähdään nälkää,Africans are starving
 LOHTU14,Elämä on kärsimystä. Kärsimyksen aiheuttaa elämänjano. Elämänjano sammutetaan... Miten se nyt sammutettiinkaan?,"Life is suffering. Suffering is caused by the desire of living. The desire can be confined... How it was ended again, though?"
 LOHTU15,Arki on turvallista ja iloista. Perusasiat ovat hyvin.,Daily life is secure and happy. Basics are well.
-LOHTU16,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
+LOHTU16,Muilla on asiat paljon huonommin nii et sä voi olla masentunut,
+LOHTU17,Feikkaat kuitenkin,"You’re faking, aren’t ya?"
+LOHTU18,"Kaikki on ihan ""OK""",Everything is just ”OK”
+LOHTU19,Mene vaikka läpi harmaan kiven,Go even through a grey stone
+LOHTU20,Sisulla sitä aiemminkin pärjättiin,Perseverance got you this far
+LOHTU21,Sinun pitäisi pitää huolta itsestäsi,You should take care of yourself
+LOHTU22,Mikset sä jaksa vaikka muut jaksaa?,Why you cannot carry on when others can?
+LOHTU23,Oot vielä niin nuori et ei sul mitään ongelmia voi olla,You’re so young you cannot have it bad
+LOHTU24,Ei sulla oo mitään syytä olla masentunut,You have no reasons to be depressed
+LOHTU25,Ei sulla oo mitään syytä olla ahdistunut,You have no reasons to be anxied
+LOHTU26,Yritä vaan,Just try on
+LOHTU27,"Jaksaa, jaksaa!","Go on, go on!"
+LOHTU28,Ei tää oo ees vaikeeta,This is not even hard
+LOHTU29,Sulla on asiat vielä ihan hyvin,You have things just fine
+LOHTU30,Ei sulla oo mitään oikeita ongelmia,You have no real problems
+LOHTU31,Voisit paremmin jos kuntoilisit ja kävisit lenkillä,You would do better if you’d go to gym and take a walk
+LOHTU32,Sun pitäis laihduttaa nii oisit terve,You should lose weight so you’d be healthier
+LOHTU33,Ei sun arjessa oo mitään syytä olla ahdistunut,There’s no reasons in your daily life to be anxied
+LOHTU34,Ei tarvii panikoida,No need to panic
+LOHTU35,Ylireagoit vain,It’s just overreacting
+LOHTU36,Älä oo dramaattinen,Don’t be dramatic
+LOHTU37,Kyllä muillakin on hankalaa,Others have it hard as well
+LOHTU38,Muutkin pärjää,Others are doing fine too
+LOHTU39,Kyl sun ois tässä ajassa jo pitänyt kuntoutua,You should’ve rehablitated already
+LOHTU40,"Sul on jo lääkkeet, et sä muuta hoitoo tarvi","You already have medication, no need for any other care"
+LOHTU41,Ois sun jo pitänyt edistyä,You should’ve progressed already
+LOHTU42,Lakkaa vaan yliajattelemasta,Just stop overthinking
+LOHTU43,AjAtTeLe PoSiTiIvIsEsTi,ThInK PoSiTiViLy
+LOHTU44,Älä masennu,Don’t get depressed
+LOHTU45,"Pistä vain pää tyynyyn, kyllä se uni sieltä tulee","Just lay your head on the pillow, you'll get sleep then"
 ,,
 ,,
 ,,
@@ -142,22 +162,32 @@ APU1,”Pahoittelemme viivästystä”,”We apologise for the delay”
 APU2,”Valitettavasti valintamme ei tällä kertaa kohdistunut sinuun.”,”Unfortunately our decision didn't pick you this time.”
 APU3,"”Tiedämme, että on vaikeaa.”",”We know it’s difficult.”
 APU4,”Ohjaamme sinut toiselle ammattilaiselle.”,”You are being directed to another specialist.”
-APU5,,
-APU6,,
-APU7,,
-APU8,,
-APU9,,
-APU10,,
-APU11,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
+APU5,"""...""",”...”
+APU6,"""Et ole oikeutettu tähän tukeen""",”You aren’t qualified for this subsidy”
+APU7,"""Ei ole tarjota mitään täällä""",”Nothing to serve here”
+APU8,"""Kysy muualta""",”Ask elsewhere”
+APU9,"""En tiedä, soita ja kysy tuolta toiselta puolelta, me ei täällä nähdä niitä tietoja""","”I don’t know, ask the other department, we don’t see those details here”"
+APU10,"""Koita itse selvittää""",”Try to figure it out yourself”
+APU11,"""Mikä sinulla on siis oikeesti ongelmana?""",”What is your real problem?”
+APU12,"""Ei jatketa tutkimuksia""",”Examination is discontinued”
+APU13,"""Täällä ei kyllä lue mitään tuosta""",”There’s nothing reading about that”
+APU14,"""Seuraava aika on ensi vuoden puolella""",”Next appointment is next year”
+APU15,"""En tiedä kannattaako sinua edes laittaa jonoon, se on puolentoista vuoden mittainen hyvällä tuurilla""","”Not sure if it’s worth to put you in the queue, with luck it’s half a year long”"
+APU16,"""Tuo on kyllä ihan normaalia""",”That’s totally normal”
+APU17,"""Hän ei ole enää täällä töissä""",”They’re not working here anymore”
+APU18,"""Sinua ei valittu""",”You weren’t chosen”
+APU19,"""Meillä ei ole antaa lääkäriaikaa""",”We have no doctor appointments to give”
+APU20,"""Olet jo käyttänyt tämän tuen""",”You’ve already used this subsidy”
+APU21,"""Tämä palvelu on määräaikainen""",”This service is temporary”
+APU22,"""Soitamme sinulle takaisin""",”We will call you back”
+APU23,"""Olemme sinuun joskus yhteydessä""",”We contact you somewhere in the future”
+APU24,"""Sinulla on jo diagnoosi, ei tarvitse tutkia enempää""","”You already have a diagnosis, no need to examine further”"
+APU25,"""Sivuoireet kuuluu asiaan""",”Byproducts are normal”
+APU26,"""Olet jonossa""",”You are in a queue”
+APU27,"""Olet edelleen jonossa""",”You are still in a queue”
+APU28,"""Valitettavasti palvelu on suljettu""",Unfortunately service is closed”
+APU29,"""Emme ota vastaan uusia asiakkaita""",We don’t take new customers”
+APU30,"""Hakemuksesi on hylätty""",”Your application is disqualified”
 ,,
 ,,
 ,,
@@ -181,20 +211,30 @@ SPIRAALI10,Palatko loppuun?,Burning out?
 SPIRAALI11,Tuletko junnaamaan aina paikallasi?,Will you always stay stuck?
 SPIRAALI12,Onko itsesi hyväksyminen haastavaa?,Is it challenging to accept yourself?
 SPIRAALI13,Onko yhteiskuntarauha eliitin salajuoni?,Is civil peace a plot by the elite?
-SPIRAALI14,,
-SPIRAALI15,,
-SPIRAALI16,,
-SPIRAALI17,,
-SPIRAALI18,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
+SPIRAALI14,Oletko vielä elossa viiden vuoden päästä?,Are you alive after five years?
+SPIRAALI15,Oletko täysi paska?,Are you a piece of shit?
+SPIRAALI16,Oletko liian erilainen?,Are you too different?
+SPIRAALI17,Oletko sekoamassa?,Are you losing it?
+SPIRAALI18,Unohdetaanko sinut?,Will you been forgotten?
+SPIRAALI19,Päädytkö yhdeksi statistiikaksi?,Do you end up just a one statistics?
+SPIRAALI20,Ajaudutko itsemurhaan?,Towards suicide?
+SPIRAALI21,Hyperventiloitko?,Are you hyperventilating?
+SPIRAALI22,Tuleeko sota?,Is the war coming?
+SPIRAALI23,Tuhoutuuko ihmiskunta?,Will the humanity perish?
+SPIRAALI24,Teetkö kaiken väärin?,You're doing everything wrong?
+SPIRAALI25,Onko kaikki sinun syytäsi?,Is everything your fault?
+SPIRAALI26,Katsooko kaikki sinua säälillä?,Is everyone pitying you?
+SPIRAALI27,Katsooko kaikki sinua kuvotuksella?,Is everyone disgusted at you?
+SPIRAALI28,Oletko rumin ihminen koskaan?,Are you the ugliest person ever?
+SPIRAALI29,Ootko täysin toivoton tapaus?,Are you a hopeless case?
+SPIRAALI30,Olisiko parempi jos sinua ei olisi?,Would it be better if you wouldn't exist?
+SPIRAALI31,Et kuitenkaan ehdi?,You don't make it?
+SPIRAALI32,Onko parempi että vain häivyt?,Is it better if you just leave?
+SPIRAALI33,Jätätkö kaikki asiat hoitamatta?,Are you leaving everything unfinished?
+SPIRAALI34,Jäätkö jälkeen?,Are you dropping out?
+SPIRAALI35,,
+SPIRAALI36,,
+SPIRAALI37,,
 ,,
 ,,
 SEKO0,Hikikomori hetki.,Hikikomori moment.
@@ -211,9 +251,34 @@ SEKO10,Vittu miten paskaista. Pitäisi siivota vessa.,Fuck how shitty. Should cl
 SEKO11,"Olet vitun laiska arvoton paska, kun et ole jaksanut hoitaa mitään asioitasi.",You haven't taken care of any of your business. You're a fucking lazy worthless shit.
 SEKO12,Miksi piti taas tehdä itselleen näin ja joutuu häpeämään taas kun muut ihmiset näkee. Etkö voisi olla vähän tasaisempi?,Did I have to do this for myself again and now I gotta be ashamed when other people see this again. Couldn't you be more stable?
 SEKO13,"Mitä jos fobiat johtuvat siitä, miten kuolit edellisessä elämässäsi?",What if phobias are caused by your cause of death in your previous life?
-SEKO14,Eksistentiaalinen ahdistus iskee aina juuri suihkussa...,Existential dread hits always in the shower…
+SEKO14,Miksi eksistentiaalinen ahdistus iskee aina juuri suihkussa?,Why existential dread hits always in the shower?
 SEKO15,Ei jaksa,Cannot carry on
 SEKO16,"Stunttihenkilöt esittävät olevansa joku muu, joka esittää olevansa joku muu…",Stunt actors are acting someone else who is acting someone else…
 SEKO17,Hyi vittu mikä keho ja ulkonäkö!,"Ew fuck, that body and outlook!"
-SEKO18,,
-SEKO19,,
+SEKO18,Muista #)@/:€7hdieo+#82bjskäiw#@@9,Remember #)@/:€7hdieo+#82bjskäiw#@@9
+SEKO19,Olet yksin,You are alone
+SEKO20,Sinua tarkkaillaan,You're being watched
+SEKO21,***** *** ****** ****** ******** ***,***** *** ****** ****** ******** ***
+SEKO22,Tehtävä [Hyvä mielenterveys] FAILED,Mission [good mental health] FAILED
+SEKO23,WARNING! Liian vähäiset voimavarat!,WARNING! Too little resources!
+SEKO24,"En jaksa, en jaksa, en jaksa, en jaksa, en jaksa, en jaksa, en jaksa, en jaksa, en jaksa, en jaksa, en jaksa, en jaksa, en jaksa....","Cannot do it, cannot do it, cannot do it, cannot do it, cannot do it, cannot do it, cannot do it, cannot do it, cannot do it, cannot do it...."
+SEKO25,Millään ei ole mitään merkitystä,Nothing matters
+SEKO26,Olisi parempi jos katoaisit,It would be better if you'd disappear
+SEKO27,KAIKKI on AINA SUN SYYTÄ!,EVERYTHING is ALWAYS YOUR FAULT!
+SEKO28,Et tuu koskaan saavuttamaan mitään!,You'll never achieve anything!
+SEKO29,Sä oot pahan alku ja juuri!,You're root of all evil!
+SEKO30,Kukaan ei tuu koskaan välittämään,No-one will care
+SEKO31,Ihmiset on kaikki pahoja,All people are evil
+SEKO32,Maailmassa ei ole mitään hyvää jäljellä,There is nothing good left in the world
+SEKO33,Tehtävä [@&#+/¥£÷{√©¥] FAILED,Mission [@&#+/¥£÷{√©¥] FAILED
+SEKO34,Tehtävä [SEKOA] DONE,To-do [GO NUTS] DONE
+SEKO35,Aikaa on kulunut jo liian paljon,Time has been running out too much already
+SEKO36,PANIIKKI!!!! PANIIKKI !!!!!,PANIC !!!! PPANIC !!!!!
+SEKO37,KaIKki oN IHaN hYvIN,EvErYtHiNg iS jUsT aLrIgHt
+SEKO38,:(,:(
+SEKO39,€(>_<)€,€(>_<)€
+SEKO40,(;-;),(;-;)
+SEKO41,CRITICAL FAILURE!,CRITICAL FAILURE!
+SEKO42,Mikset tunne yhtään mitään?,Why aren't you feeling anything?
+SEKO43,,
+SEKO44,,
