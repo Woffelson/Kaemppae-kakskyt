@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://b0vtsmyarxsd5"]
+[gd_scene load_steps=54 format=3 uid="uid://b0vtsmyarxsd5"]
 
 [ext_resource type="Script" path="res://ILMOITUS.gd" id="1_2x414"]
 [ext_resource type="Theme" uid="uid://brx6vlh7v4gl" path="res://teemajee.tres" id="1_pajbr"]
@@ -39,9 +39,13 @@
 [ext_resource type="AudioStream" uid="uid://dcs8wrp4mb8gs" path="res://SFX/tiidyy0.wav" id="36_pmi0c"]
 [ext_resource type="AudioStream" uid="uid://blh0l16iwy3mj" path="res://SFX/Glitch0.wav" id="37_81unv"]
 [ext_resource type="AudioStream" uid="uid://cntnfwlbir8qx" path="res://SFX/Miau.wav" id="38_h24f4"]
+[ext_resource type="AudioStream" uid="uid://jsq5k6ntkhyl" path="res://SFX/mixkit-glitch-communication-sound-1034.wav" id="39_lfmbu"]
+[ext_resource type="AudioStream" uid="uid://bipjc88dmpjm4" path="res://SFX/mixkit-glitch-crackles-1044.wav" id="40_rqn38"]
 [ext_resource type="AudioStream" uid="uid://ba5gsfw0x1jlr" path="res://SFX/keypress01.wav" id="40_x25gv"]
 [ext_resource type="AudioStream" uid="uid://b8soic8hp115w" path="res://SFX/keypress02.wav" id="41_1y3lt"]
+[ext_resource type="AudioStream" uid="uid://drsjr6fhdcesv" path="res://SFX/mixkit-electronic-glitch-sound-2940.wav" id="41_ycaqg"]
 [ext_resource type="AudioStream" uid="uid://rl8ja7cqyini" path="res://SFX/keypress03.wav" id="42_1lo2b"]
+[ext_resource type="AudioStream" uid="uid://6cusyh1v1vo1" path="res://SFX/hit1.wav" id="42_p246p"]
 [ext_resource type="AudioStream" uid="uid://uvvp3ef3vhcq" path="res://SFX/keypress04.wav" id="43_msv5y"]
 [ext_resource type="AudioStream" uid="uid://bhvglgltmnr1h" path="res://SFX/keypressG00.wav" id="44_pbcab"]
 [ext_resource type="AudioStream" uid="uid://b7ay8r3nn34kf" path="res://SFX/keypressG01.wav" id="45_c3ijk"]
@@ -262,7 +266,7 @@ stream = ExtResource("32_d3b0n")
 stream = ExtResource("33_c71ae")
 
 [node name="POKS4" type="AudioStreamPlayer" parent="POKS"]
-stream = ExtResource("34_5jc0p")
+stream = ExtResource("37_81unv")
 
 [node name="POKS5" type="AudioStreamPlayer" parent="POKS"]
 stream = ExtResource("35_vg5iq")
@@ -271,52 +275,68 @@ stream = ExtResource("35_vg5iq")
 stream = ExtResource("36_pmi0c")
 
 [node name="POKS7" type="AudioStreamPlayer" parent="POKS"]
-stream = ExtResource("37_81unv")
+stream = ExtResource("34_5jc0p")
+volume_db = -2.0
 
 [node name="POKS8" type="AudioStreamPlayer" parent="POKS"]
 stream = ExtResource("38_h24f4")
+
+[node name="POKS9" type="AudioStreamPlayer" parent="POKS"]
+stream = ExtResource("39_lfmbu")
+volume_db = -5.0
+
+[node name="POKS10" type="AudioStreamPlayer" parent="POKS"]
+stream = ExtResource("40_rqn38")
+
+[node name="POKS11" type="AudioStreamPlayer" parent="POKS"]
+stream = ExtResource("41_ycaqg")
+volume_db = -5.0
+
+[node name="POKS12" type="AudioStreamPlayer" parent="POKS"]
+stream = ExtResource("42_p246p")
+volume_db = -8.0
 
 [node name="TICK" type="Node" parent="."]
 
 [node name="TICK0" type="AudioStreamPlayer" parent="TICK"]
 stream = ExtResource("31_oaqy5")
-volume_db = -10.0
+volume_db = -8.0
 
 [node name="TICK1" type="AudioStreamPlayer" parent="TICK"]
 stream = ExtResource("40_x25gv")
-volume_db = -10.0
+volume_db = -8.0
 
 [node name="TICK2" type="AudioStreamPlayer" parent="TICK"]
 stream = ExtResource("41_1y3lt")
-volume_db = -10.0
+volume_db = -8.0
 
 [node name="TICK3" type="AudioStreamPlayer" parent="TICK"]
 stream = ExtResource("42_1lo2b")
-volume_db = -10.0
+volume_db = -8.0
 
 [node name="TICK4" type="AudioStreamPlayer" parent="TICK"]
 stream = ExtResource("43_msv5y")
-volume_db = -10.0
+volume_db = -8.0
 
 [node name="TICK5" type="AudioStreamPlayer" parent="TICK"]
 stream = ExtResource("44_pbcab")
-volume_db = -10.0
+volume_db = -8.0
 
 [node name="TICK6" type="AudioStreamPlayer" parent="TICK"]
 stream = ExtResource("45_c3ijk")
-volume_db = -10.0
+volume_db = -8.0
 
 [node name="TICK7" type="AudioStreamPlayer" parent="TICK"]
 stream = ExtResource("46_ecx18")
-volume_db = -10.0
+volume_db = -8.0
 
 [node name="TICK8" type="AudioStreamPlayer" parent="TICK"]
 stream = ExtResource("47_44cds")
-volume_db = -10.0
+volume_db = -8.0
 
 [node name="TICK9" type="AudioStreamPlayer" parent="TICK"]
 stream = ExtResource("48_iwoqq")
-volume_db = -10.0
+volume_db = -8.0
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="resized" from="VBoxContainer/MarginContainer/TEKSTI" to="." method="_on_teksti_resized"]

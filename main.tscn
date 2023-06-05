@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bcbuuarsi108j"]
+[gd_scene load_steps=28 format=3 uid="uid://bcbuuarsi108j"]
 
 [ext_resource type="Theme" uid="uid://brx6vlh7v4gl" path="res://teemajee.tres" id="1_6xepu"]
 [ext_resource type="Script" path="res://main.gd" id="1_k224y"]
@@ -19,6 +19,10 @@
 [ext_resource type="Texture2D" uid="uid://c3ixvwwb8fa5q" path="res://GFX/Ikonit/ded2face.png" id="13_vkb78"]
 [ext_resource type="Texture2D" uid="uid://b7lvj8ljq386y" path="res://GFX/Ikonit/angface.png" id="14_obbah"]
 [ext_resource type="Texture2D" uid="uid://dv1lsa7vb42a4" path="res://GFX/Ikonit/anggrrface.png" id="15_j4fvr"]
+[ext_resource type="AudioStream" uid="uid://bh1n5hrorwsqk" path="res://SFX/Musa/kämppä20_glitch.ogg" id="20_babnl"]
+[ext_resource type="AudioStream" uid="uid://xccchei7auj7" path="res://SFX/Musa/kämppä20_normo.ogg" id="21_pvdfv"]
+[ext_resource type="AudioStream" uid="uid://b1ftq5pgvwg1r" path="res://SFX/end.wav" id="22_caf64"]
+[ext_resource type="AudioStream" uid="uid://be25emmlsb7su" path="res://SFX/Musa/ritin.ogg" id="23_e5bky"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bamfa"]
 shader = ExtResource("5_qhi6u")
@@ -81,6 +85,7 @@ kuitti = NodePath("AlkuRuutu/MarginContainer/Startmenu/VBoxContainer/Quit")
 timeri = NodePath("Timer")
 mielibar = NodePath("BARS/Panel/HBoxContainer/MIELI")
 jaxubar = NodePath("BARS/Panel/HBoxContainer/JAXU")
+kreditti = NodePath("AlkuRuutu/MarginContainer/Kredit/Kredit")
 mieli_icon = NodePath("BARS/Panel/HBoxContainer/HBoxContainer/MIELICON")
 taustaa = NodePath("Tausta")
 glits = NodePath("Glitch")
@@ -209,6 +214,7 @@ theme_override_constants/margin_bottom = 160
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AlkuRuutu/MarginContainer/Startmenu"]
 layout_mode = 2
+theme_override_constants/separation = 16
 
 [node name="Panel" type="Panel" parent="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer"]
 layout_mode = 2
@@ -231,6 +237,7 @@ size_flags_stretch_ratio = 2.0
 [node name="HBoxContainer" type="HBoxContainer" parent="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 16
 
 [node name="FIN" type="Button" parent="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -243,6 +250,14 @@ size_flags_horizontal = 3
 [node name="Quit" type="Button" parent="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="Kredit" type="MarginContainer" parent="AlkuRuutu/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Kredit" type="Label" parent="AlkuRuutu/MarginContainer/Kredit"]
+layout_mode = 2
 
 [node name="IkkunaRuutu" type="Control" parent="."]
 layout_mode = 1
@@ -268,6 +283,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="Musaglitch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_babnl")
+volume_db = -80.0
+
+[node name="Musanormi" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_pvdfv")
+
+[node name="Loobu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_caf64")
+volume_db = -5.0
+
+[node name="Ritin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_e5bky")
+volume_db = -10.0
 
 [connection signal="button_down" from="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer/Start" to="." method="_on_start_button_down"]
 [connection signal="button_down" from="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer/HBoxContainer/FIN" to="." method="_on_fin_button_down"]

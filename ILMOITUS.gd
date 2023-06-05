@@ -38,7 +38,9 @@ signal kloussaa(ikkuna,vars)
 
 func _ready():
 	randomize()
-	var pop = poks.get_children().pick_random()
+	var pop
+	if Global.mieliala > 50: pop = poks.get_children()[randi_range(0,5)]
+	else: pop = poks.get_children().pick_random()
 	pop.play()
 	debuttons() #just in case
 	#position = Vector2i(randi_range(0,1152-320),randi_range(0,648-160))

@@ -1,5 +1,8 @@
-Panel
 MarginContainer
+Label
+HFlowContainer
+AudioStreamPlayer
+Panel
 HBoxContainer
 Timer
 Node
@@ -7,10 +10,8 @@ TextureRect
 Control
 AnimatedSprite2D
 AnimationPlayer
-AudioStreamPlayer
 ColorRect
 CanvasLayer
 ProgressBar
-Label
 VBoxContainer
 Button

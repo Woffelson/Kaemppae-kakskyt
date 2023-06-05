@@ -14,6 +14,7 @@ extends Control
 @export_node_path("ProgressBar") var mielibar
 @export_node_path("ProgressBar") var jaxubar
 #@export_node_path("Label") var mieli_icon
+@export_node_path("Label") var kreditti
 @export_node_path("TextureRect") var mieli_icon
 @export_node_path("TextureRect") var taustaa
 @export_node_path("ColorRect") var glits
@@ -48,6 +49,7 @@ signal mielijaxu_signal()
 @onready var mielicon : TextureRect = get_node(mieli_icon) #Label
 @onready var tausta : TextureRect = get_node(taustaa)
 @onready var glitch : ColorRect = get_node(glits)
+@onready var kredit : Label = get_node(kreditti)
 
 func _ready():
 	self.connect("mielijaxu_signal",Callable(self,"update_taustas"))
@@ -79,8 +81,19 @@ func _ready():
 	start()
 
 func _process(_delta):
+	if Global.mieliala > 0:
+		if Global.mieliala > 60:
+			$Musaglitch.set_volume_db(-80)
+			$Musanormi.set_volume_db(0)
+		else:
+			$Musaglitch.set_volume_db(0)
+			$Musanormi.set_volume_db(-80)
 	#update_stats() #heavy for every frame, optimise
 	#update_taustas() #too heave for every frame, don't do iiiit, optimise this to signal too
+#	if Input.is_action_just_pressed("ui_end"):
+#		var tween = get_tree().create_tween()
+#		tween.tween_property($Musaglitch, "volume_db", -80, 5).set_trans(Tween.TRANS_SINE)
+#		tween.play()
 	if started:
 		if Input.is_action_just_pressed("ui_cancel"):
 			start()
@@ -99,10 +112,12 @@ func start(restart := false):
 		screeni.set_mouse_filter(MOUSE_FILTER_IGNORE) #IGNORE (doesn't grab mouse controls to itself)
 		started = false
 		starttimenu.show()
+		kredit.show()
 		startti.set_text(tr("START"))
 		suomi.set_text(tr("FIN"))
 		enkku.set_text(tr("ENG"))
 		quitti.set_text(tr("QUIT"))
+		kredit.set_text(tr("KREDIITIT"))
 		$BARS/Panel/HBoxContainer/HBoxContainer/MIELIT.set_text(tr("MIELI"))
 		$BARS/Panel/HBoxContainer/HBoxContainer/JAXUT.set_text(tr("JAXU"))
 		startti.grab_focus()
@@ -112,6 +127,11 @@ func start(restart := false):
 	else:
 		taustatyyppi = ["keittiö","huone"].pick_random()#update_taustatyyppi(true)
 		$Taustatimer.start()
+	$Musaglitch.stop()
+	$Musanormi.stop()
+	$Musaglitch.play()
+	$Musanormi.play()
+	$Ritin.stop()
 	update_stats()
 	update_taustas()
 	#emit_signal("mielijaxu_signal")
@@ -240,6 +260,11 @@ func closed_popup(suljettava,vars): #when window gets closed
 		if !ended:
 			pop_up(true)
 			ended = true
+			var tween = get_tree().create_tween()
+			tween.tween_property($Musaglitch, "volume_db", -80, 10).set_trans(Tween.TRANS_SINE)
+			tween.play()
+			$Loobu.play()
+			$Ritin.play()
 		elif vars[2] == "end": start(true) #restart teh gaem
 	elif moodi == 0 || ikkunat.size() == 0: #always at least one window?
 		pop_up()
@@ -284,6 +309,7 @@ func multiple_lore(amt,type):
 
 func _on_start_button_down(): #after translation set text stuff, not before
 	starttimenu.hide() #remove_child queue_free()?
+	kredit.hide()
 	screeni.set_mouse_filter(MOUSE_FILTER_STOP) #STOP (grabs mouse controls to itself)
 	ilmoitus = {
 		"yes": {
