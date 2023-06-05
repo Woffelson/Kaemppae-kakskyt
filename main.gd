@@ -50,6 +50,8 @@ signal mielijaxu_signal()
 @onready var tausta : TextureRect = get_node(taustaa)
 @onready var glitch : ColorRect = get_node(glits)
 @onready var kredit : Label = get_node(kreditti)
+@onready var musag : AudioStreamPlayer = $Musaglitch
+@onready var musan : AudioStreamPlayer = $Musanormi
 
 func _ready():
 	self.connect("mielijaxu_signal",Callable(self,"update_taustas"))
@@ -83,11 +85,11 @@ func _ready():
 func _process(_delta):
 	if Global.mieliala > 0:
 		if Global.mieliala > 60:
-			$Musaglitch.set_volume_db(-80)
-			$Musanormi.set_volume_db(0)
+			musag.set_volume_db(-80)
+			musan.set_volume_db(0)
 		else:
-			$Musaglitch.set_volume_db(0)
-			$Musanormi.set_volume_db(-80)
+			musag.set_volume_db(0)
+			musan.set_volume_db(-80)
 	#update_stats() #heavy for every frame, optimise
 	#update_taustas() #too heave for every frame, don't do iiiit, optimise this to signal too
 #	if Input.is_action_just_pressed("ui_end"):
@@ -127,10 +129,11 @@ func start(restart := false):
 	else:
 		taustatyyppi = ["keittiö","huone"].pick_random()#update_taustatyyppi(true)
 		$Taustatimer.start()
-	$Musaglitch.stop()
-	$Musanormi.stop()
-	$Musaglitch.play()
-	$Musanormi.play()
+	if (musag.get_volume_db() < -5 &&  musan.get_volume_db() < -5) || (!musag.is_playing() && !musan.is_playing()):
+		musag.stop()
+		musan.stop()
+		musag.play()
+		musan.play()
 	$Ritin.stop()
 	update_stats()
 	update_taustas()
@@ -261,7 +264,7 @@ func closed_popup(suljettava,vars): #when window gets closed
 			pop_up(true)
 			ended = true
 			var tween = get_tree().create_tween()
-			tween.tween_property($Musaglitch, "volume_db", -80, 10).set_trans(Tween.TRANS_SINE)
+			tween.tween_property(musag, "volume_db", -80, 10).set_trans(Tween.TRANS_SINE)
 			tween.play()
 			$Loobu.play()
 			$Ritin.play()

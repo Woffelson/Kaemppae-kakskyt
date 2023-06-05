@@ -180,11 +180,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="BARS"]
-layout_mode = 2
-size_flags_vertical = 3
-mouse_filter = 2
-
 [node name="AlkuRuutu" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -258,6 +253,7 @@ size_flags_vertical = 8
 
 [node name="Kredit" type="Label" parent="AlkuRuutu/MarginContainer/Kredit"]
 layout_mode = 2
+horizontal_alignment = 2
 
 [node name="IkkunaRuutu" type="Control" parent="."]
 layout_mode = 1

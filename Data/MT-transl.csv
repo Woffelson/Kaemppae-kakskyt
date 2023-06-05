@@ -9,7 +9,7 @@ ERROR1,ERROR!!,ERROR!!
 ERROR2,502 bad gateway,502 bad gateway
 ERROR3,403 forbidden,403 forbidden
 ERROR4,404,404
-KREDIITIT,"Arello: Ohjelmointi, musiikki\nHanna (IG: @art_hannat): Grafiikka\nLinja20: Tekstit ja inspiraatio\n\nMultimediainstallaatio 2023","Arello: Programming, music\nHanna (IG: @art_hannat): Graphics\nLinja20: Texts and inspiration\n\nMultimedia installation 2023"
+KREDIITIT,"Woffelson (arello.art.blog) – Ohjelmointi, musiikki\nHanna (Instagram: art_hannat) – Grafiikka\nLinja20 – Tekstit ja inspiraatio\n\nMultimediainstallaatio 2023","Woffelson (arello.art.blog) – Programming, music\nHanna (Instagram: art_hannat) – Graphics\nLinja20 – Texts and inspiration\n\nMultimedia installation 2023"
 ,,
 START,Aloita päiväsi,Start your day
 FIN,Suomi,Suomi
@@ -91,7 +91,7 @@ HEMMO20,Pysy rutiinissa,Stay on routine
 HEMMO21,Juo vettä,Drink water
 HEMMO22,Hemmottele itseäsi,Spoil yourself
 HEMMO23,Tee jotain kivaa,Do something nice
-HEMMO24,Rentoudu,
+HEMMO24,Rentoudu,Relax
 HEMMO25,Pese naama,Wash face
 HEMMO26,Ajattele positiivisesti,Think positively
 HEMMO27,Motivoidu,Get motivated
@@ -115,9 +115,9 @@ LOHTU4,"Jos ei jaksa, niin koeta jaksaa","If you cannot carry on, then try to ca
 LOHTU5,Paistaa se päivä risukasaankin,The day will shine to pile of sticks too
 LOHTU6,"Ai oot hakenu töitä, muttet oo saanu vai? No mee töihi!",You've seeked for jobs but haven't got any? Then go to work!
 LOHTU7,Mee lomalle,Go to vacation
-LOHTU8,Rauhoitu,Relax
+LOHTU8,Rauhoitu,Calm down
 LOHTU9,Yrittäisit edes,Try at least
-LOHTU10,Meillä asiat on kuitenkin paremmin,At least we have things better than elsewhere
+LOHTU10,Meillä asiat on kuitenkin paremmin kuin muualla,At least we have things better than elsewhere
 LOHTU11,Joillain muilla on asiat huonommin,Some have it worse
 LOHTU12,Ei tämä ole vielä äärimmäistä köyhyyttä nähnytkään,This is not extreme poverty yet
 LOHTU13,Afrikassa nähdään nälkää,Africans are starving
