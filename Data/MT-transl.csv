@@ -26,7 +26,7 @@ TERVE,Terveet valinnat:,Healthy choices:
 SAIRAS,Sairaat valinnat:,Sick choices:
 MIELI,Mieliala,Mood
 JAXU,Jaksaminen,Strength
-,,
+HMMM,Hmmm,Hmmm
 ARKI0,Tiskaa,Do the dishes
 ARKI1,Pese pyykit,Do the laundry
 ARKI2,Siivoa huoneesi,Clean up your room
@@ -64,7 +64,17 @@ ARKI33,Tee ruokaa,Make food
 ARKI34,Kutsu joku kylään,Invite someone
 ARKI35,Tapaa tuttuja,Meet acquintances
 ARKI36,Huolehdi toisista,Take care of others
-ARKI37,,
+ARKI37,Muista ostaa lisää (WC-)paperia!,Remember to buy more (WC-)paper!
+ARKI38,Muistinko ottaa lääkkeet?,Did I remember to take the medicine?
+ARKI39,Muistinko muistaa muistilistan?,Did I remember to do the to-do list?
+ARKI40,Täytä lomake,Fill the application form
+ARKI41,Korjaa unirytmi,Fix sleeping rhythm
+,,
+,,
+,,
+,,
+,,
+,,
 ,,
 ,,
 HEMMO0,Treenaa,Do exercises
@@ -100,12 +110,12 @@ HEMMO29,Lataa energiaa,Recharge energy
 HEMMO30,Vahvistu,Get stronk
 HEMMO31,Kuntoudu,Get fit
 HEMMO32,Tervehdy,Get healthy
-HEMMO33,,
-HEMMO34,,
-HEMMO35,,
-,,
-,,
-,,
+HEMMO33,Naura,Laugh
+HEMMO34,Kannattaako ees yrittää jos heti alku epäonnistuu?,"Is it worth it to even try, if one fails right at the beginning?"
+HEMMO35,Pystyisinkö olemaan viikon ilman puhelinta?,Could I spend a week without a phone?
+HEMMO36,Mitä ruokaa pitäis tehdä? ...pitsaa?,What food should be done? ...pizza?
+HEMMO37,Leivo sämpylöitä,Bake bread rolls
+HEMMO38,Lainaa kirjoja,Borrow books
 ,,
 LOHTU0,Kyllä se siitä,It's alright
 LOHTU1,Huonomminkin voisi olla,Could be worse
@@ -170,9 +180,9 @@ APU9,"""En tiedä, soita ja kysy tuolta toiselta puolelta, me ei täällä nähd
 APU10,"""Koita itse selvittää""",”Try to figure it out yourself”
 APU11,"""Mikä sinulla on siis oikeesti ongelmana?""",”What is your real problem?”
 APU12,"""Ei jatketa tutkimuksia""",”Examination is discontinued”
-APU13,"""Täällä ei kyllä lue mitään tuosta""",”There’s nothing reading about that”
+APU13,"""Täällä ei kyllä lue mitään tuosta""",”There’s reading nothing about that”
 APU14,"""Seuraava aika on ensi vuoden puolella""",”Next appointment is next year”
-APU15,"""En tiedä kannattaako sinua edes laittaa jonoon, se on puolentoista vuoden mittainen hyvällä tuurilla""","”Not sure if it’s worth to put you in the queue, with luck it’s half a year long”"
+APU15,"""En tiedä kannattaako sinua edes laittaa jonoon, se on puolentoista vuoden mittainen hyvällä tuurilla""","”Not sure if it’s worth it to put you in the queue, with luck it’s half a year long”"
 APU16,"""Tuo on kyllä ihan normaalia""",”That’s totally normal”
 APU17,"""Hän ei ole enää täällä töissä""",”They’re not working here anymore”
 APU18,"""Sinua ei valittu""",”You weren’t chosen”
@@ -211,30 +221,40 @@ SPIRAALI10,Palatko loppuun?,Burning out?
 SPIRAALI11,Tuletko junnaamaan aina paikallasi?,Will you always stay stuck?
 SPIRAALI12,Onko itsesi hyväksyminen haastavaa?,Is it challenging to accept yourself?
 SPIRAALI13,Onko yhteiskuntarauha eliitin salajuoni?,Is civil peace a plot by the elite?
-SPIRAALI14,Oletko vielä elossa viiden vuoden päästä?,Are you alive after five years?
-SPIRAALI15,Oletko täysi paska?,Are you a piece of shit?
-SPIRAALI16,Oletko liian erilainen?,Are you too different?
-SPIRAALI17,Oletko sekoamassa?,Are you losing it?
-SPIRAALI18,Unohdetaanko sinut?,Will you been forgotten?
-SPIRAALI19,Päädytkö yhdeksi statistiikaksi?,Do you end up just a one statistics?
-SPIRAALI20,Ajaudutko itsemurhaan?,Towards suicide?
-SPIRAALI21,Hyperventiloitko?,Are you hyperventilating?
-SPIRAALI22,Tuleeko sota?,Is the war coming?
-SPIRAALI23,Tuhoutuuko ihmiskunta?,Will the humanity perish?
-SPIRAALI24,Teetkö kaiken väärin?,You're doing everything wrong?
-SPIRAALI25,Onko kaikki sinun syytäsi?,Is everything your fault?
-SPIRAALI26,Katsooko kaikki sinua säälillä?,Is everyone pitying you?
-SPIRAALI27,Katsooko kaikki sinua kuvotuksella?,Is everyone disgusted at you?
-SPIRAALI28,Oletko rumin ihminen koskaan?,Are you the ugliest person ever?
-SPIRAALI29,Ootko täysin toivoton tapaus?,Are you a hopeless case?
-SPIRAALI30,Olisiko parempi jos sinua ei olisi?,Would it be better if you wouldn't exist?
-SPIRAALI31,Et kuitenkaan ehdi?,You don't make it?
-SPIRAALI32,Onko parempi että vain häivyt?,Is it better if you just leave?
-SPIRAALI33,Jätätkö kaikki asiat hoitamatta?,Are you leaving everything unfinished?
-SPIRAALI34,Jäätkö jälkeen?,Are you dropping out?
-SPIRAALI35,,
-SPIRAALI36,,
-SPIRAALI37,,
+SPIRAALI14,Oletko täysi paska?,Are you a piece of shit?
+SPIRAALI15,Oletko liian erilainen?,Are you too different?
+SPIRAALI16,Oletko sekoamassa?,Are you losing it?
+SPIRAALI17,Unohdetaanko sinut?,Will you been forgotten?
+SPIRAALI18,Päädytkö yhdeksi statistiikaksi?,Do you end up just a one statistics?
+SPIRAALI19,Ajaudutko itsemurhaan?,Towards suicide?
+SPIRAALI20,Hyperventiloitko?,Are you hyperventilating?
+SPIRAALI21,Tuleeko sota?,Is the war coming?
+SPIRAALI22,Tuhoutuuko ihmiskunta?,Will the humanity perish?
+SPIRAALI23,Teetkö kaiken väärin?,You're doing everything wrong?
+SPIRAALI24,Onko kaikki sinun syytäsi?,Is everything your fault?
+SPIRAALI25,Katsooko kaikki sinua säälillä?,Is everyone pitying you?
+SPIRAALI26,Katsooko kaikki sinua kuvotuksella?,Is everyone disgusted at you?
+SPIRAALI27,Oletko rumin ihminen koskaan?,Are you the ugliest person ever?
+SPIRAALI28,Ootko täysin toivoton tapaus?,Are you a hopeless case?
+SPIRAALI29,Olisiko parempi jos sinua ei olisi?,Would it be better if you wouldn't exist?
+SPIRAALI30,Et kuitenkaan ehdi?,You don't make it?
+SPIRAALI31,Onko parempi että vain häivyt?,Is it better if you just leave?
+SPIRAALI32,Jätätkö kaikki asiat hoitamatta?,Are you leaving everything unfinished?
+SPIRAALI33,Jäätkö jälkeen?,Are you dropping out?
+SPIRAALI34,Yliajattele kaikkea,Overthink everything
+SPIRAALI35,Ootko kirottu?,Are you cursed?
+SPIRAALI36,Itke peiton alla,Cry under the blanket
+SPIRAALI37,Pitäisikö ladata taas tinder?,Should you install tinder again?
+SPIRAALI38,Tee liikaa ja pala loppuun,Do too many things and burn out
+SPIRAALI39,Mitä jos kuolet huomenna?,What if I die tomorrow?
+SPIRAALI40,Kaipaisiko kukaan sua jos katoaisit? Ootko kenenkään eka valinta?,Would anyone miss you if you disappeared? Are you the first choice for anyone?
+SPIRAALI41,Oletko vielä elossa viiden vuoden päästä?,Are you alive after five years?
+,,
+,,
+,,
+,,
+,,
+,,
 ,,
 ,,
 SEKO0,Hikikomori hetki.,Hikikomori moment.
@@ -280,5 +300,29 @@ SEKO39,€(>_<)€,€(>_<)€
 SEKO40,(;-;),(;-;)
 SEKO41,CRITICAL FAILURE!,CRITICAL FAILURE!
 SEKO42,Mikset tunne yhtään mitään?,Why aren't you feeling anything?
-SEKO43,,
-SEKO44,,
+SEKO43,Jos oon sairas niin paino nousee... Jos paino on korkee tuun sairaaks...,If I'm sick I gain weight... If weight is high I become sick...
+SEKO44,Vittu ku ei jaksais tätäkään...,"Fuck, cannot stand this either..."
+SEKO45,Työnhaku...,Jobseeking...
+SEKO46,Miten kukaan ei huomannut? :(,How come no-one noticed? :(
+SEKO47,Miksi mä oon aina jäljessä? Miksi en voi olla normaali?,Why am I always behind others? Why can't I be normal?
+SEKO48,Milloin peilikuvani näyttää kuka olen sisimmässäni?,Will my reflection seem what I am inside?
+SEKO49,Mitä kaikkea oon unohtanut?,What have I forgotten in total?
+SEKO50,Saakelin kelajutut ja rahajutut ja kaikki jutut.,Damned kela stuff and money stuff and all stuff.
+SEKO51,"Kaikki tai ei mitään, ei kannata","All or nothing, not worth it"
+SEKO52,Oon jo myöhässä!,I'm already late!
+SEKO53,Aina epäonnistun,I always fail
+SEKO54,"Nuku, syö, nuku, syö, nuku, syö, nuku, syö, nuku, syö...","Sleep, eat, sleep, eat sleep, eat sleep, eat sleep, eat..."
+SEKO55,Onneksi ei tarvi elää ikuisesti,Luckily I don't have to live forever
+SEKO56,Aivosumu,Brain fog
+SEKO57,Häpeän itseäni,I shame myself
+SEKO58,Häpeän häpeämistä,I shame my shaming
+SEKO59,Painajaiset on perseestä,Nightmares are annoying
+SEKO60,"Paniikki! Miksi? En tiiä, mut paniikki!!!","Panic! Why? I don't know, but panic!!!"
+SEKO61,Tasapainoinen elämä – mitä se on?,Balanced life – what is that?
+SEKO62,Kirvelee,It's burning
+SEKO63,Oonpa läski,Am I fat!
+SEKO64,Mitä jos olenkin onnellinen,What if I am actually happy
+SEKO66,Pitäis mennä aikaisin nukkumaan,Should go to sleep early
+SEKO67,Milloin tulis se päivä kun ei väsytä...,When would arrive the day when I wouldn't be tired...
+SEKO68,Näen\n👁\nsinut,I see\n👁\nyou
+SEKO69,,

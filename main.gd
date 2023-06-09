@@ -142,6 +142,8 @@ func start(restart := false):
 func update_stats(): #mostly sync stats with GUI things
 	mieli.set_value(Global.mieliala)
 	jaxu.set_value(Global.jaksaminen)
+	if mieli.value < 25: mieli.set_modulate(Color8(255,0,0)) #☺️
+	else: mieli.set_modulate(Color8(255,255,255))
 	if jaxu.value < 25: jaxu.set_modulate(Color8(255,0,0)) #⚡️
 	else: jaxu.set_modulate(Color8(255,255,255))
 	if mieli.value >= 75:# && jaxu.value > 66: #high
@@ -305,8 +307,10 @@ func multiple_lore(amt,type):
 			add_lore(loresizesofar + i,type,tr(tmp_txt),[ilmoitus["yes_arki"],ilmoitus["no_arki"]])
 		elif type == "HEMMO":
 			add_lore(loresizesofar + i,type,tr(tmp_txt),[ilmoitus["yes_hemmo"],ilmoitus["no_hemmo"]])
-		elif type == "SPIRAALI": 
-			add_lore(loresizesofar + i,type,tr(tmp_txt),[ilmoitus["yes_spiraali"],ilmoitus["no_spiraali"]])
+		elif type == "SPIRAALI":
+			if i >= 40: #last questions are formulated in opposite way
+				add_lore(loresizesofar + i,type,tr(tmp_txt),[ilmoitus["yes_arki"],ilmoitus["no_arki"]])
+			else: add_lore(loresizesofar + i,type,tr(tmp_txt),[ilmoitus["yes_spiraali"],ilmoitus["no_spiraali"]])
 		else:#if type == "LOHTU" || type == "SEKO":
 			add_lore(loresizesofar + i,type,tr(tmp_txt),[ilmoitus["ok"]])
 
@@ -373,12 +377,12 @@ func _on_start_button_down(): #after translation set text stuff, not before
 	add_lore(2,"TESTI",tr("TESTI3"),[ilmoitus["yes"],ilmoitus["no"],ilmoitus["ok"]])
 	add_lore(3,"TESTI",tr("TESTI4"),[ilmoitus["ok"]])
 	add_lore(0,"SEKO",tr("LOREM"),[ilmoitus["ok"]]) #!!!
-	multiple_lore(36,"ARKI")
-	multiple_lore(32,"HEMMO")
-	multiple_lore(44,"LOHTU")
+	multiple_lore(41,"ARKI")
+	multiple_lore(38,"HEMMO")
+	multiple_lore(45,"LOHTU")
 	multiple_lore(30,"APU")
-	multiple_lore(34,"SPIRAALI")
-	multiple_lore(42,"SEKO")
+	multiple_lore(41,"SPIRAALI")
+	multiple_lore(68,"SEKO")
 	multiple_lore(4,"ERROR")
 	started = true
 	taustatyyppi = ["keittiö","huone"].pick_random()#update_taustatyyppi(true)

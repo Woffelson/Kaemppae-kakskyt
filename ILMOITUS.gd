@@ -51,7 +51,7 @@ func _ready():
 		ajastus.set_wait_time(30.0)
 		aika.set_max(30)
 		var ratio = str(round(float(Global.decisions) / float(Global.decisions+Global.undecided)*100.0))+"% ("
-		var result = "\n"+tr("KYKY")+" "+ratio+str(Global.decisions)+"/"+str(Global.undecided)+")\n"
+		var result = "\n"+tr("KYKY")+" "+ratio+str(Global.decisions)+"/"+str(Global.undecided+Global.decisions)+")\n"
 		txt.set_text(txt.get_text() + result + tr("TERVE") + " " + str(Global.healthy_choices) +\
 			"\n" + tr("SAIRAS") + " " + str(Global.sick_choices))
 	set_gfx(teema)
