@@ -9,7 +9,7 @@ ERROR1,ERROR!!,ERROR!!
 ERROR2,502 bad gateway,502 bad gateway
 ERROR3,403 forbidden,403 forbidden
 ERROR4,404,404
-KREDIITIT,"Woffelson (arello.art.blog) – Ohjelmointi, musiikki\nHanna (Instagram: art_hannat) – Grafiikka\nLinja20 – Tekstit ja inspiraatio\n\nMultimediainstallaatio 2023","Woffelson (arello.art.blog) – Programming, music\nHanna (Instagram: art_hannat) – Graphics\nLinja20 – Texts and inspiration\n\nMultimedia installation 2023"
+KREDIITIT,"Arello (woffels.itch.io) – Ohjelmointi, musiikki\nHanna (Instagram: art_hannat) – Grafiikka\nLinja20 – Tekstit ja inspiraatio\n\nMultimediainstallaatio 2023","Arello (woffels.itch.io) – Programming, music\nHanna (Instagram: art_hannat) – Graphics\nLinja20 – Texts and inspiration\n\nMultimedia installation 2023"
 ,,
 START,Aloita päiväsi,Start your day
 FIN,Suomi,Suomi
@@ -90,7 +90,7 @@ HEMMO9,Kirjoita päiväkirjaan,Write diary
 HEMMO10,Mee lenkille,Take a walk
 HEMMO11,Kehu itseäsi peilissä,Compliment yourself at the mirror
 HEMMO12,Tee X-hyppyjä,Do X-jumps
-HEMMO13,Venyttele,Flex
+HEMMO13,Venyttele,Do stretching
 HEMMO14,Harrasta harrastuksia,Do hobbies
 HEMMO15,Löydä sisäinen rauha,Find inner peace
 HEMMO16,Ota yhteyttä johonkuhun,Contact someone
@@ -133,7 +133,7 @@ LOHTU12,Ei tämä ole vielä äärimmäistä köyhyyttä nähnytkään,This is n
 LOHTU13,Afrikassa nähdään nälkää,Africans are starving
 LOHTU14,Elämä on kärsimystä. Kärsimyksen aiheuttaa elämänjano. Elämänjano sammutetaan... Miten se nyt sammutettiinkaan?,"Life is suffering. Suffering is caused by the desire of living. The desire can be confined... How it was ended again, though?"
 LOHTU15,Arki on turvallista ja iloista. Perusasiat ovat hyvin.,Daily life is secure and happy. Basics are well.
-LOHTU16,Muilla on asiat paljon huonommin nii et sä voi olla masentunut,
+LOHTU16,Muilla on asiat paljon huonommin nii et sä voi olla masentunut,"Others have it worse, so you cannot be depressed"
 LOHTU17,Feikkaat kuitenkin,"You’re faking, aren’t ya?"
 LOHTU18,"Kaikki on ihan ""OK""",Everything is just ”OK”
 LOHTU19,Mene vaikka läpi harmaan kiven,Go even through a grey stone
@@ -311,7 +311,7 @@ SEKO50,Saakelin kelajutut ja rahajutut ja kaikki jutut.,Damned kela stuff and mo
 SEKO51,"Kaikki tai ei mitään, ei kannata","All or nothing, not worth it"
 SEKO52,Oon jo myöhässä!,I'm already late!
 SEKO53,Aina epäonnistun,I always fail
-SEKO54,"Nuku, syö, nuku, syö, nuku, syö, nuku, syö, nuku, syö...","Sleep, eat, sleep, eat sleep, eat sleep, eat sleep, eat..."
+SEKO54,"Nuku, syö, nuku, syö, nuku, syö, nuku, syö, nuku, syö...","Sleep, eat, sleep, eat, sleep, eat, sleep, eat, sleep, eat…"
 SEKO55,Onneksi ei tarvi elää ikuisesti,Luckily I don't have to live forever
 SEKO56,Aivosumu,Brain fog
 SEKO57,Häpeän itseäni,I shame myself
@@ -322,7 +322,7 @@ SEKO61,Tasapainoinen elämä – mitä se on?,Balanced life – what is that?
 SEKO62,Kirvelee,It's burning
 SEKO63,Oonpa läski,Am I fat!
 SEKO64,Mitä jos olenkin onnellinen,What if I am actually happy
-SEKO66,Pitäis mennä aikaisin nukkumaan,Should go to sleep early
-SEKO67,Milloin tulis se päivä kun ei väsytä...,When would arrive the day when I wouldn't be tired...
-SEKO68,Näen\n👁\nsinut,I see\n👁\nyou
-SEKO69,,
+SEKO65,Pitäis mennä aikaisin nukkumaan,Should go to sleep early
+SEKO66,Milloin tulis se päivä kun ei väsytä...,When would arrive the day when I wouldn't be tired...
+SEKO67,Näen\n👁\nsinut,I see\n👁\nyou
+SEKO68,,

@@ -208,10 +208,9 @@ func update_taustas(): #["syöveri","keittiö","huone","ihmiset","silmä","loppu
 			if taustatyyppi == "keittiö": current_tausta = randi_range(24,25)
 			elif taustatyyppi == "huone": current_tausta = 4
 			elif taustatyyppi == "ihmiset": current_tausta = randi_range(9,10)
-		elif Global.mieliala > 10:
-			glitch.hide()
 		elif Global.mieliala > 0:
-			glitch.show()
+			if Global.mieliala > 10: glitch.hide()
+			else: glitch.show()
 			tausta.material.set_shader_parameter("color",Vector4(1,1,1,0.5))
 			tausta.material.set_shader_parameter("_max",0.5)
 			if taustatyyppi == "keittiö": current_tausta = randi_range(21,22)
@@ -382,7 +381,7 @@ func _on_start_button_down(): #after translation set text stuff, not before
 	multiple_lore(45,"LOHTU")
 	multiple_lore(30,"APU")
 	multiple_lore(41,"SPIRAALI")
-	multiple_lore(68,"SEKO")
+	multiple_lore(67,"SEKO")
 	multiple_lore(4,"ERROR")
 	started = true
 	taustatyyppi = ["keittiö","huone"].pick_random()#update_taustatyyppi(true)
