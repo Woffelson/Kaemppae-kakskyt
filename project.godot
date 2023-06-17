@@ -13,7 +13,7 @@ config_version=5
 config/name="Kämppä20"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
-boot_splash/image="res://GFX/Taustat/bgrnddark.png"
+boot_splash/image="res://GFX/Muu/kamppathumbnail.png"
 config/icon="res://GFX/Ikonit/vaara.png"
 
 [autoload]

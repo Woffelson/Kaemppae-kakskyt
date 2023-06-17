@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bcbuuarsi108j"]
+[gd_scene load_steps=30 format=3 uid="uid://bcbuuarsi108j"]
 
 [ext_resource type="Theme" uid="uid://brx6vlh7v4gl" path="res://teemajee.tres" id="1_6xepu"]
 [ext_resource type="Script" path="res://main.gd" id="1_k224y"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://c3ixvwwb8fa5q" path="res://GFX/Ikonit/ded2face.png" id="13_vkb78"]
 [ext_resource type="Texture2D" uid="uid://b7lvj8ljq386y" path="res://GFX/Ikonit/angface.png" id="14_obbah"]
 [ext_resource type="Texture2D" uid="uid://dv1lsa7vb42a4" path="res://GFX/Ikonit/anggrrface.png" id="15_j4fvr"]
+[ext_resource type="Texture2D" uid="uid://cy5b4bokvdo1n" path="res://GFX/Muu/kamppa203.png" id="19_0ui0r"]
 [ext_resource type="AudioStream" uid="uid://bh1n5hrorwsqk" path="res://SFX/Musa/kämppä20_glitch.ogg" id="20_babnl"]
 [ext_resource type="AudioStream" uid="uid://xccchei7auj7" path="res://SFX/Musa/kämppä20_normo.ogg" id="21_pvdfv"]
 [ext_resource type="AudioStream" uid="uid://b1ftq5pgvwg1r" path="res://SFX/end.wav" id="22_caf64"]
@@ -55,6 +56,8 @@ frame_8/texture = ExtResource("14_obbah")
 frame_8/duration = 1.0
 frame_9/texture = ExtResource("15_j4fvr")
 frame_9/duration = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_reryj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l7cqu"]
 shader = ExtResource("6_2itab")
@@ -214,8 +217,10 @@ theme_override_constants/separation = 16
 [node name="Panel" type="Panel" parent="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_reryj")
 
 [node name="Label" type="Label" parent="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer/Panel"]
+visible = false
 layout_mode = 2
 offset_top = 18.0
 offset_right = 480.0
@@ -223,6 +228,18 @@ offset_bottom = 46.0
 size_flags_vertical = 6
 text = "KÄMPPÄ20"
 horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer/Panel"]
+modulate = Color(0.878431, 0.878431, 0.878431, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_0ui0r")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="Start" type="Button" parent="AlkuRuutu/MarginContainer/Startmenu/VBoxContainer"]
 layout_mode = 2
